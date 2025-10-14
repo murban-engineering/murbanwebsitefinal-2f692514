@@ -1,46 +1,48 @@
-import { Award, Target, Eye, Users } from "lucide-react";
+import { Award, Target, Eye, Shield, Heart, Lightbulb, Users, TrendingUp, MapPin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import teamImage from "@/assets/team-collaboration.jpg";
 
 const About = () => {
-  const values = [
+  const foundationValues = [
+    {
+      icon: Heart,
+      title: "Respect & Diversity",
+      description: "We treat our team, clients, communities, and the environment with the highest respect.",
+    },
+    {
+      icon: Shield,
+      title: "Ethics & Integrity",
+      description: "We uphold the highest standards of honesty and ethical business practices.",
+    },
     {
       icon: Target,
-      title: "Excellence",
-      description: "We pursue excellence in every project, ensuring the highest standards of quality and precision.",
+      title: "Safety & Sustainability",
+      description: "Safety and sustainability define how we operate and protect our environment.",
+    },
+  ];
+
+  const driveValues = [
+    {
+      icon: Lightbulb,
+      title: "Passion for Innovation",
+      description: "We constantly explore new technologies, methods, and ideas to improve how we deliver value. Innovation is embedded in our people, tools, and problem-solving approach.",
     },
     {
       icon: Users,
-      title: "Collaboration",
-      description: "Working together with clients and partners to achieve shared goals and deliver exceptional results.",
+      title: "Customer Obsession",
+      description: "We go beyond meeting expectations: we anticipate needs, act on feedback, and build lasting relationships. Your success is our success.",
     },
     {
-      icon: Award,
-      title: "Innovation",
-      description: "Embracing cutting-edge technologies and methodologies to solve complex engineering challenges.",
-    },
-    {
-      icon: Eye,
-      title: "Integrity",
-      description: "Building trust through transparency, honesty, and ethical business practices in all we do.",
+      icon: TrendingUp,
+      title: "Drive for Results",
+      description: "We focus on delivering measurable, impactful outcomes. Every team member is empowered to act with speed, ownership, and excellence.",
     },
   ];
 
-  const certifications = [
-    "ISO 9001:2015 Quality Management",
-    "ISO 14001:2015 Environmental Management",
-    "ISO 45001:2018 Occupational Health & Safety",
-    "LEED Accredited Professionals",
-    "PMP Certified Project Managers",
-    "Professional Engineer (PE) Licenses",
-  ];
-
-  const timeline = [
-    { year: "1998", event: "Founded with a vision to transform engineering services" },
-    { year: "2005", event: "Expanded operations across the Middle East region" },
-    { year: "2012", event: "Achieved ISO certifications and international recognition" },
-    { year: "2018", event: "Launched sustainable engineering division" },
-    { year: "2023", event: "Completed 500+ major projects with 98% client satisfaction" },
+  const countries = [
+    "Kenya", "Uganda", "Tanzania", "Ethiopia", "Rwanda", "Burundi", 
+    "Zambia", "Eritrea", "Seychelles", "Madagascar", "Ghana", "DRC", 
+    "Malawi", "Djibouti", "Zimbabwe", "Somalia"
   ];
 
   return (
@@ -52,25 +54,38 @@ const About = () => {
             About Murban Engineering
           </h1>
           <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto animate-fade-in">
-            Building the future through innovative engineering solutions and unwavering commitment to excellence
+            Specialist in Asset Integrity, Inspection, and Non-Destructive Testing
           </p>
         </div>
       </section>
 
-      {/* Company Story */}
+      {/* Company Profile */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
-              <h2 className="text-4xl font-serif font-bold mb-6">Our Story</h2>
+              <h2 className="text-4xl font-serif font-bold mb-6">Company Profile</h2>
               <p className="text-lg text-muted-foreground mb-4">
-                Founded in 1998, Murban Engineering has grown from a small team of passionate engineers to a leading engineering consultancy serving clients across the Middle East and beyond.
+                Murban Engineering is a specialist firm in Asset Integrity, Inspection, and Non-Destructive Testing (NDT). We deliver reliable and safe inspection solutions that support critical infrastructure in the oil & gas, energy, marine, and industrial sectors.
               </p>
               <p className="text-lg text-muted-foreground mb-4">
-                Our journey has been defined by our commitment to delivering exceptional engineering solutions that not only meet but exceed client expectations. With over 500 completed projects and a team of 200+ expert engineers, we continue to push the boundaries of what's possible in engineering.
+                With over 15 years of experience, we operate across Africa. Our services help clients extend asset life, ensure regulatory compliance, and minimize downtime.
               </p>
+              <div className="bg-muted rounded-lg p-6 mb-4">
+                <h3 className="text-xl font-semibold mb-3">Our Divisions</h3>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li className="flex items-start">
+                    <Award className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
+                    <span><strong>Murban Inspection Services</strong></span>
+                  </li>
+                  <li className="flex items-start">
+                    <Award className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
+                    <span><strong>Murban Engineering Services</strong></span>
+                  </li>
+                </ul>
+              </div>
               <p className="text-lg text-muted-foreground">
-                Today, we stand proud as a trusted partner for organizations seeking innovative, sustainable, and reliable engineering services.
+                We have a fully equipped laboratory in Mombasa and mobile inspection teams deployed regionally, enabling us to serve both on-site and laboratory-based inspection needs with safety, speed, and precision.
               </p>
             </div>
             <div className="animate-scale-in">
@@ -84,8 +99,30 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision */}
+      {/* Where We Work */}
       <section className="py-20 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Where We Work</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+              We offer our services across many African countries
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
+              {countries.map((country, index) => (
+                <div key={index} className="bg-card p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-shadow">
+                  <span className="font-medium">{country}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <Card className="animate-fade-in border-border">
@@ -93,7 +130,7 @@ const About = () => {
                 <Target className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-2xl font-serif font-bold mb-4">Our Mission</h3>
                 <p className="text-muted-foreground">
-                  To deliver world-class engineering solutions that create lasting value for our clients, while fostering innovation, sustainability, and professional excellence in everything we do.
+                  To deliver value to clients by executing world-class asset integrity services that maximize uptime and safety.
                 </p>
               </CardContent>
             </Card>
@@ -102,7 +139,7 @@ const About = () => {
                 <Eye className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-2xl font-serif font-bold mb-4">Our Vision</h3>
                 <p className="text-muted-foreground">
-                  To be the most trusted and innovative engineering partner in the region, recognized for our technical expertise, commitment to quality, and positive impact on communities and the environment.
+                  To be the undisputed leader in the field of specialized Non-Destructive Testing through innovation, experience, and the use of technology.
                 </p>
               </CardContent>
             </Card>
@@ -110,84 +147,57 @@ const About = () => {
         </div>
       </section>
 
-      {/* Core Values */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Our Core Values</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              The principles that guide our work and define our culture
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 animate-fade-in border-border">
-                <CardContent className="p-6 text-center">
-                  <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    <value.icon className="h-8 w-8 text-primary group-hover:text-primary-foreground" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-                  <p className="text-muted-foreground">{value.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline */}
+      {/* Values Section */}
       <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Our Journey</h2>
-            <p className="text-xl text-muted-foreground">Milestones that shaped our success</p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            {timeline.map((item, index) => (
-              <div key={index} className="flex gap-6 mb-8 animate-fade-in">
-                <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
-                    {item.year}
-                  </div>
-                  {index < timeline.length - 1 && (
-                    <div className="w-0.5 h-full bg-border mt-2" />
-                  )}
-                </div>
-                <div className="flex-1 pb-8">
-                  <p className="text-lg">{item.event}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-              Certifications & Accreditations
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Recognized for our commitment to quality and excellence
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Our Compass</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              How we work and what we stand for
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {certifications.map((cert, index) => (
-              <Card key={index} className="animate-scale-in border-border">
-                <CardContent className="p-6 flex items-center space-x-4">
-                  <Award className="h-8 w-8 text-primary flex-shrink-0" />
-                  <span className="text-sm font-medium">{cert}</span>
-                </CardContent>
-              </Card>
-            ))}
+          {/* Foundation Values */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-serif font-bold mb-8 text-center">Foundation Values</h3>
+            <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+              These are not optional. They define how we treat our team, clients, communities, and the environment.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {foundationValues.map((value, index) => (
+                <Card key={index} className="group hover:shadow-lg transition-all duration-300 animate-fade-in border-border">
+                  <CardContent className="p-6 text-center">
+                    <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                      <value.icon className="h-8 w-8 text-primary group-hover:text-primary-foreground" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
+                    <p className="text-muted-foreground">{value.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* What Drives Us */}
+          <div>
+            <h3 className="text-3xl font-serif font-bold mb-8 text-center">What Drives Us</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {driveValues.map((value, index) => (
+                <Card key={index} className="group hover:shadow-lg transition-all duration-300 animate-fade-in border-border">
+                  <CardContent className="p-6">
+                    <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary/10 group-hover:bg-secondary group-hover:text-secondary-foreground transition-colors">
+                      <value.icon className="h-8 w-8 text-secondary group-hover:text-secondary-foreground" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
+                    <p className="text-muted-foreground text-sm">{value.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 };
