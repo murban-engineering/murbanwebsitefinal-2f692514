@@ -11,7 +11,9 @@ const Navigation = () => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
-    { name: "Contact", path: "/contact" },
+    { name: "Industry Solutions", path: "/industry-solutions" },
+    { name: "Blog", path: "/blog" },
+    { name: "Contact Us", path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -42,7 +44,7 @@ const Navigation = () => {
               </Link>
             ))}
             <Button asChild className="shadow-md hover:shadow-glow transition-all">
-              <Link to="/contact">Get Started</Link>
+              <Link to="/contact">Get Quote</Link>
             </Button>
           </div>
 
@@ -78,7 +80,7 @@ const Navigation = () => {
               ))}
               <Button asChild className="w-full">
                 <Link to="/contact" onClick={() => setIsOpen(false)}>
-                  Get Started
+                  Get Quote
                 </Link>
               </Button>
             </div>
