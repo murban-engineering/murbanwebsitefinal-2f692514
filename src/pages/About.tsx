@@ -1,7 +1,6 @@
 import { Award, Target, Eye, Shield, Heart, Lightbulb, Users, TrendingUp, MapPin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import teamImage from "@/assets/team-collaboration.jpg";
-import AfricaMap from "@/components/AfricaMap";
 
 const About = () => {
   const foundationValues = [
@@ -40,6 +39,11 @@ const About = () => {
     },
   ];
 
+  const countries = [
+    "Kenya", "Uganda", "Tanzania", "Ethiopia", "Rwanda", "Burundi", 
+    "Zambia", "Eritrea", "Seychelles", "Madagascar", "Ghana", "DRC", 
+    "Malawi", "Djibouti", "Zimbabwe", "Somalia"
+  ];
 
   return (
     <div className="min-h-screen pt-20">
@@ -105,7 +109,15 @@ const About = () => {
               We offer our services across many African countries
             </p>
           </div>
-          <AfricaMap />
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
+              {countries.map((country, index) => (
+                <div key={index} className="bg-card p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-shadow">
+                  <span className="font-medium">{country}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
