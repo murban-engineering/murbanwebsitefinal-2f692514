@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import murbanLogo from "@/assets/murban-logo.jpg";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,12 +20,17 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/50 shadow-md">
+    <nav className="fixed w-full z-50 bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="text-2xl font-serif font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:scale-105 transition-transform">
+          <Link to="/" className="flex items-center space-x-3 group">
+            <img 
+              src={murbanLogo} 
+              alt="Murban Engineering Logo" 
+              className="h-12 w-12 rounded-full object-cover shadow-md group-hover:shadow-glow transition-all group-hover:scale-105"
+            />
+            <div className="text-xl font-sans font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:scale-105 transition-transform">
               Murban Engineering
             </div>
           </Link>
