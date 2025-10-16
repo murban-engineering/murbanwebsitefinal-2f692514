@@ -58,10 +58,6 @@ export default {
         'gradient-card': 'var(--gradient-card)',
         'gradient-mesh': 'var(--gradient-mesh)',
         'gradient-shine': 'var(--gradient-shine)',
-        'gradient-blend-vertical': 'var(--gradient-blend-vertical)',
-        'gradient-blend-horizontal': 'var(--gradient-blend-horizontal)',
-        'gradient-blend-radial': 'var(--gradient-blend-radial)',
-        'gradient-blend-fade': 'var(--gradient-blend-fade)',
       },
       boxShadow: {
         'sm': 'var(--shadow-sm)',
@@ -71,9 +67,6 @@ export default {
         '2xl': 'var(--shadow-2xl)',
         'glow': 'var(--shadow-glow)',
         'primary': 'var(--shadow-primary)',
-        'ethereal-red': 'var(--shadow-ethereal-red)',
-        'ethereal-blue': 'var(--shadow-ethereal-blue)',
-        'ethereal-blend': 'var(--shadow-ethereal-blend)',
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -5,10 +5,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import heroImage from "@/assets/hero-engineering.jpg";
 import teamImage from "@/assets/team-collaboration.jpg";
 import projectImage from "@/assets/project-showcase.jpg";
-import craneImage from "@/assets/crane-construction.jpg";
-import pipesWaterImage from "@/assets/industrial-pipes-water.jpg";
-import pipelineImage from "@/assets/pipeline-infrastructure.jpg";
-import flareImage from "@/assets/oil-gas-flare.jpg";
 
 const Home = () => {
   const services = [
@@ -44,19 +40,9 @@ const Home = () => {
   const clients = ["Emaar", "Dubai Properties", "Aldar", "Damac", "Nakheel"];
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Ethereal Background Shadows - Fixed throughout page */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
-        <div className="absolute top-40 right-20 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[140px] animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
-        <div className="absolute bottom-40 left-1/3 w-[600px] h-[600px] bg-accent/4 rounded-full blur-[160px] animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }} />
-      </div>
-
-      {/* Blended Gradient Background Overlay */}
-      <div className="fixed inset-0 pointer-events-none z-0 bg-[var(--gradient-blend-fade)] opacity-50" />
-
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden z-10">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
@@ -105,16 +91,8 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-b from-background via-muted/50 to-background relative overflow-hidden z-10">
+      <section className="py-20 bg-gradient-to-b from-background via-muted/50 to-background relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh opacity-40" />
-        
-        {/* Decorative Image - Crane in irregular shape */}
-        <div className="absolute top-10 right-10 w-64 h-80 opacity-10 transition-all duration-700 hover:opacity-20 hover:scale-105">
-          <div className="w-full h-full overflow-hidden" style={{ clipPath: 'polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%)' }}>
-            <img src={craneImage} alt="" className="w-full h-full object-cover" style={{ boxShadow: 'var(--shadow-ethereal-blue)' }} />
-          </div>
-        </div>
-        
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -135,21 +113,7 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 relative z-10">
-        {/* Decorative Image - Pipeline in curved rectangle */}
-        <div className="absolute top-20 left-5 w-72 h-56 opacity-10 transition-all duration-700 hover:opacity-20 hover:scale-105">
-          <div className="w-full h-full overflow-hidden rounded-[40px_10px_40px_10px]">
-            <img src={pipelineImage} alt="" className="w-full h-full object-cover" style={{ boxShadow: 'var(--shadow-ethereal-red)' }} />
-          </div>
-        </div>
-        
-        {/* Decorative Image - Pipes by water in arch shape */}
-        <div className="absolute bottom-10 right-10 w-80 h-64 opacity-10 transition-all duration-700 hover:opacity-20 hover:scale-105">
-          <div className="w-full h-full overflow-hidden" style={{ clipPath: 'ellipse(50% 40% at 50% 50%)' }}>
-            <img src={pipesWaterImage} alt="" className="w-full h-full object-cover" style={{ boxShadow: 'var(--shadow-ethereal-blend)' }} />
-          </div>
-        </div>
-        
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
@@ -190,14 +154,7 @@ const Home = () => {
       </section>
 
       {/* Featured Project Section */}
-      <section className="py-20 bg-muted relative z-10">
-        {/* Decorative Image - Flare tower in unique geometric shape */}
-        <div className="absolute top-1/2 -translate-y-1/2 left-10 w-48 h-72 opacity-10 transition-all duration-700 hover:opacity-20 hover:scale-105">
-          <div className="w-full h-full overflow-hidden" style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}>
-            <img src={flareImage} alt="" className="w-full h-full object-cover" style={{ boxShadow: 'var(--shadow-ethereal-red)' }} />
-          </div>
-        </div>
-        
+      <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
@@ -240,16 +197,8 @@ const Home = () => {
       </section>
 
       {/* Clients Section */}
-      <section className="py-20 relative overflow-hidden z-10">
+      <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
-        
-        {/* Decorative Image - Crane in rounded square */}
-        <div className="absolute bottom-5 right-1/4 w-56 h-56 opacity-10 transition-all duration-700 hover:opacity-20 hover:scale-105">
-          <div className="w-full h-full overflow-hidden rounded-[60px]">
-            <img src={craneImage} alt="" className="w-full h-full object-cover rotate-45" style={{ boxShadow: 'var(--shadow-ethereal-blue)' }} />
-          </div>
-        </div>
-        
         <div className="container mx-auto px-4 relative z-10">
           <h3 className="text-2xl font-semibold text-center mb-12 text-muted-foreground">
             Trusted by Leading Organizations
@@ -268,17 +217,10 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-24 overflow-hidden z-10">
+      <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-hero" />
         <div className="absolute inset-0 bg-gradient-mesh" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_hsl(0_0%_100%_/_0.1),_transparent_50%)]" />
-        
-        {/* Decorative Image - Pipeline infrastructure in irregular pentagon */}
-        <div className="absolute top-10 right-20 w-64 h-48 opacity-15 transition-all duration-700 hover:opacity-25 hover:scale-105">
-          <div className="w-full h-full overflow-hidden" style={{ clipPath: 'polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)' }}>
-            <img src={pipelineImage} alt="" className="w-full h-full object-cover" style={{ boxShadow: 'var(--shadow-ethereal-blend)' }} />
-          </div>
-        </div>
         
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="inline-block px-4 py-2 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 animate-pulse-glow">
