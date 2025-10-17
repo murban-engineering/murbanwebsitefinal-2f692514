@@ -1,40 +1,44 @@
 import { useState } from "react";
 import { MapPin } from "lucide-react";
-import africaMap from "@/assets/africa-map.jpg";
+import africaMap from "@/assets/africa-map-clean.jpg";
 
 const AfricaMap = () => {
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
 
   // Location coordinates based on actual geographic positions (as percentages)
+  // Adjusted for better spacing and visibility
   const locations = [
-    { name: "Kenya", left: "67%", top: "48%", description: "Main Operations Hub" },
-    { name: "Uganda", left: "61%", top: "45%", description: "Regional Office" },
-    { name: "Tanzania", left: "64%", top: "54%", description: "Project Sites" },
-    { name: "Ethiopia", left: "67%", top: "36%", description: "Operations" },
-    { name: "Rwanda", left: "59%", top: "47%", description: "Service Area" },
-    { name: "Burundi", left: "59%", top: "49%", description: "Service Area" },
-    { name: "Zambia", left: "57%", top: "63%", description: "Project Sites" },
-    { name: "Eritrea", left: "67%", top: "30%", description: "Operations" },
-    { name: "Seychelles", left: "78%", top: "50%", description: "Service Area" },
-    { name: "Madagascar", left: "73%", top: "66%", description: "Service Area" },
-    { name: "Ghana", left: "30%", top: "38%", description: "Operations" },
-    { name: "DRC", left: "51%", top: "49%", description: "Project Sites" },
-    { name: "Malawi", left: "63%", top: "63%", description: "Service Area" },
-    { name: "Djibouti", left: "71%", top: "33%", description: "Operations" },
-    { name: "Zimbabwe", left: "59%", top: "68%", description: "Service Area" },
-    { name: "Somalia", left: "72%", top: "41%", description: "Service Area" },
+    { name: "Kenya", left: "63%", top: "51%", description: "Main Operations Hub" },
+    { name: "Uganda", left: "59%", top: "48%", description: "Regional Office" },
+    { name: "Tanzania", left: "62%", top: "58%", description: "Project Sites" },
+    { name: "Ethiopia", left: "63%", top: "40%", description: "Operations" },
+    { name: "Rwanda", left: "57%", top: "50%", description: "Service Area" },
+    { name: "Burundi", left: "58%", top: "53%", description: "Service Area" },
+    { name: "Zambia", left: "55%", top: "68%", description: "Project Sites" },
+    { name: "Eritrea", left: "64%", top: "35%", description: "Operations" },
+    { name: "Seychelles", left: "72%", top: "52%", description: "Service Area" },
+    { name: "Madagascar", left: "68%", top: "72%", description: "Service Area" },
+    { name: "Ghana", left: "42%", top: "48%", description: "Operations" },
+    { name: "DRC", left: "52%", top: "52%", description: "Project Sites" },
+    { name: "Malawi", left: "60%", top: "68%", description: "Service Area" },
+    { name: "Djibouti", left: "66%", top: "37%", description: "Operations" },
+    { name: "Zimbabwe", left: "56%", top: "73%", description: "Service Area" },
+    { name: "Somalia", left: "67%", top: "47%", description: "Service Area" },
   ];
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto">
+    <div className="relative w-full max-w-5xl mx-auto">
       {/* Map container with image background */}
-      <div className="relative w-full rounded-2xl overflow-hidden shadow-elegant border border-border/50">
+      <div className="relative w-full rounded-2xl overflow-hidden shadow-elegant border border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
         {/* Africa map image */}
         <img 
           src={africaMap} 
           alt="Africa Map showing Murban Engineering operational areas"
           className="w-full h-auto"
         />
+        
+        {/* Decorative overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/10 via-transparent to-transparent pointer-events-none" />
         
         {/* Location markers overlay */}
         <div className="absolute inset-0">
@@ -53,20 +57,27 @@ const AfricaMap = () => {
                 </div>
               )}
               
-              {/* Location pin */}
+              {/* Location pin with background */}
               <div
                 className={`relative z-10 transition-all duration-300 ${
                   hoveredCountry === location.name ? "scale-125" : "scale-100"
                 }`}
               >
+                {/* Pin background circle */}
+                <div className={`absolute -inset-1 rounded-full transition-all duration-300 ${
+                  hoveredCountry === location.name 
+                    ? "bg-primary/20 blur-sm" 
+                    : "bg-background/80"
+                }`} />
+                
                 <MapPin
-                  className={`w-6 h-6 transition-all duration-300 ${
+                  className={`relative w-7 h-7 transition-all duration-300 ${
                     hoveredCountry === location.name
-                      ? "text-primary drop-shadow-[0_0_8px_hsl(var(--primary))]"
-                      : "text-primary/80"
+                      ? "text-primary drop-shadow-[0_0_12px_hsl(var(--primary))]"
+                      : "text-primary"
                   }`}
-                  fill={hoveredCountry === location.name ? "hsl(var(--primary))" : "none"}
-                  strokeWidth={2.5}
+                  fill={hoveredCountry === location.name ? "hsl(var(--primary))" : "white"}
+                  strokeWidth={2}
                 />
               </div>
 
@@ -87,19 +98,19 @@ const AfricaMap = () => {
       </div>
 
       {/* Legend */}
-      <div className="mt-8 text-center">
-        <div className="inline-flex items-center gap-2 text-sm text-muted-foreground mb-6">
-          <MapPin className="h-4 w-4 text-primary" />
-          <span>Hover over markers to see locations and operations</span>
+      <div className="mt-10 text-center">
+        <div className="inline-flex items-center gap-2 text-sm text-muted-foreground mb-8 bg-card/50 backdrop-blur-sm px-4 py-2 rounded-full border border-border/50">
+          <MapPin className="h-5 w-5 text-primary fill-white" />
+          <span className="font-medium">Hover over markers to explore our operational areas</span>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm max-w-4xl mx-auto">
           {locations.map((location) => (
             <div
               key={location.name}
-              className={`transition-all duration-200 ${
+              className={`transition-all duration-300 px-3 py-2 rounded-lg ${
                 hoveredCountry === location.name
-                  ? "text-primary font-semibold scale-105"
-                  : "text-muted-foreground"
+                  ? "text-primary font-bold scale-105 bg-primary/10 shadow-sm"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {location.name}
