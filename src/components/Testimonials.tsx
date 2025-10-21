@@ -58,10 +58,10 @@ const Testimonials = () => {
   ];
 
   const clientLogos = [
-    { name: "TotalEnergies", logo: totalenergiesLogo, width: "w-40" },
-    { name: "KenGen", logo: kengenLogo, width: "w-32" },
-    { name: "Bolloré Africa Logistics", logo: bolloreLogo, width: "w-48" },
-    { name: "KPC", logo: kpcLogo, width: "w-24" },
+    { name: "TotalEnergies", logo: totalenergiesLogo, width: "w-28" },
+    { name: "KenGen", logo: kengenLogo, width: "w-24" },
+    { name: "Bolloré Africa Logistics", logo: bolloreLogo, width: "w-36" },
+    { name: "KPC", logo: kpcLogo, width: "w-20" },
   ];
 
   return (
