@@ -7,80 +7,106 @@ const IndustrySolutions = () => {
   const industries = [
     {
       icon: Droplets,
-      title: "Oil & Gas",
-      description: "Comprehensive inspection and integrity solutions for upstream, midstream, and downstream operations.",
+      title: "Oil & Gas Industry",
+      assetsCovered: "Storage tanks, sphere tanks, pressure vessels, pipelines, marine terminals, FPSOs",
       services: [
-        "Pipeline inspection and testing",
-        "Storage tank calibration",
-        "Pressure vessel inspection",
-        "Corrosion monitoring",
+        "API 653 Storage Tank Inspection",
+        "Sphere Tank Inspection",
+        "API 510 Pressure Vessel Inspection",
+        "API 570 Pipeline Inspection",
+        "Tank Bottom MFL Corrosion Mapping",
+        "Fitness for Service Analysis",
+        "UAV & Thermal Surveys",
+        "3D Laser Scanning & Tank Calibration",
+        "Coating Inspection & Corrosion Assessment",
+        "Risk-Based Inspection & RBI Plans",
+        "Radiography & Ultrasonic Testing",
+        "PMI Testing for imported fittings",
+        "Post-fire and post-buckling assessments",
       ],
-    },
-    {
-      icon: Zap,
-      title: "Energy & Power",
-      description: "Ensuring safety and reliability for power generation facilities and renewable energy infrastructure.",
-      services: [
-        "Boiler inspection services",
-        "Thermal power plant testing",
-        "Wind turbine inspection",
-        "Solar facility assessment",
-      ],
-    },
-    {
-      icon: Ship,
-      title: "Marine & Maritime",
-      description: "Specialized inspection services for vessels, offshore platforms, and port infrastructure.",
-      services: [
-        "Hull integrity testing",
-        "Marine structure inspection",
-        "Offshore platform assessment",
-        "Port equipment certification",
-      ],
-    },
-    {
-      icon: Factory,
-      title: "Manufacturing",
-      description: "Quality assurance and asset integrity for industrial manufacturing facilities.",
-      services: [
-        "Equipment certification",
-        "Production line inspection",
-        "Material verification (PMI)",
-        "Quality control testing",
-      ],
+      whyItMatters: "At Murban Engineering, we offer industry-leading inspection and integrity solutions tailored to the critical demands of the oil and gas sector. Our services span upstream, midstream, and downstream operations—from pipeline and pressure vessel inspections to storage tank calibration and corrosion assessment. Using advanced techniques like Phased Array Ultrasonic Testing (PAUT), Magnetic Flux Leakage (MFL), and Risk-Based Inspection (RBI), we help oil and gas operators extend asset life, avoid unplanned outages, and meet the highest standards of safety and compliance.",
     },
     {
       icon: Building2,
-      title: "Infrastructure",
-      description: "Structural integrity and safety inspection for critical infrastructure projects.",
+      title: "Storage and Logistic Terminals",
+      assetsCovered: "Bulk liquid tanks, LPG spheres, loading lines, depot infrastructure",
       services: [
-        "Bridge inspection",
-        "Building structure assessment",
-        "3D laser scanning",
-        "Construction monitoring",
+        "Storage Tank Calibration",
+        "Volumetric Analysis with 3D Laser Scanning",
+        "API 653 Inspections",
+        "API 510 Inspections",
+        "API 570 Inspections",
+        "Paint and Coating Integrity Testing",
+        "Third party verification and testing",
+        "Engineering drawings – As built data",
+        "Foundation and settlement monitoring",
+        "NDT Testing",
       ],
+      whyItMatters: "Bulk liquid and fuel terminals are complex facilities that demand accurate calibration, corrosion monitoring, and tank integrity assurance. Murban Engineering provides comprehensive solutions for tank farms, depots, and LPG storage facilities using technologies like 3D laser scanning, UAV-based inspections, and API 653-compliant tank assessments. Our goal is to help operators maintain regulatory compliance, safeguard stored products, and optimize infrastructure performance across the entire terminal lifecycle.",
+    },
+    {
+      icon: Factory,
+      title: "Food Processing Industry",
+      assetsCovered: "Stainless tanks, pressure vessels, food-grade pipelines, steam boilers",
+      services: [
+        "UT Thickness Surveys for Corrosion in Clean Systems",
+        "Surface Hardness Testing for Safety Compliance",
+        "3D Tank Calibration for Volume Control",
+        "Radiographic Testing to check welds on hygiene-critical vessels",
+        "QA/QC for stainless welding and fittings",
+        "Non-contaminating NDT procedures (e.g., non-toxic DPI)",
+      ],
+      whyItMatters: "In food and beverage processing, cleanliness, accuracy, and structural integrity are non negotiable. Murban supports this industry with non-contaminating inspection techniques, volumetric tank calibration, and material identification suited for food grade environments. Whether it's ensuring weld quality in stainless vessels or verifying tank geometry for accurate mixing and batching, we bring precision, hygiene-compliant methods, and peace of mind to food manufacturers.",
+    },
+    {
+      icon: Zap,
+      title: "Renewable Energy & Geothermal",
+      assetsCovered: "Geothermal drilling rigs, solar plants, wind support structures",
+      services: [
+        "NDT on Cementing and Casing Equipment",
+        "QA/QC Inspections during rig fabrication and commissioning",
+        "UT and MPI for welds and frames",
+        "UAV Thermal Surveys for solar arrays",
+        "Pressure Testing and PMI of drilling components",
+        "Structural laser scanning for alignment and elevation",
+      ],
+      whyItMatters: "The renewable energy sector is expanding rapidly, and so is the need for safe, reliable, and long-lasting infrastructure. At Murban, we offer targeted inspection services for geothermal rigs, solar installations, and wind structures. From flaw detection in rig welds to thermal imaging of solar panels and structural surveys using UAVs and laser scanning, we ensure your green energy systems are safe, efficient, and compliant with modern engineering codes.",
     },
     {
       icon: Truck,
-      title: "Transportation",
-      description: "Safety and compliance inspection for transportation equipment and facilities.",
+      title: "Rail Industry",
+      assetsCovered: "Rail wagons, bogies, bridges, storage depots, fuel tanks",
       services: [
-        "Lifting equipment certification",
-        "Vehicle inspection",
-        "Rail infrastructure testing",
-        "Airport facility assessment",
+        "UT and RT for railcar tanks and weld seams",
+        "ACFM Inspection for wheels and axles",
+        "Surface Hardness for load-bearing components",
+        "Paint, Coating & Corrosion Inspection for rolling stock",
+        "Lifting Equipment Certification for maintenance depots",
+        "Tank Calibration for fuel and chemical wagons",
+        "3D Scanning of structural members in railway bridges",
       ],
+      whyItMatters: "Railway infrastructure must meet the demands of heavy loads, constant vibration, and dynamic stresses. Murban provides specialized inspection and certification services for railcars, bridges, depots, and fuel wagons. Our techniques—ranging from ultrasonic and radiographic testing to tank calibration and corrosion inspection—help operators ensure safety, prevent failures, and maintain smooth operations across the rail network.",
     },
     {
-      icon: Fuel,
-      title: "Petrochemical",
-      description: "Advanced NDT and integrity solutions for petrochemical plants and refineries.",
+      icon: Ship,
+      title: "Shipping & Marine Industry",
+      assetsCovered: "Cargo tanks, ballast tanks, marine pipelines, ship hulls, offshore loading arms, vessel pressure systems, tankers, offshore platforms",
       services: [
-        "Process equipment inspection",
-        "Piping system certification",
-        "Storage facility testing",
-        "Risk-based inspection (RBI)",
+        "Ultrasonic Thickness Measurement (UTM) of hull plating and tanks",
+        "Visual Inspection of cargo tanks, hatches, and decks",
+        "Magnetic Particle & Dye Penetrant Testing of weld seams and load points",
+        "Phased Array Ultrasonic Testing (PAUT) for deck and hull integrity",
+        "3D Laser Scanning for tank geometry and deck mapping",
+        "Internal UAV Inspection for difficult-to-access compartments",
+        "Surface Hardness Testing on load-bearing components",
+        "PMI Testing on imported or unknown marine-grade alloys",
+        "Thermal Imaging for hot spot detection in engines and exhausts",
+        "Paint & Coating Assessment in ballast and cargo tanks",
+        "Pressure Testing of marine pipelines and fluid systems",
+        "Lifting Gear and Lifesaving Equipment Certification",
+        "Compliance inspections under SOLAS, IMO, and Classification Society standards",
       ],
+      whyItMatters: "Marine environments expose vessels and offshore structures to accelerated wear from corrosion, mechanical loading, and extreme conditions. At Murban Engineering, we provide specialized marine inspection services that enhance safety, ensure class compliance, and support the longevity of your marine assets. Whether for in-service vessels, dockside inspections, or offshore operations, our NDT and engineering capabilities help mitigate risk, reduce repair costs, and maintain operational readiness at sea.",
     },
   ];
 
@@ -110,28 +136,43 @@ const IndustrySolutions = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="space-y-16">
             {industries.map((industry, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 animate-fade-in border-border">
-                <CardHeader>
-                  <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-lg bg-primary/10 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    <industry.icon className="h-8 w-8 text-primary group-hover:text-primary-foreground" />
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 animate-fade-in border-border overflow-hidden">
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="md:col-span-1 bg-primary/5 p-8 flex flex-col justify-center items-center text-center">
+                    <div className="mb-6 inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary/10 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                      <industry.icon className="h-10 w-10 text-primary group-hover:text-primary-foreground" />
+                    </div>
+                    <CardTitle className="text-2xl font-serif mb-2">{industry.title}</CardTitle>
                   </div>
-                  <CardTitle className="text-2xl font-serif">{industry.title}</CardTitle>
-                  <CardDescription className="text-base">
-                    {industry.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {industry.services.map((service, idx) => (
-                      <li key={idx} className="flex items-start text-sm">
-                        <span className="text-primary mr-2">•</span>
-                        <span>{service}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
+                  
+                  <div className="md:col-span-2 p-8">
+                    <div className="space-y-6">
+                      <div>
+                        <h4 className="text-lg font-semibold mb-3 text-primary">Assets Covered</h4>
+                        <p className="text-muted-foreground">{industry.assetsCovered}</p>
+                      </div>
+                      
+                      <div>
+                        <h4 className="text-lg font-semibold mb-3 text-primary">Key Services</h4>
+                        <div className="grid sm:grid-cols-2 gap-2">
+                          {industry.services.map((service, idx) => (
+                            <div key={idx} className="flex items-start text-sm">
+                              <span className="text-primary mr-2 mt-1">•</span>
+                              <span>{service}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h4 className="text-lg font-semibold mb-3 text-primary">Why It Matters</h4>
+                        <p className="text-muted-foreground leading-relaxed">{industry.whyItMatters}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </Card>
             ))}
           </div>
