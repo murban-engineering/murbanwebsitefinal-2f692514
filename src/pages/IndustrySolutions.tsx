@@ -1,3 +1,4 @@
+
 <div className="grid md:grid-cols-5 gap-0">
                   {/* Image Section with Title Overlay */}
                   <div className="md:col-span-2 relative h-96 md:h-auto overflow-hidden">
@@ -20,3 +21,4 @@
                   
                   {/* Content Section */}
                   <div className="md:col-span-3 p-6 bg-gradient-to-br from-card via-card to-card/80">
+                    <div className="space-y-5">
