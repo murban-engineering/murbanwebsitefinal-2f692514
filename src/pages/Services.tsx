@@ -45,6 +45,9 @@ type ServiceCardProps = {
   icon: LucideIcon;
   title: string;
   description: string;
+  onSelect?: () => void;
+  isActive?: boolean;
+  showCTA?: boolean;
 };
 
 type ServiceDetail = {
@@ -59,11 +62,42 @@ type ServiceDetail = {
   relatedServices?: string[];
 };
 
-const ServiceCard = ({ icon: Icon, title, description }: ServiceCardProps) => {
+const ServiceCard = ({
+  icon: Icon,
+  title,
+  description,
+  onSelect,
+  isActive,
+  showCTA = true,
+}: ServiceCardProps) => {
   const trackerIndices = Array.from({ length: 25 }, (_, index) => index + 1);
+  const cardClasses = ["service-card"];
+
+  if (onSelect) {
+    cardClasses.push("service-card--selectable");
+  }
+
+  if (isActive) {
+    cardClasses.push("is-active");
+  }
 
   return (
-    <div className="service-card">
+    <div
+      className={cardClasses.join(" ")}
+      onClick={onSelect}
+      onKeyDown={(event) => {
+        if (!onSelect) return;
+
+        if (event.key === "Enter" || event.key === " " || event.key === "Space") {
+          event.preventDefault();
+          onSelect();
+        }
+      }}
+      role={onSelect ? "button" : undefined}
+      tabIndex={onSelect ? 0 : undefined}
+      aria-pressed={onSelect ? !!isActive : undefined}
+      aria-label={onSelect ? title : undefined}
+    >
       <div className="service-card-container noselect">
         <div className="service-card-canvas">
           {trackerIndices.map((index) => (
@@ -89,9 +123,11 @@ const ServiceCard = ({ icon: Icon, title, description }: ServiceCardProps) => {
           </article>
         </div>
       </div>
-      <Link to="/contact" className="service-card-cta">
-        Talk to our team
-      </Link>
+      {showCTA && (
+        <Link to="/contact" className="service-card-cta">
+          Talk to our team
+        </Link>
+      )}
     </div>
   );
 };
@@ -495,46 +531,24 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="grid gap-10 lg:grid-cols-[320px_1fr] items-start">
-            <div className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur-xl p-6 shadow-lg">
-              <div className="mb-6 flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-foreground">Service Directory</h3>
-                <span className="text-sm text-muted-foreground">{allServices.length} services</span>
+          <div className="grid gap-10 xl:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-start">
+            <div>
+              <div className="mb-6 flex items-center justify-between text-muted-foreground">
+                <span className="text-sm uppercase tracking-[0.2em]">Service Cards</span>
+                <span className="text-sm">{allServices.length} services</span>
               </div>
-              <div className="space-y-2 max-h-[28rem] overflow-y-auto pr-1">
-                {allServices.map((service) => {
-                  const isActive = selectedService === service.title;
-                  const Icon = service.icon;
-
-                  return (
-                    <button
-                      key={service.title}
-                      type="button"
-                      onClick={() => setSelectedService(service.title)}
-                      className={`w-full rounded-2xl border px-4 py-3 text-left transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
-                        isActive
-                          ? "border-primary bg-primary text-primary-foreground shadow-md"
-                          : "border-transparent bg-muted/40 text-muted-foreground hover:bg-muted/70"
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <span
-                          className={`flex h-10 w-10 items-center justify-center rounded-xl border ${
-                            isActive ? "border-white/40 bg-white/10" : "border-border/60 bg-background"
-                          }`}
-                        >
-                          <Icon className="h-5 w-5" strokeWidth={2.5} />
-                        </span>
-                        <div>
-                          <p className="font-semibold leading-snug">{service.title}</p>
-                          <p className="text-sm opacity-80 leading-snug">
-                            {service.description}
-                          </p>
-                        </div>
-                      </div>
-                    </button>
-                  );
-                })}
+              <div className="services-grid services-grid--selectable">
+                {allServices.map((service) => (
+                  <ServiceCard
+                    key={service.title}
+                    icon={service.icon}
+                    title={service.title}
+                    description={service.description}
+                    onSelect={() => setSelectedService(service.title)}
+                    isActive={selectedService === service.title}
+                    showCTA={false}
+                  />
+                ))}
               </div>
             </div>
 
