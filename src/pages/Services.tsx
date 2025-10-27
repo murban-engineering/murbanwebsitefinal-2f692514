@@ -72,7 +72,7 @@ const ServiceCard = ({ icon: Icon, title, description }: ServiceCardProps) => {
           </div>
           <div className="view-more">
             <Link to="/contact" className="view-more-button">
-              Contact us
+              Read more
             </Link>
             <svg
               className="svg"
