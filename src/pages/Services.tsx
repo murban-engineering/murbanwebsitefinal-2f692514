@@ -60,48 +60,38 @@ type ServiceDetail = {
 };
 
 const ServiceCard = ({ icon: Icon, title, description }: ServiceCardProps) => {
+  const trackerIndices = Array.from({ length: 25 }, (_, index) => index + 1);
+
   return (
     <div className="service-card">
-      <div className="card">
-        <div className="content">
-          <div className="back">
-            <div className="back-content">
-              <Icon
-                className="service-card-icon"
-                aria-hidden="true"
-                strokeWidth={2.5}
-              />
-              <strong>{title}</strong>
-              <Link to="/contact" className="back-cta">
-                Talk to our team
-              </Link>
+      <div className="service-card-container noselect">
+        <div className="service-card-canvas">
+          {trackerIndices.map((index) => (
+            <span
+              key={index}
+              className={`service-card-tracker tr-${index}`}
+              aria-hidden="true"
+            />
+          ))}
+          <article
+            className="service-card-inner"
+            tabIndex={0}
+            aria-label={`${title} service overview`}
+          >
+            <p className="service-card-prompt">Hover to explore</p>
+            <div className="service-card-header">
+              <span className="service-card-icon-wrapper" aria-hidden="true">
+                <Icon className="service-card-icon" aria-hidden="true" strokeWidth={2.5} />
+              </span>
+              <h3 className="service-card-title">{title}</h3>
             </div>
-          </div>
-          <div className="front">
-            <div className="img" aria-hidden="true">
-              <div className="circle" />
-              <div className="circle" id="right" />
-              <div className="circle" id="bottom" />
-            </div>
-            <div className="front-content">
-              <small className="badge">Service</small>
-              <div className="description">
-                <div className="title">
-                  <p className="title">
-                    <strong>{title}</strong>
-                  </p>
-                  <Icon
-                    className="service-card-icon"
-                    aria-hidden="true"
-                    strokeWidth={2.5}
-                  />
-                </div>
-                <p className="card-footer">{description}</p>
-              </div>
-            </div>
-          </div>
+            <p className="service-card-description">{description}</p>
+          </article>
         </div>
       </div>
+      <Link to="/contact" className="service-card-cta">
+        Talk to our team
+      </Link>
     </div>
   );
 };
