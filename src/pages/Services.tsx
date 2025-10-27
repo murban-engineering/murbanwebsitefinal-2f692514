@@ -488,6 +488,32 @@ const Services = () => {
         "Gas Detection",
       ],
     },
+    "Ultrasonic Flaw Testing C-Scan": {
+      label: "Ultrasonic Flaw Testing C-Scan",
+      breadcrumb: ["Home", "Industry Solutions", "Services We Offer"],
+      headline: "Ultrasonic Flaw Testing C-Scan (Corrosion Mapping)",
+      description:
+        "Ultrasonic flaw testing C-scan delivers a high-resolution corrosion map of critical assets, allowing integrity teams to visualize wall loss, pitting, and defects before they lead to failures. Murban Engineering's specialists utilize advanced ultrasonic instrumentation and experienced interpretation to provide the actionable insights needed to keep storage tanks, pipelines, and process equipment operating safely and efficiently.",
+      sections: [
+        {
+          title: "Advantages",
+          items: [
+            "Provides detailed corrosion mapping for accurate assessment of asset condition.",
+            "Helps prioritize maintenance and repair activities based on severity.",
+            "Enables proactive corrosion management to extend asset lifespan.",
+            "Supports compliance with regulatory requirements and industry standards.",
+          ],
+        },
+      ],
+      relatedServices: [
+        "Ultrasonic Thickness Measurement",
+        "Murban Phased Array Testing",
+        "Floormap 3D MFL Scanning",
+        "Alternating Current Field Measurement",
+        "API 579 Murban Fitness for Service",
+        "API 580 Murban Risk Based Inspection",
+      ],
+    },
     "Tank Calibration Services": {
       label: "Tank Calibration Service",
       breadcrumb: ["Home", "Industry Solutions", "Services We Offer"],
