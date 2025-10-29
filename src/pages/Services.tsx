@@ -186,8 +186,9 @@ const Services = () => {
     },
     {
       icon: Radio,
-      title: "Murban RT Services",
-      description: "Radiographic testing services that expose hidden structural flaws with clarity.",
+      title: "RT Radiographic Services",
+      description:
+        "High-resolution radiographic imaging that uncovers hidden discontinuities without interrupting service.",
     },
     {
       icon: Paintbrush,
@@ -486,6 +487,45 @@ const Services = () => {
         "API 510 Pressure Vessel Inspection",
         "API 570 Piping Inspection",
         "Gas Detection",
+      ],
+    },
+    "RT Radiographic Services": {
+      label: "RT Radiographic Services",
+      breadcrumb: ["Home", "Industry Solutions", "Services We Offer"],
+      headline: "RT Radiographic Services",
+      description:
+        "Radiographic Testing (RT) is a vital non-destructive testing method employed by Murban Engineering to provide insights into the internal condition of materials and structures. Our experienced technicians use advanced radiographic technology to detect and analyze potential defects, discontinuities, or material irregularities. We offer precise assessments and recommendations, enabling you to make informed decisions about maintenance, repair, or replacement, ensuring the ongoing safety and reliability of your assets.",
+      sections: [
+        {
+          title: "What Our Radiographic Testing Delivers",
+          items: [
+            "High-resolution imaging of welds, castings, and critical components to reveal hidden discontinuities.",
+            "Certified radiography technicians who tailor exposure techniques to component geometry and project requirements.",
+            "Actionable reports that clearly classify indications and outline mitigation steps for continued safe service.",
+          ],
+        },
+        {
+          title: "Advantages",
+          items: [
+            "Provides detailed internal imaging of materials for defect detection.",
+            "Identifies cracks, voids, and other internal anomalies with high accuracy.",
+            "Enables evaluation of material integrity without damaging the sample.",
+            "Supports quality control and assurance in manufacturing and construction.",
+          ],
+        },
+      ],
+      relatedServices: [
+        "Ultrasonic Flaw Testing C-Scan",
+        "Murban Phased Array Testing",
+        "Magnetic Particle Testing",
+        "Dye Penetrant Testing",
+        "Fluorescent Magnet Particle Testing",
+        "Alternating Current Field Measurement",
+        "Ultrasonic Thickness Measurement",
+        "Murban UAV Inspection",
+        "Thermal Camera Inspection",
+        "Paint & Coating Inspection",
+        "Positive Material Identification Testing",
       ],
     },
     "Magnetic Particle Testing": {
