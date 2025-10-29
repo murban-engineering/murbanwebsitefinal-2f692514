@@ -313,6 +313,65 @@ const Services = () => {
   const allServices = [...ndtServices, ...fabricationServices];
 
   const serviceDetails: Record<string, ServiceDetail> = {
+    "Murban Phased Array Testing": {
+      label: "Murban Phased Array Testing",
+      breadcrumb: ["Home", "Industry Solutions", "Services We Offer"],
+      headline: "PAUT Phased Array Ultrasonic Testing",
+      description:
+        "Phased array testing is an advanced ultrasonic inspection technique employed by Murban Engineering to provide accurate flaw detection and characterization in materials and components. Our phased array testing services are highly effective in identifying and assessing defects, discontinuities, and structural issues. We deliver detailed reports and recommendations, enabling you to take proactive measures to maintain asset integrity and safety.",
+      sections: [
+        {
+          title: "Services We Offer",
+          items: [
+            "Alternating Current Field Measurement",
+            "API 579 Murban Fitness for Service",
+            "API 580 Murban Risk Based Service",
+            "Above Ground Storage Tank Inspection and Certification",
+            "Boiler Inspection Service",
+            "Lifting Equipment Thorough Examination and Certification",
+            "Magnetic Particle Testing",
+            "Dye Penetrant Testing",
+            "Fluorescent Magnet Particle Testing",
+            "Floormap 3D MFL Scanning",
+            "Paint and Coating Inspection",
+            "PMI Testing",
+            "Murban SIMS Tank Inspection Software",
+            "Sphere Tank Inspections",
+            "3D Laser Scanning Services",
+            "Tank Calibration Services",
+            "Murban Tank Inspection Database",
+            "Thermal Camera Inspection",
+            "Murban UAV Inspection",
+            "Ultrasonic Flaw Testing C Scan",
+            "Ultrasonic Thickness Measurement",
+            "Visual Inspection",
+            "API 510 Pressure Vessel Inspection",
+            "API 570 Piping Inspection",
+          ],
+        },
+        {
+          title: "Advantages",
+          items: [
+            "Provides detailed and accurate defect detection in welds and materials.",
+            "Offers rapid inspection capabilities, reducing downtime and inspection costs.",
+            "Enhances inspection coverage and sensitivity compared to conventional UT methods.",
+            "Supports compliance with industry standards and regulatory requirements.",
+          ],
+        },
+      ],
+      relatedServices: [
+        "Ultrasonic Flaw Testing C Scan",
+        "Ultrasonic Thickness Measurement",
+        "Alternating Current Field Measurement",
+        "Magnetic Particle Testing",
+        "Dye Penetrant Testing",
+        "Fluorescent Magnet Particle Testing",
+        "Thermal Camera Inspection",
+        "Murban UAV Inspection",
+        "API 579 Murban Fitness for Service",
+        "API 580 Murban Risk Based Service",
+      ],
+    },
     "API 510 Pressure Vessel Inspection": {
       label: "API 510 Pressure Vessel Inspection",
       breadcrumb: ["Home", "Services", "API 510 Pressure Vessel Inspection"],
