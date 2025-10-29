@@ -1688,6 +1688,47 @@ const Services = () => {
         "Murban Phased Array Testing",
       ],
     },
+    "Fabrication and Engineering Services": {
+      label: "Fabrication & Engineering Services",
+      breadcrumb: [
+        "Home",
+        "Industry Solutions",
+        "Fabrication & Engineering Services",
+      ],
+      headline: "Turnkey Fabrication & Engineering Delivery",
+      description:
+        "Murban Engineering provides end-to-end fabrication and engineering support, combining detailed design, controlled shop fabrication, surface finishing, and specialist welding with coordinated field erection. Our multidisciplinary teams keep complex industrial projects on schedule while meeting strict safety, quality, and compliance targets. We integrate planning, execution, and quality control so clients receive dependable, ready-for-service assets.",
+      sections: [
+        {
+          title: "Services We Offer",
+          items: [
+            "Detailed Engineering",
+            "Procurement",
+            "Fabrication",
+            "Specialized Welding",
+            "Construction & Erection",
+            "Surface Preparation & Paint Works",
+          ],
+        },
+        {
+          title: "Procurement Capability",
+          items: [
+            "Sourcing high-quality raw materials and components from trusted suppliers.",
+            "Verifying that every delivery meets technical specifications and project codes.",
+            "Coordinating logistics for timely material availability at fabrication shops and job sites.",
+            "Optimizing spend through strategic supplier partnerships and cost control.",
+          ],
+        },
+      ],
+      relatedServices: [
+        "Detailed Engineering",
+        "Procurement",
+        "Fabrication",
+        "Specialized Welding",
+        "Construction & Erection",
+        "Surface Preparation & Paint Works",
+      ],
+    },
   };
 
   const selectedDetail = serviceDetails[selectedService];
