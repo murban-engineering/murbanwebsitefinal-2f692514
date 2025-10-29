@@ -1766,6 +1766,39 @@ const Services = () => {
         "Surface Preparation & Paint Works",
       ],
     },
+    Procurement: {
+      label: "Fabrication & Engineering Services",
+      breadcrumb: ["Home", "Industry Solutions", "Fabrication & Engineering"],
+      headline: "Procurement & Supply Chain Assurance",
+      description:
+        "Murban Engineering handles the procurement of high-quality raw materials and components, sourcing from trusted suppliers and ensuring that all materials meet the technical specifications for each project. We ensure timely delivery and cost efficiency in all procurement processes.",
+      sections: [
+        {
+          title: "Our Procurement Process",
+          items: [
+            "Identify and qualify reputable suppliers who meet strict quality, safety, and compliance criteria.",
+            "Source raw materials and components that align precisely with project technical specifications.",
+            "Coordinate purchase orders, inspections, and documentation to maintain full traceability.",
+          ],
+        },
+        {
+          title: "Delivery & Cost Control",
+          items: [
+            "Manage logistics to ensure materials arrive when fabrication and site teams need them.",
+            "Monitor supplier performance and lead times to keep projects on schedule.",
+            "Optimize spend through negotiated contracts, bulk purchasing, and proactive cost tracking.",
+          ],
+        },
+      ],
+      relatedServices: [
+        "Detailed Engineering",
+        "Fabrication",
+        "Construction & Erection",
+        "Specialized Welding",
+        "Surface Preparation & Paint Works",
+        "Murban Pressure Testing",
+      ],
+    },
   };
 
   const selectedDetail = serviceDetails[selectedService];
