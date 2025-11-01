@@ -133,6 +133,13 @@ const ServiceCard = ({
 };
 
 const Services = () => {
+  const serviceSections = [
+    { id: "service-spotlight", label: "Service Spotlight" },
+    { id: "ndt-services", label: "NDT Inspection & Testing" },
+    { id: "fabrication-services", label: "Engineering & Fabrication" },
+    { id: "services-contact", label: "Contact Our Team" },
+  ];
+
   const ndtServices = [
     {
       icon: ShieldCheck,
@@ -315,6 +322,20 @@ const Services = () => {
   );
 
   const allServices = [...ndtServices, ...fabricationServices];
+
+  const ndtHighlights = [
+    "Advanced ultrasonic inspections including phased array, corrosion mapping, and precision thickness gauging.",
+    "Certified API programs covering piping, pressure vessels, storage tanks, and lifting equipment compliance.",
+    "Surface and volumetric testing capabilities such as radiography, magnetic particle, dye penetrant, and eddy current methods.",
+    "Digital reporting support with UAV inspections, 3D laser scanning, and data-backed integrity assessments.",
+  ];
+
+  const fabricationHighlights = [
+    "Concept-to-completion delivery that integrates detailed engineering, procurement, fabrication, and erection.",
+    "Specialized welding procedures and quality control programs tailored to critical industry specifications.",
+    "Surface preparation, coating systems, and finishing services that protect assets in the harshest environments.",
+    "Collaborative project management that aligns timelines, safety plans, and documentation with client objectives.",
+  ];
 
   const serviceDetails: Record<string, ServiceDetail> = {
     "Murban Phased Array Testing": {
@@ -1839,7 +1860,10 @@ const Services = () => {
   return (
     <div className="min-h-screen pt-20 bg-background">
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-24 text-secondary-foreground">
+      <section
+        id="services-hero"
+        className="relative overflow-hidden py-24 text-secondary-foreground"
+      >
         <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/60 to-secondary/80" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.25),_transparent_55%)]" />
         <div className="container relative mx-auto px-4 text-center">
@@ -1852,13 +1876,27 @@ const Services = () => {
           <p className="text-lg md:text-2xl max-w-3xl mx-auto text-secondary-foreground/90">
             Comprehensive Non-Destructive Testing and turnkey engineering support to keep critical infrastructure running at peak performance.
           </p>
+          <nav
+            aria-label="Services sections"
+            className="mt-10 flex flex-wrap items-center justify-center gap-3"
+          >
+            {serviceSections.map((section) => (
+              <a
+                key={section.id}
+                href={`#${section.id}`}
+                className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-4 py-2 text-sm font-medium text-secondary-foreground transition hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
+              >
+                <span>{section.label}</span>
+              </a>
+            ))}
+          </nav>
         </div>
         <div className="pointer-events-none absolute -bottom-16 right-6 h-48 w-48 rounded-full bg-white/20 blur-3xl" />
         <div className="pointer-events-none absolute -top-10 left-10 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
       </section>
 
       {/* Service Spotlight Section */}
-      <section className="relative py-24">
+      <section id="service-spotlight" className="relative py-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(14,116,144,0.15),_transparent_65%)]" />
         <div className="container relative mx-auto px-4">
           <div className="mx-auto mb-12 max-w-4xl text-center">
@@ -1959,7 +1997,7 @@ const Services = () => {
       </section>
 
       {/* NDT Services Section */}
-      <section className="relative py-24">
+      <section id="ndt-services" className="relative py-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.08),_transparent_60%)]" />
         <div className="container relative mx-auto px-4">
           <div className="mx-auto mb-16 max-w-4xl text-center">
@@ -1971,21 +2009,32 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="services-grid">
-            {ndtServices.map((service) => (
-              <ServiceCard
-                key={service.title}
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-              />
+          <div className="mx-auto max-w-5xl grid gap-6 md:grid-cols-2">
+            {ndtHighlights.map((highlight) => (
+              <div
+                key={highlight}
+                className="rounded-3xl border border-border/60 bg-background/80 p-6 text-left shadow-sm backdrop-blur-xl"
+              >
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="mt-1 h-5 w-5 text-primary" aria-hidden="true" />
+                  <p className="text-base leading-relaxed text-muted-foreground">{highlight}</p>
+                </div>
+              </div>
             ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Button variant="outline" asChild>
+              <Link to="/contact">Connect with an NDT specialist</Link>
+            </Button>
           </div>
         </div>
       </section>
 
       {/* Fabrication Services Section */}
-      <section className="relative overflow-hidden py-24">
+      <section
+        id="fabrication-services"
+        className="relative overflow-hidden py-24"
+      >
         <div className="absolute inset-0 bg-muted/60" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(14,116,144,0.15),_transparent_60%)]" />
         <div className="container relative mx-auto px-4">
@@ -1999,21 +2048,29 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="services-grid">
-            {fabricationServices.map((service) => (
-              <ServiceCard
-                key={service.title}
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-              />
+          <div className="mx-auto max-w-5xl grid gap-6 md:grid-cols-2">
+            {fabricationHighlights.map((highlight) => (
+              <div
+                key={highlight}
+                className="rounded-3xl border border-border/60 bg-background/80 p-6 text-left shadow-sm backdrop-blur-xl"
+              >
+                <div className="flex items-start gap-3">
+                  <Sparkles className="mt-1 h-5 w-5 text-primary" aria-hidden="true" />
+                  <p className="text-base leading-relaxed text-muted-foreground">{highlight}</p>
+                </div>
+              </div>
             ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Button variant="secondary" asChild>
+              <Link to="/contact">Discuss your next build</Link>
+            </Button>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24">
+      <section id="services-contact" className="py-24">
         <div className="container mx-auto px-4">
           <Card className="overflow-hidden border-0 bg-gradient-to-br from-primary/90 via-primary/70 to-secondary text-secondary-foreground shadow-[0_30px_60px_-40px_rgba(37,99,235,0.8)]">
             <CardContent className="relative px-6 py-16 md:px-16 text-center">
