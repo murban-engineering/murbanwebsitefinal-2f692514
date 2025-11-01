@@ -48,6 +48,7 @@ type ServiceCardProps = {
   onSelect?: () => void;
   isActive?: boolean;
   showCTA?: boolean;
+  detail?: ServiceDetail;
 };
 
 type ServiceDetail = {
@@ -62,6 +63,100 @@ type ServiceDetail = {
   relatedServices?: string[];
 };
 
+const ServiceDetailContent = ({
+  title,
+  description,
+  detail,
+  detailId,
+}: {
+  title: string;
+  description: string;
+  detail?: ServiceDetail;
+  detailId?: string;
+}) => {
+  if (!detail && !description) {
+    return null;
+  }
+
+  return (
+    <div
+      id={detailId}
+      className="w-full rounded-3xl border border-border/60 bg-card/80 backdrop-blur-xl p-6 shadow-xl text-left space-y-6"
+    >
+      <div className="space-y-4">
+        <div className="flex flex-wrap items-center gap-3">
+          {(detail?.label ?? title) && (
+            <span className="inline-flex items-center rounded-full border border-primary/40 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+              {detail?.label ?? title}
+            </span>
+          )}
+          {detail?.breadcrumb && (
+            <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
+              {detail.breadcrumb.map((crumb, index) => (
+                <span key={crumb} className="flex items-center gap-2">
+                  {index > 0 && <span className="opacity-60">/</span>}
+                  <span>{crumb}</span>
+                </span>
+              ))}
+              <span className="opacity-60">/</span>
+              <span className="text-foreground">{detail?.label ?? title}</span>
+            </div>
+          )}
+        </div>
+
+        <h4 className="text-2xl md:text-3xl font-serif font-semibold text-foreground">
+          {detail?.headline ?? title}
+        </h4>
+        <p className="text-base leading-relaxed text-muted-foreground">
+          {detail?.description ?? description}
+        </p>
+      </div>
+
+      {detail?.sections?.map((section) => (
+        <div
+          key={section.title}
+          className="rounded-2xl border border-border/50 bg-background/60 p-5 space-y-3"
+        >
+          <h5 className="text-lg font-semibold text-foreground">{section.title}</h5>
+          <ul className="space-y-2 text-sm text-muted-foreground">
+            {section.items.map((item) => (
+              <li key={item} className="flex items-start gap-2">
+                <span
+                  className="mt-1 inline-flex h-2 w-2 rounded-full bg-primary"
+                  aria-hidden="true"
+                />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      {detail?.relatedServices && detail.relatedServices.length > 0 && (
+        <div className="space-y-3">
+          <h5 className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            Related Services
+          </h5>
+          <div className="grid gap-2 sm:grid-cols-2">
+            {detail.relatedServices.map((item) => (
+              <div
+                key={item}
+                className="flex items-center gap-2 rounded-xl border border-border/40 bg-background/70 px-4 py-2 text-sm text-muted-foreground"
+              >
+                <span
+                  className="inline-flex h-1.5 w-1.5 rounded-full bg-primary"
+                  aria-hidden="true"
+                />
+                <span className="leading-tight">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const ServiceCard = ({
   icon: Icon,
   title,
@@ -69,6 +164,7 @@ const ServiceCard = ({
   onSelect,
   isActive,
   showCTA = true,
+  detail,
 }: ServiceCardProps) => {
   const trackerIndices = Array.from({ length: 25 }, (_, index) => index + 1);
   const cardClasses = ["service-card"];
@@ -80,6 +176,10 @@ const ServiceCard = ({
   if (isActive) {
     cardClasses.push("is-active");
   }
+
+  const detailId = onSelect
+    ? `service-card-detail-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`
+    : undefined;
 
   return (
     <div
@@ -97,6 +197,8 @@ const ServiceCard = ({
       tabIndex={onSelect ? 0 : undefined}
       aria-pressed={onSelect ? !!isActive : undefined}
       aria-label={onSelect ? title : undefined}
+      aria-expanded={onSelect ? !!isActive : undefined}
+      aria-controls={onSelect ? detailId : undefined}
     >
       <div className="service-card-container noselect">
         <div className="service-card-canvas">
@@ -123,6 +225,14 @@ const ServiceCard = ({
           </article>
         </div>
       </div>
+      {isActive && (
+        <ServiceDetailContent
+          title={title}
+          description={description}
+          detail={detail}
+          detailId={detailId}
+        />
+      )}
       {showCTA && (
         <Link to="/contact" className="service-card-cta">
           Talk to our team
@@ -2010,9 +2120,6 @@ const Services = () => {
     },
   };
 
-  const selectedDetail = serviceDetails[selectedService];
-  const selectedSummary = allServices.find((service) => service.title === selectedService);
-
   return (
     <div className="min-h-screen pt-20 bg-background">
       {/* Hero Section */}
@@ -2066,88 +2173,23 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="grid gap-10 xl:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-start">
-            <div>
-              <div className="mb-6 flex items-center justify-between text-muted-foreground">
-                <span className="text-sm uppercase tracking-[0.2em]">Service Cards</span>
-                <span className="text-sm">{allServices.length} services</span>
-              </div>
-              <div className="services-grid services-grid--selectable">
-                {allServices.map((service) => (
-                  <ServiceCard
-                    key={service.title}
-                    icon={service.icon}
-                    title={service.title}
-                    description={service.description}
-                    onSelect={() => setSelectedService(service.title)}
-                    isActive={selectedService === service.title}
-                    showCTA={false}
-                  />
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-border/60 bg-card/80 backdrop-blur-xl p-8 shadow-xl">
-              <div className="flex flex-col gap-6">
-                <div className="space-y-4">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="inline-flex items-center rounded-full border border-primary/40 bg-primary/10 px-4 py-1 text-sm font-semibold text-primary">
-                      {selectedDetail?.label ?? selectedService}
-                    </span>
-                    {selectedDetail?.breadcrumb && (
-                      <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-                        {selectedDetail.breadcrumb.map((crumb, index) => (
-                          <span key={crumb} className="flex items-center gap-2">
-                            {index > 0 && <span className="opacity-70">/</span>}
-                            <span>{crumb}</span>
-                          </span>
-                        ))}
-                        <span className="opacity-70">/</span>
-                        <span className="text-foreground font-medium">{selectedDetail?.label ?? selectedService}</span>
-                      </div>
-                    )}
-                  </div>
-
-                  <h3 className="text-3xl md:text-4xl font-serif font-bold text-foreground">
-                    {selectedDetail?.headline ?? selectedService}
-                  </h3>
-                  <p className="text-lg leading-relaxed text-muted-foreground">
-                    {selectedDetail?.description ?? selectedSummary?.description}
-                  </p>
-                </div>
-
-                {selectedDetail?.sections?.map((section) => (
-                  <div key={section.title} className="rounded-2xl border border-border/50 bg-background/60 p-6">
-                    <h4 className="text-xl font-semibold mb-4 text-foreground">{section.title}</h4>
-                    <ul className="space-y-3 text-muted-foreground">
-                      {section.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3">
-                          <span className="mt-1 inline-flex h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-
-                {selectedDetail?.relatedServices && (
-                  <div>
-                    <h4 className="text-lg font-semibold mb-3 text-foreground">Related Services We Offer</h4>
-                    <div className="grid gap-2 sm:grid-cols-2">
-                      {selectedDetail.relatedServices.map((item) => (
-                        <div
-                          key={item}
-                          className="flex items-center gap-2 rounded-xl border border-border/40 bg-background/60 px-4 py-2 text-sm text-muted-foreground"
-                        >
-                          <span className="inline-flex h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
-                          <span className="leading-tight">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
+          <div className="mb-6 flex items-center justify-between text-muted-foreground">
+            <span className="text-sm uppercase tracking-[0.2em]">Service Cards</span>
+            <span className="text-sm">{allServices.length} services</span>
+          </div>
+          <div className="services-grid services-grid--selectable">
+            {allServices.map((service) => (
+              <ServiceCard
+                key={service.title}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                onSelect={() => setSelectedService(service.title)}
+                isActive={selectedService === service.title}
+                showCTA={false}
+                detail={serviceDetails[service.title]}
+              />
+            ))}
           </div>
         </div>
       </section>
