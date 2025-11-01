@@ -287,35 +287,32 @@ const Services = () => {
     {
       icon: Ruler,
       title: "Detailed Engineering",
-      description:
-        "Our experienced engineers provide comprehensive design and drafting services, including structural analysis, layout plans, material selection, and comprehensive project documentation. We ensure that all designs comply with the highest quality and safety standards in the industry.",
+      description: "Comprehensive technical plans and documentation.",
     },
     {
       icon: ShoppingCart,
       title: "Procurement",
-      description:
-        "Murban Engineering handles the procurement of high-quality raw materials and components, sourcing from trusted suppliers and ensuring that all materials meet the technical specifications for each project. We ensure timely delivery and cost efficiency in all procurement processes.",
+      description: "Sourcing materials for project execution.",
     },
     {
       icon: Settings,
       title: "Fabrication",
-      description: "Precision cutting, welding, and assembly of custom metal structures and components.",
+      description: "Precision cutting, welding, and assembly services.",
     },
     {
       icon: Building2,
-      title: "Construction & Erection",
-      description:
-        "Full-scale erection of steel structures, pipelines, and storage tanks with uncompromising safety and quality control.",
+      title: "Construction and Erection",
+      description: "On-site structure building and installation service.",
     },
     {
       icon: Zap,
       title: "Specialized Welding",
-      description: "Advanced welding methods (TIG, MIG, SMAW, SAW) for critical and specialized applications.",
+      description: "Advanced welding for critical applications.",
     },
     {
       icon: Sparkles,
-      title: "Surface Preparation & Paint Works",
-      description: "Professional surface cleaning, coating, and industrial painting for corrosion protection and durability.",
+      title: "Surface Preparation and Paint Works",
+      description: "Surface cleaning and industrial paint coating.",
     },
   ];
 
@@ -1713,11 +1710,11 @@ const Services = () => {
           title: "Services We Offer",
           items: [
             "Detailed Engineering",
-            "Surface Preparation & Paint Works",
+            "Surface Preparation and Paint Works",
             "Fabrication",
             "Procurement",
             "Specialized Welding",
-            "Construction & Erection",
+            "Construction and Erection",
           ],
         },
         {
@@ -1732,9 +1729,9 @@ const Services = () => {
       relatedServices: [
         "Procurement",
         "Fabrication",
-        "Construction & Erection",
+        "Construction and Erection",
         "Specialized Welding",
-        "Surface Preparation & Paint Works",
+        "Surface Preparation and Paint Works",
         "API 570 Piping Inspection and Certification",
         "API 653 Aboveground Storage Tank Inspection and Certification",
       ],
@@ -1767,12 +1764,12 @@ const Services = () => {
         "Detailed Engineering",
         "Procurement",
         "Specialized Welding",
-        "Surface Preparation & Paint Works",
-        "Construction & Erection",
+        "Surface Preparation and Paint Works",
+        "Construction and Erection",
         "Murban Pressure Testing",
       ],
     },
-    "Construction & Erection": {
+    "Construction and Erection": {
       label: "Fabrication & Engineering Services",
       breadcrumb: ["Home", "Industry Solutions", "Fabrication & Engineering"],
       headline: "Construction and Erection",
@@ -1801,7 +1798,7 @@ const Services = () => {
         "Procurement",
         "Fabrication",
         "Specialized Welding",
-        "Surface Preparation & Paint Works",
+        "Surface Preparation and Paint Works",
       ],
     },
     "Specialized Welding": {
@@ -1831,8 +1828,8 @@ const Services = () => {
       relatedServices: [
         "Fabrication",
         "Detailed Engineering",
-        "Surface Preparation & Paint Works",
-        "Construction & Erection",
+        "Surface Preparation and Paint Works",
+        "Construction and Erection",
         "Murban Pressure Testing",
         "Murban Phased Array Testing",
         "Magnetic Particle Testing",
@@ -1919,8 +1916,8 @@ const Services = () => {
             "Procurement",
             "Fabrication",
             "Specialized Welding",
-            "Construction & Erection",
-            "Surface Preparation & Paint Works",
+            "Construction and Erection",
+            "Surface Preparation and Paint Works",
           ],
         },
         {
@@ -1938,12 +1935,12 @@ const Services = () => {
         "Procurement",
         "Fabrication",
         "Specialized Welding",
-        "Construction & Erection",
-        "Surface Preparation & Paint Works",
+        "Construction and Erection",
+        "Surface Preparation and Paint Works",
       ],
     },
-    "Surface Preparation & Paint Works": {
-      label: "Surface Preparation & Paint Works",
+    "Surface Preparation and Paint Works": {
+      label: "Surface Preparation and Paint Works",
       breadcrumb: ["Home", "Industry Solutions", "Fabrication & Engineering"],
       headline: "Surface Preparation & Protective Coating Systems",
       description:
@@ -1972,7 +1969,7 @@ const Services = () => {
         "Procurement",
         "Paint & Coating Inspection",
         "Detailed Engineering",
-        "Construction & Erection",
+        "Construction and Erection",
       ],
     },
     Procurement: {
@@ -2002,9 +1999,9 @@ const Services = () => {
       relatedServices: [
         "Detailed Engineering",
         "Fabrication",
-        "Construction & Erection",
+        "Construction and Erection",
         "Specialized Welding",
-        "Surface Preparation & Paint Works",
+        "Surface Preparation and Paint Works",
         "Murban Pressure Testing",
       ],
     },
@@ -2160,6 +2157,14 @@ const Services = () => {
         <div className="absolute inset-0 bg-muted/60" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(14,116,144,0.15),_transparent_60%)]" />
         <div className="container relative z-10 mx-auto px-4">
+          <div className="mx-auto mb-12 max-w-3xl text-center text-foreground">
+            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-4">
+              Murban Engineering and Fabrications Services
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Detailed Engineering
+            </p>
+          </div>
           <div className="services-grid">
             {fabricationServices.map((service) => (
               <ServiceCard
