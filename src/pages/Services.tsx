@@ -286,7 +286,8 @@ const Services = () => {
     {
       icon: Ruler,
       title: "Detailed Engineering",
-      description: "Technical planning, design, and documentation for industrial projects.",
+      description:
+        "Our experienced engineers provide comprehensive design and drafting services, including structural analysis, layout plans, material selection, and comprehensive project documentation. We ensure that all designs comply with the highest quality and safety standards in the industry.",
     },
     {
       icon: ShoppingCart,
