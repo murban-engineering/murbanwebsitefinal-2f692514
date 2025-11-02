@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useMemo, useRef } from "react";
+import { useId, useMemo } from "react";
 import { motion } from "framer-motion";
 import DottedMap from "dotted-map";
 import { useTheme } from "next-themes";
@@ -22,8 +22,6 @@ export interface WorldMapProps {
 }
 
 export function WorldMap({ dots = [], lineColor = "#0ea5e9" }: WorldMapProps) {
-  const svgRef = useRef<SVGSVGElement>(null);
-  const map = useMemo(() => new DottedMap({ height: 100, grid: "diagonal" }), []);
   const gradientId = useId();
 
   const { theme, resolvedTheme } = useTheme();
@@ -44,16 +42,16 @@ export function WorldMap({ dots = [], lineColor = "#0ea5e9" }: WorldMapProps) {
     return "light";
   }, [resolvedTheme, theme]);
 
-  const svgMap = useMemo(
-    () =>
-      map.getSVG({
-        radius: 0.22,
-        color: currentTheme === "dark" ? "#FFFFFF40" : "#00000040",
-        shape: "circle",
-        backgroundColor: currentTheme === "dark" ? "#020817" : "#ffffff",
-      }),
-    [currentTheme, map],
-  );
+  const svgMap = useMemo(() => {
+    const map = new DottedMap({ height: 100, grid: "diagonal" });
+
+    return map.getSVG({
+      radius: 0.22,
+      color: currentTheme === "dark" ? "#FFFFFF40" : "#00000040",
+      shape: "circle",
+      backgroundColor: currentTheme === "dark" ? "#020817" : "#ffffff",
+    });
+  }, [currentTheme]);
 
   const projectPoint = (lat: number, lng: number) => {
     const x = ((lng + 180) * 800) / 360;
@@ -75,7 +73,7 @@ export function WorldMap({ dots = [], lineColor = "#0ea5e9" }: WorldMapProps) {
         alt="world map"
         draggable={false}
       />
-      <svg ref={svgRef} viewBox="0 0 800 400" className="absolute inset-0 h-full w-full select-none">
+      <svg viewBox="0 0 800 400" className="absolute inset-0 h-full w-full select-none">
         {dots.map((dot, index) => {
           const startPoint = projectPoint(dot.start.lat, dot.start.lng);
           const endPoint = projectPoint(dot.end.lat, dot.end.lng);
