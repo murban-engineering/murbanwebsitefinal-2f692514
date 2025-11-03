@@ -189,20 +189,11 @@ const Home = () => {
 
   return (
     <div className="relative min-h-screen bg-background">
-      <section className="relative flex h-[340px] w-full items-center justify-center overflow-hidden sm:h-[420px] bg-background">
-        <DottedSurface className="size-full">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div
-              aria-hidden="true"
-              className={cn(
-                "pointer-events-none absolute -top-10 left-1/2 size-full -translate-x-1/2 rounded-full",
-                "bg-[radial-gradient(ellipse_at_center,hsl(var(--primary)/.15),transparent_50%)]",
-                "blur-[40px]",
-              )}
-            />
-          </div>
-        </DottedSurface>
-      </section>
+      {/* Full Page Dotted Background */}
+      <div className="fixed inset-0 pointer-events-none">
+        <DottedSurface className="size-full opacity-60" />
+      </div>
+      
       <div className="relative z-10">
         <div className="relative z-20">
           <div className="container mx-auto flex justify-end px-4 pt-6">
@@ -210,7 +201,7 @@ const Home = () => {
           </div>
         </div>
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-28 pb-48 sm:pt-32 sm:pb-56">
+        <section className="relative overflow-hidden pt-20 pb-48 sm:pt-24 sm:pb-56">
         <div className="absolute inset-0">
           <img src={heroImage} alt="Engineering excellence" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/80 to-background/95" />
@@ -226,7 +217,7 @@ const Home = () => {
                 <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" /> Next era engineering partner
               </div>
               <div className="space-y-6">
-                <h1 className="text-left font-serif text-4xl font-bold leading-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+                <h1 className="text-left font-serif text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
                   <TypingAnimation text="Murban Engineering" speed={80} className="text-foreground" />
                 </h1>
                 <p className="max-w-2xl text-lg text-muted-foreground md:text-xl">
