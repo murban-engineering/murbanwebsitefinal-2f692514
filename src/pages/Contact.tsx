@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import { DottedSurface } from "@/components/ui/dotted-surface";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -92,7 +93,13 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-20 relative">
+      {/* Full Page Dotted Background with Grid Mesh */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <DottedSurface className="size-full opacity-40" />
+        <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
+      </div>
+      
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-hero" />

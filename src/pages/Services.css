@@ -82,11 +82,11 @@
   border-radius: 24px;
   background: linear-gradient(
     135deg,
-    hsl(var(--primary) / 0.95) 0%,
-    hsl(var(--secondary) / 0.95) 100%
+    hsl(var(--primary)) 0%,
+    hsl(var(--secondary)) 100%
   );
-  color: hsl(var(--secondary-foreground));
-  box-shadow: 0 24px 45px hsl(var(--secondary) / 0.25);
+  color: hsl(0 0% 100%);
+  box-shadow: 0 24px 45px hsl(var(--secondary) / 0.35), 0 0 0 1px hsl(0 0% 100% / 0.1);
   transition: transform 125ms ease, filter 300ms ease;
   overflow: hidden;
 }

@@ -73,10 +73,10 @@ All colors MUST be HSL.
     --background: 204 100% 12%;
     --foreground: 0 0% 98%;
 
-    --card: 204 100% 15%;
+    --card: 204 100% 16%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 204 100% 15%;
+    --popover: 204 100% 16%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 348 73% 45%;
@@ -115,5 +115,9 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }

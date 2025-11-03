@@ -190,8 +190,9 @@ const Home = () => {
   return (
     <div className="relative min-h-screen bg-background">
       {/* Full Page Dotted Background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <DottedSurface className="size-full opacity-60" />
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <DottedSurface className="size-full opacity-40" />
+        <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
       </div>
       
       <div className="relative z-10">

@@ -38,6 +38,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
+import { DottedSurface } from "@/components/ui/dotted-surface";
 import "./Services.css";
 
 type ServiceCardProps = {
@@ -124,7 +125,7 @@ const ServiceCard = ({
             tabIndex={0}
             aria-label={`${title} service overview`}
           >
-            <p className="service-card-prompt">Hover to explore</p>
+            <p className="service-card-prompt">Click to explore</p>
             <div className="service-card-header">
               <span className="service-card-icon-wrapper" aria-hidden="true">
                 <Icon className="service-card-icon" aria-hidden="true" strokeWidth={2.5} />
@@ -1982,7 +1983,13 @@ const Services = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen pt-20 bg-background">
+    <div className="min-h-screen pt-20 bg-background relative">
+      {/* Full Page Dotted Background with Grid Mesh */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <DottedSurface className="size-full opacity-40" />
+        <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
+      </div>
+      
       {/* Hero Section */}
       <section
         id="services-hero"

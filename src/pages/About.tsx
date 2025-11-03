@@ -4,6 +4,7 @@ import teamImage from "@/assets/team-collaboration.jpg";
 import AfricaMap from "@/components/AfricaMap";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import { WorldMap, type WorldMapConnection } from "@/components/ui/world-map";
+import { DottedSurface } from "@/components/ui/dotted-surface";
 
 const About = () => {
   const globalConnections: WorldMapConnection[] = [
@@ -71,9 +72,15 @@ const About = () => {
 
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-20 relative">
+      {/* Full Page Dotted Background with Grid Mesh */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <DottedSurface className="size-full opacity-40" />
+        <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
+      </div>
+      
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-hero text-secondary-foreground">
+      <section className="py-20 bg-gradient-hero text-secondary-foreground relative z-10">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6 animate-fade-in">
             About Murban Engineering
