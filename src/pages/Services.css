@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1.25rem;
-  transition: transform 200ms ease, box-shadow 200ms ease;
+  transition: transform 300ms ease, box-shadow 300ms ease;
 }
 
 .service-card--selectable {
@@ -87,7 +87,7 @@
   );
   color: hsl(0 0% 100%);
   box-shadow: 0 24px 45px hsl(var(--secondary) / 0.35), 0 0 0 1px hsl(0 0% 100% / 0.1);
-  transition: transform 125ms ease, filter 300ms ease;
+  transition: transform 300ms ease, filter 400ms ease;
   overflow: hidden;
 }
 
@@ -175,7 +175,7 @@
 
 .service-card-container:hover .service-card-inner,
 .service-card-container:focus-within .service-card-inner {
-  filter: brightness(1.08);
+  filter: brightness(1.04);
 }
 
 .service-card-tracker:hover ~ .service-card-inner .service-card-prompt,
@@ -311,51 +311,51 @@
 }
 
 .service-card .tr-1:hover ~ .service-card-inner {
-  transform: rotateX(20deg) rotateY(-10deg);
+  transform: rotateX(8deg) rotateY(-4deg);
 }
 
 .service-card .tr-2:hover ~ .service-card-inner {
-  transform: rotateX(20deg) rotateY(-5deg);
+  transform: rotateX(8deg) rotateY(-2deg);
 }
 
 .service-card .tr-3:hover ~ .service-card-inner {
-  transform: rotateX(20deg) rotateY(0deg);
+  transform: rotateX(8deg) rotateY(0deg);
 }
 
 .service-card .tr-4:hover ~ .service-card-inner {
-  transform: rotateX(20deg) rotateY(5deg);
+  transform: rotateX(8deg) rotateY(2deg);
 }
 
 .service-card .tr-5:hover ~ .service-card-inner {
-  transform: rotateX(20deg) rotateY(10deg);
+  transform: rotateX(8deg) rotateY(4deg);
 }
 
 .service-card .tr-6:hover ~ .service-card-inner {
-  transform: rotateX(10deg) rotateY(-10deg);
+  transform: rotateX(4deg) rotateY(-4deg);
 }
 
 .service-card .tr-7:hover ~ .service-card-inner {
-  transform: rotateX(10deg) rotateY(-5deg);
+  transform: rotateX(4deg) rotateY(-2deg);
 }
 
 .service-card .tr-8:hover ~ .service-card-inner {
-  transform: rotateX(10deg) rotateY(0deg);
+  transform: rotateX(4deg) rotateY(0deg);
 }
 
 .service-card .tr-9:hover ~ .service-card-inner {
-  transform: rotateX(10deg) rotateY(5deg);
+  transform: rotateX(4deg) rotateY(2deg);
 }
 
 .service-card .tr-10:hover ~ .service-card-inner {
-  transform: rotateX(10deg) rotateY(10deg);
+  transform: rotateX(4deg) rotateY(4deg);
 }
 
 .service-card .tr-11:hover ~ .service-card-inner {
-  transform: rotateX(0deg) rotateY(-10deg);
+  transform: rotateX(0deg) rotateY(-4deg);
 }
 
 .service-card .tr-12:hover ~ .service-card-inner {
-  transform: rotateX(0deg) rotateY(-5deg);
+  transform: rotateX(0deg) rotateY(-2deg);
 }
 
 .service-card .tr-13:hover ~ .service-card-inner {
@@ -363,51 +363,51 @@
 }
 
 .service-card .tr-14:hover ~ .service-card-inner {
-  transform: rotateX(0deg) rotateY(5deg);
+  transform: rotateX(0deg) rotateY(2deg);
 }
 
 .service-card .tr-15:hover ~ .service-card-inner {
-  transform: rotateX(0deg) rotateY(10deg);
+  transform: rotateX(0deg) rotateY(4deg);
 }
 
 .service-card .tr-16:hover ~ .service-card-inner {
-  transform: rotateX(-10deg) rotateY(-10deg);
+  transform: rotateX(-4deg) rotateY(-4deg);
 }
 
 .service-card .tr-17:hover ~ .service-card-inner {
-  transform: rotateX(-10deg) rotateY(-5deg);
+  transform: rotateX(-4deg) rotateY(-2deg);
 }
 
 .service-card .tr-18:hover ~ .service-card-inner {
-  transform: rotateX(-10deg) rotateY(0deg);
+  transform: rotateX(-4deg) rotateY(0deg);
 }
 
 .service-card .tr-19:hover ~ .service-card-inner {
-  transform: rotateX(-10deg) rotateY(5deg);
+  transform: rotateX(-4deg) rotateY(2deg);
 }
 
 .service-card .tr-20:hover ~ .service-card-inner {
-  transform: rotateX(-10deg) rotateY(10deg);
+  transform: rotateX(-4deg) rotateY(4deg);
 }
 
 .service-card .tr-21:hover ~ .service-card-inner {
-  transform: rotateX(-20deg) rotateY(-10deg);
+  transform: rotateX(-8deg) rotateY(-4deg);
 }
 
 .service-card .tr-22:hover ~ .service-card-inner {
-  transform: rotateX(-20deg) rotateY(-5deg);
+  transform: rotateX(-8deg) rotateY(-2deg);
 }
 
 .service-card .tr-23:hover ~ .service-card-inner {
-  transform: rotateX(-20deg) rotateY(0deg);
+  transform: rotateX(-8deg) rotateY(0deg);
 }
 
 .service-card .tr-24:hover ~ .service-card-inner {
-  transform: rotateX(-20deg) rotateY(5deg);
+  transform: rotateX(-8deg) rotateY(2deg);
 }
 
 .service-card .tr-25:hover ~ .service-card-inner {
-  transform: rotateX(-20deg) rotateY(10deg);
+  transform: rotateX(-8deg) rotateY(4deg);
 }
 
 .service-card-container:hover .service-card-inner::before,
