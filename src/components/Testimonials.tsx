@@ -54,7 +54,10 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-muted relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden">
+      {/* Smooth gradient transition from previous section */}
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background via-background/50 to-muted" />
+      <div className="absolute inset-0 bg-muted" />
       <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
@@ -77,10 +80,10 @@ const Testimonials = () => {
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index}>
-                  <Card className="border-border/50 bg-gradient-card">
+                  <Card className="border-border bg-card shadow-lg">
                     <CardContent className="p-8 md:p-12">
                       <QuoteIcon className="h-12 w-12 text-primary mb-6 opacity-50" />
-                      <p className="text-lg md:text-xl mb-8 leading-relaxed text-foreground">
+                      <p className="text-lg md:text-xl mb-8 leading-relaxed text-card-foreground">
                         {testimonial.text}
                       </p>
                       <div className="flex items-center">

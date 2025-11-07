@@ -258,9 +258,9 @@ const Home = () => {
               <div className="absolute -inset-6 rounded-[36px] bg-gradient-to-br from-primary/25 via-primary/10 to-background blur-3xl" />
               <div className="relative overflow-hidden rounded-[32px] border border-foreground/10 bg-background/85 shadow-2xl backdrop-blur">
                 <img src={teamImage} alt="Collaborative engineering team" className="h-96 w-full object-cover" />
-                <div className="absolute bottom-5 left-5 right-5 rounded-3xl border border-white/20 bg-white/80 p-5 text-secondary backdrop-blur">
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-secondary">Real-time oversight</p>
-                  <p className="mt-2 text-base font-semibold text-secondary">
+                <div className="absolute bottom-5 left-5 right-5 rounded-3xl border border-border bg-card/95 p-5 backdrop-blur">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Real-time oversight</p>
+                  <p className="mt-2 text-base font-semibold text-card-foreground">
                     Command centre dashboards orchestrating every workstream across your portfolio.
                   </p>
                 </div>
@@ -322,6 +322,8 @@ const Home = () => {
 
       {/* Stats Section */}
       <section className="relative py-20">
+        {/* Smooth gradient transition */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background via-muted/20 to-muted/40 -z-10" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-muted/40 via-background to-background" />
         <div className="container mx-auto px-4">
           <div className="mx-auto mb-12 max-w-2xl text-center">
@@ -402,6 +404,8 @@ const Home = () => {
 
       {/* Featured Project Section */}
       <section className="relative overflow-hidden py-20">
+        {/* Smooth gradient transition from previous section */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background via-background/50 to-muted -z-10" />
         <div className="absolute inset-0 -z-10 bg-muted" />
         <div className="absolute inset-x-0 top-10 -z-10 mx-auto h-80 w-[90%] rounded-full bg-gradient-to-r from-primary/30 via-primary/10 to-accent/20 blur-3xl" />
         <div className="container mx-auto px-4">
@@ -433,9 +437,9 @@ const Home = () => {
               <div className="absolute -inset-8 rounded-3xl bg-gradient-to-br from-primary/20 via-foreground/5 to-background blur-2xl" />
               <div className="relative overflow-hidden rounded-3xl border border-foreground/10 shadow-2xl">
                 <img src={projectImage} alt="Featured project" className="h-full w-full object-cover" />
-                <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/20 bg-white/80 p-6 text-secondary shadow-lg backdrop-blur-md">
-                  <p className="text-sm font-semibold uppercase tracking-wide text-secondary">Trusted delivery partners</p>
-                  <p className="mt-2 text-lg font-semibold text-secondary">
+                <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-border bg-card/95 p-6 shadow-lg backdrop-blur-md">
+                  <p className="text-sm font-semibold uppercase tracking-wide text-primary">Trusted delivery partners</p>
+                  <p className="mt-2 text-lg font-semibold text-card-foreground">
                     Seamless collaboration from masterplanning to commissioning and ongoing optimization.
                   </p>
                 </div>
@@ -446,7 +450,9 @@ const Home = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20">
+      <section className="py-20 relative">
+        {/* Smooth gradient transition from previous section */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-muted via-background/50 to-background -z-10" />
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">How we work</span>
@@ -480,6 +486,8 @@ const Home = () => {
 
       {/* Clients Section */}
       <section className="relative overflow-hidden py-20">
+        {/* Smooth gradient transition from previous section */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-muted via-background/50 to-background -z-10" />
         <div className="absolute inset-0 -z-10 bg-gradient-mesh opacity-40" />
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
@@ -536,6 +544,8 @@ const Home = () => {
 
       {/* Insights Section */}
       <section className="relative overflow-hidden py-20">
+        {/* Smooth gradient transition */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background via-muted/20 to-muted/40 -z-10" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-background via-muted/40 to-background" />
         <div className="container mx-auto px-4">
           <div className="mx-auto mb-16 max-w-3xl text-center">
@@ -567,6 +577,8 @@ const Home = () => {
 
       {/* CTA Section */}
       <section className="relative overflow-hidden py-24">
+        {/* Smooth gradient transition */}
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background via-primary/10 to-transparent -z-10" />
         <div className="absolute inset-0 -z-10 bg-gradient-hero opacity-90" />
         <div className="absolute inset-0 -z-10 bg-gradient-mesh opacity-70" />
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,_hsl(0_0%_100%_/_0.18),_transparent_45%)]" />

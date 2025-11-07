@@ -8,7 +8,7 @@ interface TypingAnimationProps {
   enableSound?: boolean;
 }
 
-const TypingAnimation = ({ text, className = "", speed = 50, enableSound = true }: TypingAnimationProps) => {
+const TypingAnimation = ({ text, className = "", speed = 50, enableSound = false }: TypingAnimationProps) => {
   const [displayedText, setDisplayedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const playSound = useRef<(() => void) | null>(null);

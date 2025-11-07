@@ -74,7 +74,9 @@ const About = () => {
       </section>
 
       {/* Company Profile */}
-      <section className="py-20">
+      <section className="py-20 relative">
+        {/* Smooth gradient transition from hero */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary via-background/20 to-background -z-10" />
         <div className="container mx-auto space-y-12 px-4">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div className="space-y-6 animate-fade-in">
@@ -114,7 +116,10 @@ const About = () => {
       </section>
 
       {/* Where We Work */}
-      <section className="py-20 bg-muted">
+      <section className="py-20 relative overflow-hidden">
+        {/* Smooth gradient transition */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background via-background/50 to-muted" />
+        <div className="absolute inset-0 bg-muted" />
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -127,28 +132,39 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision */}
+      {/* Why, Vision & Mission */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto space-y-8">
             <Card className="animate-fade-in border-border">
               <CardContent className="p-8">
-                <Target className="h-12 w-12 text-primary mb-4" />
-                <h3 className="text-2xl font-serif font-bold mb-4">Our Mission</h3>
+                <Heart className="h-12 w-12 text-primary mb-4" />
+                <h3 className="text-2xl font-serif font-bold mb-4">Our Why (Purpose)</h3>
                 <p className="text-muted-foreground">
-                  We will deliver value to our clients by executing world class asset integrity that maximize up-time and safety.
+                  We exist to enhance safety, reliability, and performance in critical infrastructure through innovative inspection and engineering solutions.
                 </p>
               </CardContent>
             </Card>
-            <Card className="animate-fade-in border-border">
-              <CardContent className="p-8">
-                <Eye className="h-12 w-12 text-primary mb-4" />
-                <h3 className="text-2xl font-serif font-bold mb-4">Our Vision</h3>
-                <p className="text-muted-foreground">
-                  To be the undisputed leader in the field of specialized Non-Destructive Testing through innovation, experience, and the use of technology.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Card className="animate-fade-in border-border">
+                <CardContent className="p-8">
+                  <Eye className="h-12 w-12 text-primary mb-4" />
+                  <h3 className="text-2xl font-serif font-bold mb-4">Our Vision</h3>
+                  <p className="text-muted-foreground">
+                    To be the undisputed leader in specialized Non-Destructive Testing and Inspection across Africa through innovation, experience, and technology.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="animate-fade-in border-border">
+                <CardContent className="p-8">
+                  <Target className="h-12 w-12 text-primary mb-4" />
+                  <h3 className="text-2xl font-serif font-bold mb-4">Our Mission</h3>
+                  <p className="text-muted-foreground">
+                    To deliver value to clients by executing world-class asset integrity services that maximize uptime and ensure safety compliance.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
@@ -157,10 +173,13 @@ const About = () => {
       <WhyChooseUs />
 
       {/* Values Section */}
-      <section className="py-20 bg-muted">
-        <div className="container mx-auto px-4">
+      <section className="py-20 relative overflow-hidden">
+        {/* Smooth gradient transition */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background via-background/50 to-muted" />
+        <div className="absolute inset-0 bg-muted" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Our Compass</h2>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Our How (Values)</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               How we work and what we stand for
             </p>
