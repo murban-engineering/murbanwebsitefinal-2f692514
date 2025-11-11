@@ -11,6 +11,12 @@ import railIndustryImg from "@/assets/rail-industry.png";
 import shippingMarineImg from "@/assets/shipping-marine.png";
 import projectShowcase from "@/assets/project-showcase.jpg";
 import heroEngineering from "@/assets/hero-engineering.jpg";
+import fieldWork1 from "@/assets/field-work-1.jpg";
+import fieldWork2 from "@/assets/field-work-2.jpg";
+import fieldWork3 from "@/assets/field-work-3.jpg";
+import fieldWork4 from "@/assets/field-work-4.jpg";
+import fieldWork5 from "@/assets/field-work-5.jpg";
+import fieldWork6 from "@/assets/field-work-6.jpg";
 
 interface Project {
   id: number;
@@ -46,7 +52,7 @@ const ProjectGallery = () => {
       location: "Mombasa, Kenya",
       year: "2023",
       description: "Comprehensive pipeline inspection and integrity assessment for critical crude oil transportation infrastructure.",
-      image: oilGasImg,
+      image: fieldWork1,
       challenges: [
         "Aging pipeline infrastructure requiring thorough inspection",
         "Minimal downtime requirements for critical operations",
@@ -70,7 +76,7 @@ const ProjectGallery = () => {
       location: "Nairobi, Kenya",
       year: "2023",
       description: "API 653 compliant storage tank inspection and 3D laser scanning calibration for fuel depot operations.",
-      image: storageTerminalsImg,
+      image: fieldWork2,
       challenges: [
         "72 sites requiring coordinated inspection",
         "Accuracy requirements for volumetric calibration",
@@ -118,7 +124,7 @@ const ProjectGallery = () => {
       location: "Olkaria, Kenya",
       year: "2023",
       description: "NDT inspection and certification of drilling rig components for geothermal energy production.",
-      image: renewableEnergyImg,
+      image: fieldWork4,
       challenges: [
         "High-temperature environment",
         "Critical safety requirements for drilling operations",
@@ -166,7 +172,7 @@ const ProjectGallery = () => {
       location: "Djibouti",
       year: "2023",
       description: "Marine terminal cargo tank inspection and loading arm integrity assessment.",
-      image: shippingMarineImg,
+      image: fieldWork3,
       challenges: [
         "Saltwater corrosion acceleration",
         "24/7 terminal operations",
@@ -190,7 +196,7 @@ const ProjectGallery = () => {
       location: "Mombasa, Kenya",
       year: "2024",
       description: "Design, fabrication, and installation of working platforms for offshore facility maintenance.",
-      image: projectShowcase,
+      image: fieldWork5,
       challenges: [
         "Complex structural design requirements",
         "Offshore installation logistics",
@@ -214,7 +220,7 @@ const ProjectGallery = () => {
       location: "East Africa",
       year: "2023",
       description: "Regional inspection program covering fuel depots across multiple East African countries.",
-      image: heroEngineering,
+      image: fieldWork6,
       challenges: [
         "Coordination across 5 countries",
         "Varying regulatory requirements",

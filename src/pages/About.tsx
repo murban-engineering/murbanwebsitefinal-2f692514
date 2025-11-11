@@ -14,6 +14,8 @@ import teamImage from "@/assets/team-collaboration.jpg";
 import AfricaMap from "@/components/AfricaMap";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import { DottedSurface } from "@/components/ui/dotted-surface";
+import fieldWork2 from "@/assets/field-work-2.jpg";
+import fieldWork5 from "@/assets/field-work-5.jpg";
 
 const About = () => {
   const foundationValues = [
@@ -171,6 +173,52 @@ const About = () => {
 
       {/* Why Choose Us */}
       <WhyChooseUs />
+
+      {/* Field Work Excellence Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Our Field Work</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Delivering precision and safety across Africa's critical infrastructure
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div className="aspect-[4/3] overflow-hidden">
+                <img 
+                  src={fieldWork2} 
+                  alt="Industrial tank inspection with advanced equipment" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold mb-3">Advanced NDT Inspections</h3>
+                <p className="text-muted-foreground">
+                  Our certified technicians utilize cutting-edge non-destructive testing equipment including ultrasonic testing, 
+                  magnetic particle inspection, and 3D laser scanning for comprehensive asset integrity assessments.
+                </p>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div className="aspect-[4/3] overflow-hidden">
+                <img 
+                  src={fieldWork5} 
+                  alt="Precision measurement equipment in industrial setting" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold mb-3">Precision Engineering</h3>
+                <p className="text-muted-foreground">
+                  From dimensional verification to corrosion mapping, our engineering teams deliver accurate measurements 
+                  and detailed analysis that ensure structural integrity and regulatory compliance.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Values Section */}
       <section className="py-20 relative overflow-hidden">

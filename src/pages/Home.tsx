@@ -24,6 +24,9 @@ import totalenergiesLogo from "@/assets/totalenergies-logo.png";
 import kengenLogo from "@/assets/kengen-logo.png";
 import bolloreLogo from "@/assets/bollore-logo.png";
 import kpcLogo from "@/assets/kpc-logo.png";
+import fieldWork1 from "@/assets/field-work-1.jpg";
+import fieldWork3 from "@/assets/field-work-3.jpg";
+import fieldWork4 from "@/assets/field-work-4.jpg";
 const Home = () => {
   const services = [
     {
@@ -386,7 +389,7 @@ const Home = () => {
             <div className="relative">
               <div className="absolute -inset-8 rounded-3xl bg-gradient-to-br from-primary/20 via-foreground/5 to-background blur-2xl" />
               <div className="relative overflow-hidden rounded-3xl border border-foreground/10 shadow-2xl">
-                <img src={projectImage} alt="Featured project" className="h-full w-full object-cover" />
+                <img src={fieldWork1} alt="Professional field inspection work" className="h-full w-full object-cover" />
                 <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-border bg-card/95 p-6 shadow-lg backdrop-blur-md">
                   <p className="text-sm font-semibold uppercase tracking-wide text-primary">Trusted delivery partners</p>
                   <p className="mt-2 text-lg font-semibold text-card-foreground">
@@ -488,6 +491,74 @@ const Home = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Field Work Showcase Section */}
+      <section className="relative overflow-hidden py-20">
+        {/* Smooth gradient transition */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background via-background/50 to-muted -z-10" />
+        <div className="absolute inset-0 -z-10 bg-muted" />
+        <div className="container mx-auto px-4">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <span className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">Our Expertise in Action</span>
+            <h2 className="mt-6 text-4xl font-serif font-bold md:text-5xl">Engineering Excellence on Site</h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              From precision surveying to tank inspections and structural assessments, our certified teams deliver world-class asset integrity services across Africa's critical infrastructure.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div className="aspect-[4/3] overflow-hidden">
+                <img 
+                  src={fieldWork1} 
+                  alt="Precision surveying at industrial facility" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">Tank Farm Inspections</h3>
+                <p className="text-sm text-muted-foreground">Advanced 3D laser scanning and precision measurement for storage terminal calibration.</p>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div className="aspect-[4/3] overflow-hidden">
+                <img 
+                  src={fieldWork3} 
+                  alt="Safety inspections at height" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">Height Access Surveys</h3>
+                <p className="text-sm text-muted-foreground">Rope access and elevated platform inspections for tanks, towers, and offshore structures.</p>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div className="aspect-[4/3] overflow-hidden">
+                <img 
+                  src={fieldWork4} 
+                  alt="Geothermal facility inspection" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">Renewable Energy Assets</h3>
+                <p className="text-sm text-muted-foreground">NDT inspection and certification for geothermal plants, solar farms, and wind installations.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Button size="lg" asChild className="shadow-primary/30 shadow-lg">
+              <Link to="/project-gallery">
+                View Complete Project Portfolio <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
