@@ -42,6 +42,8 @@ const additionalServices = [
   { label: "Sphere Tank Inspection", to: servicePath("Sphere Tank Inspections") },
 ];
 
+const linkedInCompanyUrl = "https://ke.linkedin.com/company/murban-engineering";
+
 const socialLinks = [
   {
     label: "Facebook",
@@ -63,7 +65,7 @@ const socialLinks = [
   },
   {
     label: "LinkedIn",
-    href: "https://ke.linkedin.com/company/murban-engineering",
+    href: linkedInCompanyUrl,
     icon: LinkedinIcon,
     tooltip: "Connect with us on LinkedIn",
   },
