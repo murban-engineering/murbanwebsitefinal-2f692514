@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/icons";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { DottedSurface } from "@/components/ui/dotted-surface";
@@ -61,6 +62,8 @@ const Home = () => {
     { value: "42", label: "Specialist Engineers" },
     { value: "ISO 9001", label: "Certified Excellence" },
   ];
+
+  const heroMetrics = stats.slice(0, 3);
 
   const differentiators = [
     {
@@ -161,6 +164,30 @@ const Home = () => {
     { name: "KPC", logo: kpcLogo, width: "w-20" },
   ];
 
+  const transformationHighlights = [
+    {
+      icon: Sparkles,
+      title: "Immersive Digital Oversight",
+      description:
+        "Unified command centres with predictive analytics that surface insights for every stakeholder in real time.",
+      stat: "98% uptime across active sites",
+    },
+    {
+      icon: Compass,
+      title: "Regenerative Design Systems",
+      description:
+        "Low-carbon materials, adaptive envelopes and net-positive water strategies embedded at concept stage.",
+      stat: "40% average energy intensity reduction",
+    },
+    {
+      icon: Shield,
+      title: "Lifecycle Assurance",
+      description:
+        "Asset integrity programmes, NDT and digital twins that extend operational life and mitigate unplanned downtime.",
+      stat: "ISO 55001-aligned stewardship",
+    },
+  ];
+
   return (
     <div className="relative min-h-screen bg-background">
       {/* Full Page Dotted Background */}
@@ -176,79 +203,65 @@ const Home = () => {
           </div>
         </div>
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-20 pb-48 sm:pt-24 sm:pb-56">
-          <div className="absolute -top-40 -right-32 h-[420px] w-[420px] rounded-full bg-primary/25 blur-3xl" />
-          <div className="absolute -bottom-24 -left-20 h-80 w-80 rounded-full bg-secondary/30 blur-3xl" />
+        <section className="relative overflow-hidden pt-24 pb-36 sm:pt-32">
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute -top-48 -left-36 h-[520px] w-[520px] rounded-full bg-primary/25 blur-3xl" />
+            <div className="absolute top-1/4 right-0 h-[420px] w-[420px] rounded-full bg-secondary/20 blur-3xl" />
+            <div className="absolute bottom-[-140px] left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-accent/15 blur-3xl" />
+          </div>
 
-          <div className="relative z-10 container mx-auto px-4">
-            <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_420px]">
-            <div className="space-y-10">
-              <div className="inline-flex items-center gap-3 rounded-full border border-foreground/10 bg-foreground/5 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] backdrop-blur">
-                <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" /> Next era engineering partner
-              </div>
-              <div className="space-y-6">
-                <h1 className="text-left font-serif text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
-                  <TypingAnimation text="Murban Engineering" speed={40} className="text-foreground" />
-                </h1>
-                <p className="max-w-2xl text-lg text-muted-foreground md:text-xl">
-                  Murban Engineering blends structural, MEP and advisory expertise to deliver iconic developments, resilient infrastructure and immersive experiences across the continent.
-                </p>
-              </div>
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                <Button size="lg" asChild className="text-base rounded-full px-8 shadow-primary/40 shadow-2xl">
-                  <Link to="/contact">
-                    Start a project <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button
-                  size="lg"
+          <div className="container relative mx-auto px-4">
+            <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,1.2fr)_1fr]">
+              <div className="space-y-10">
+                <Badge
                   variant="outline"
-                  asChild
-                  className="text-base rounded-full border-foreground/20 bg-background/70 px-8 backdrop-blur hover:bg-foreground/5"
+                  className="inline-flex items-center gap-3 rounded-full border border-primary/40 bg-primary/10 px-6 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-primary backdrop-blur"
                 >
-                  <Link to="/services">Explore services</Link>
-                </Button>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-3">
-                {stats.slice(0, 3).map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="rounded-3xl border border-foreground/10 bg-background/80 p-5 text-left shadow-lg shadow-primary/10 backdrop-blur"
-                  >
-                    <span className="text-3xl font-semibold text-foreground md:text-4xl">{stat.value}</span>
-                    <span className="mt-2 block text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                      {stat.label}
+                  <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" /> Modern infrastructure partner
+                </Badge>
+                <div className="space-y-6">
+                  <h1 className="text-left font-serif text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
+                    Engineering the next era with
+                    <span className="mt-3 block text-primary">
+                      <TypingAnimation text="Murban Engineering" speed={40} className="text-primary" />
                     </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="relative">
-              <div className="absolute -inset-6 rounded-[36px] bg-gradient-to-br from-primary/25 via-primary/10 to-background blur-3xl" />
-              <div className="relative overflow-hidden rounded-[32px] border border-foreground/10 bg-background/85 shadow-2xl backdrop-blur">
-                <div
-                  className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background/70 to-background"
-                  aria-hidden="true"
-                />
-                <div className="absolute -top-10 -left-8 h-40 w-40 rounded-full bg-primary/20 blur-3xl" />
-                <div className="absolute -bottom-12 -right-10 h-48 w-48 rounded-full bg-secondary/25 blur-3xl" />
-                <div className="relative flex h-96 flex-col items-center justify-center gap-4 text-center">
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Immersive collaboration</p>
-                  <p className="max-w-[260px] text-sm text-muted-foreground">
-                    Human-centred engineering partnerships powered by real-time project intelligence.
+                  </h1>
+                  <p className="max-w-2xl text-lg text-muted-foreground md:text-xl">
+                    We integrate structural ingenuity, smart MEP systems and strategic advisory to deliver future-ready spaces
+                    that respond to people, climate and performance goals.
                   </p>
                 </div>
-                <div className="absolute bottom-5 left-5 right-5 rounded-3xl border border-border bg-card/95 p-5 backdrop-blur">
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Real-time oversight</p>
-                  <p className="mt-2 text-base font-semibold text-card-foreground">
-                    Command centre dashboards orchestrating every workstream across your portfolio.
-                  </p>
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                  <Button size="lg" asChild className="text-base rounded-full px-8 shadow-primary/40 shadow-2xl">
+                    <Link to="/contact">
+                      Start a project <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    asChild
+                    className="text-base rounded-full border-foreground/20 bg-background/70 px-8 backdrop-blur hover:bg-foreground/5"
+                  >
+                    <Link to="/services">Explore services</Link>
+                  </Button>
                 </div>
-              </div>
-              <div className="absolute -bottom-20 left-6 right-6">
-                <div className="rounded-3xl border border-foreground/10 bg-background/95 p-6 shadow-2xl">
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {heroMetrics.map((stat) => (
+                    <div
+                      key={stat.label}
+                      className="rounded-3xl border border-foreground/10 bg-background/80 p-5 text-left shadow-lg shadow-primary/10 backdrop-blur"
+                    >
+                      <span className="text-3xl font-semibold text-foreground md:text-4xl">{stat.value}</span>
+                      <span className="mt-2 block text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                        {stat.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div className="rounded-3xl border border-foreground/10 bg-background/70 p-6 shadow-lg shadow-primary/10 backdrop-blur">
                   <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Why partners choose Murban</p>
-                  <div className="mt-4 space-y-4">
+                  <div className="mt-4 grid gap-4 sm:grid-cols-2">
                     {heroHighlights.map((item) => (
                       <div key={item.title} className="flex items-start gap-3">
                         <item.icon className="mt-1 h-5 w-5 text-primary" />
@@ -261,17 +274,88 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="absolute -top-10 right-6">
-                <div className="rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/25 via-primary/10 to-background/90 p-4 text-sm text-primary shadow-xl">
+              <div className="relative">
+                <div className="absolute -inset-8 rounded-[40px] bg-gradient-to-br from-primary/20 via-primary/10 to-background blur-3xl" />
+                <div className="relative overflow-hidden rounded-[36px] border border-foreground/10 bg-background/85 shadow-2xl backdrop-blur">
+                  <img src={projectImage} alt="Engineers collaborating in a project command centre" className="h-full w-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
+                  <div className="absolute top-6 left-6 right-6 flex items-center justify-between rounded-2xl border border-white/10 bg-background/80 p-4 text-sm text-secondary-foreground backdrop-blur">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Live programme feed</p>
+                      <p className="text-base font-semibold text-foreground">Predictive dashboards activated</p>
+                    </div>
+                    <Sparkles className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="absolute bottom-6 left-6 right-6 rounded-3xl border border-border bg-card/95 p-6 backdrop-blur">
+                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Real-time oversight</p>
+                    <p className="mt-2 text-base font-semibold text-card-foreground">
+                      Command centre orchestration across structural, MEP and advisory workstreams.
+                    </p>
+                  </div>
+                </div>
+                <div className="absolute -top-10 right-0 w-52 rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/25 via-primary/10 to-background/90 p-4 text-sm text-primary shadow-xl">
                   <p className="text-xs uppercase tracking-[0.3em] text-primary/80">Active programmes</p>
                   <p className="mt-2 text-lg font-semibold text-primary">72 sites in delivery</p>
-                  <p className="text-xs text-primary/80">Across energy, logistics and civic infrastructure</p>
+                  <p className="text-xs text-primary/80">Energy, logistics & civic infrastructure</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+        {/* Modern Delivery Section */}
+        <section className="relative overflow-hidden py-20">
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background via-primary/10 to-transparent -z-10" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-muted/30 via-background to-background" />
+          <div className="container mx-auto px-4">
+            <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.1fr)_1fr]">
+              <div className="space-y-6">
+                <Badge variant="secondary" className="inline-flex items-center gap-2 rounded-full bg-secondary/20 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-secondary-foreground">
+                  <span className="flex h-2 w-2 rounded-full bg-secondary/80" /> Future-forward delivery
+                </Badge>
+                <h2 className="text-4xl font-serif font-bold md:text-5xl">Signature frameworks built for modern infrastructure</h2>
+                <p className="text-lg text-muted-foreground">
+                  Our integrated squads pair advanced modelling, sustainability science and on-site intelligence to orchestrate
+                  transformational programmes with certainty.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Badge variant="outline" className="border-primary/40 bg-primary/10 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+                    AI-assisted coordination
+                  </Badge>
+                  <Badge variant="outline" className="border-secondary/30 bg-secondary/10 text-xs font-semibold uppercase tracking-[0.3em] text-secondary-foreground">
+                    Carbon-positive design
+                  </Badge>
+                  <Badge variant="outline" className="border-accent/30 bg-accent/10 text-xs font-semibold uppercase tracking-[0.3em] text-accent-foreground">
+                    Lifecycle intelligence
+                  </Badge>
+                </div>
+                <Button size="lg" asChild className="rounded-full shadow-primary/30 shadow-lg">
+                  <Link to="/industry-solutions">
+                    Discover industry solutions <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
+              <div className="space-y-6">
+                {transformationHighlights.map((item) => (
+                  <div
+                    key={item.title}
+                    className="group relative overflow-hidden rounded-3xl border border-foreground/10 bg-background/80 p-6 shadow-lg shadow-primary/10 transition-transform hover:-translate-y-1 hover:shadow-primary/20"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                        <item.icon className="h-6 w-6" />
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
+                        <p className="text-sm text-muted-foreground">{item.description}</p>
+                        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary/80">{item.stat}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
 
       {/* Stats Section */}
       <section className="relative py-20">
