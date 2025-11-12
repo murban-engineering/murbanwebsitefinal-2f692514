@@ -94,7 +94,7 @@ const Navigation = () => {
               })}
             </div>
             <Button asChild size="lg" className="rounded-full shadow-none">
-              <Link to="/contact">Start a project</Link>
+              <Link to="/contact">Schedule a consultation</Link>
             </Button>
           </div>
 
@@ -153,7 +153,7 @@ const Navigation = () => {
               })}
               <Button asChild className="w-full rounded-2xl text-base">
                 <Link to="/contact" onClick={() => setIsOpen(false)}>
-                  Start a project
+                  Schedule a consultation
                 </Link>
               </Button>
             </div>
