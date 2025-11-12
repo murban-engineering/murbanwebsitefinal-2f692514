@@ -30,6 +30,7 @@ import fieldWork1 from "@/assets/field-work-1.jpg";
 import fieldWork3 from "@/assets/field-work-3.jpg";
 import fieldWork4 from "@/assets/field-work-4.jpg";
 import { cn } from "@/lib/utils";
+import DisplayCards from "@/components/ui/display-cards";
 const Home = () => {
   const heroImage = "/_MG_2668%20-%20Copy%20-%20Copy%20-%20Copy(1).jpg";
   const [isHeroTextVisible, setHeroTextVisible] = useState(false);
@@ -68,13 +69,43 @@ const Home = () => {
   ];
 
   const stats = [
-    { value: "25+", label: "Years Engineering Landmarks" },
-    { value: "1.8k", label: "Projects Delivered" },
-    { value: "42", label: "Specialist Engineers" },
-    { value: "ISO 9001", label: "Certified Excellence" },
+    { value: "50+", label: "Infrastructure programs delivered" },
+    { value: "1.9k", label: "Digital-first releases" },
+    { value: "60", label: "Specialist leads on staff" },
+    { value: "ISO 9001", label: "Certified excellence" },
   ];
 
-  const heroMetrics = stats.slice(0, 3);
+  const heroCards = [
+    {
+      icon: <Sparkles className="size-4 text-blue-200" />,
+      title: "Program briefings",
+      description: "Live highlights across structural, MEP and advisory streams.",
+      date: "Synced moments ago",
+      iconClassName: "bg-blue-900",
+      titleClassName: "text-blue-400",
+      className:
+        "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+    },
+    {
+      icon: <Layers className="size-4 text-indigo-200" />,
+      title: "Systems sync",
+      description: "Coordinated models aligning design and fabrication windows.",
+      date: "Updated 12m ago",
+      iconClassName: "bg-indigo-900",
+      titleClassName: "text-indigo-400",
+      className:
+        "[grid-area:stack] translate-x-16 translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+    },
+    {
+      icon: <Compass className="size-4 text-cyan-200" />,
+      title: "Advisory insight",
+      description: "Risk signals and commercial guidance surfaced instantly.",
+      date: "New intelligence",
+      iconClassName: "bg-cyan-900",
+      titleClassName: "text-cyan-400",
+      className: "[grid-area:stack] translate-x-32 translate-y-20 hover:translate-y-10",
+    },
+  ];
 
   const differentiators = [
     {
@@ -94,19 +125,6 @@ const Home = () => {
       title: "Sustainability by Design",
       description:
         "We engineer for carbon, water and energy performance from day zero, ensuring compliance and positive impact.",
-    },
-  ];
-
-  const heroHighlights = [
-    {
-      icon: Sparkles,
-      title: "Connected delivery",
-      description: "Integrated teams orchestrating design and construction workflows with absolute transparency.",
-    },
-    {
-      icon: Shield,
-      title: "Resilient systems",
-      description: "High-performance structures and MEP solutions engineered to adapt, scale and thrive.",
     },
   ];
 
@@ -233,7 +251,7 @@ const Home = () => {
                   variant="outline"
                   className="inline-flex items-center gap-3 rounded-full border border-primary/40 bg-primary/10 px-6 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-primary backdrop-blur"
                 >
-                  <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" /> Modern infrastructure partner
+                  <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" /> Infrastructure mission control
                 </Badge>
                 <div
                   className={cn(
@@ -242,20 +260,23 @@ const Home = () => {
                   )}
                 >
                   <h1 className="text-left font-serif text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
-                    Engineering tomorrow with
+                    Command every phase of your build
                     <span className="mt-3 block text-primary">
-                      <TypingAnimation text="Murban Engineering" speed={40} className="text-primary" />
+                      <TypingAnimation text="Powered by Murban Engineering" speed={40} className="text-primary" />
                     </span>
                   </h1>
                   <p className="max-w-2xl text-lg text-muted-foreground md:text-xl">
-                    We fuse structural intelligence, adaptive MEP systems, and strategic advisory to craft future-ready spaces
-                    tuned to people, climate, and performance ambitions.
+                    Integrated structural, MEP and advisory teams share a single source of truth so decisions happen with the same
+                    pace as your programme.
                   </p>
+                </div>
+                <div className="flex justify-center lg:justify-start">
+                  <DisplayCards cards={heroCards} />
                 </div>
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                   <Button size="lg" asChild className="text-base rounded-full px-8 shadow-primary/40 shadow-2xl">
                     <Link to="/contact">
-                      Start a project <ArrowRight className="ml-2 h-5 w-5" />
+                      Schedule a consultation <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                   </Button>
                   <Button
@@ -264,35 +285,8 @@ const Home = () => {
                     asChild
                     className="text-base rounded-full border-foreground/20 bg-background/70 px-8 backdrop-blur hover:bg-foreground/5"
                   >
-                    <Link to="/services">Explore services</Link>
+                    <Link to="/services">View capabilities</Link>
                   </Button>
-                </div>
-                <div className="grid gap-4 sm:grid-cols-3">
-                  {heroMetrics.map((stat) => (
-                    <div
-                      key={stat.label}
-                      className="rounded-3xl border border-foreground/10 bg-background/80 p-5 text-left shadow-lg shadow-primary/10 backdrop-blur"
-                    >
-                      <span className="text-3xl font-semibold text-foreground md:text-4xl">{stat.value}</span>
-                      <span className="mt-2 block text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                        {stat.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <div className="rounded-3xl border border-foreground/10 bg-background/70 p-6 shadow-lg shadow-primary/10 backdrop-blur">
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Why partners choose Murban</p>
-                  <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                    {heroHighlights.map((item) => (
-                      <div key={item.title} className="flex items-start gap-3">
-                        <item.icon className="mt-1 h-5 w-5 text-primary" />
-                        <div>
-                          <p className="text-sm font-semibold text-foreground">{item.title}</p>
-                          <p className="text-xs text-muted-foreground">{item.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </div>
               <div className="relative">
@@ -305,9 +299,9 @@ const Home = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6 rounded-3xl border border-border bg-card/95 p-6 backdrop-blur">
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Real-time oversight</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Operations theatre</p>
                     <p className="mt-2 text-base font-semibold text-card-foreground">
-                      Command centre orchestration across structural, MEP and advisory workstreams.
+                      Immersive oversight aligning structural, MEP and advisory teams in one command space.
                     </p>
                   </div>
                 </div>
@@ -685,7 +679,7 @@ const Home = () => {
                 <h3 className="text-xl font-semibold text-foreground">{insight.title}</h3>
                 <p className="text-sm text-muted-foreground">{insight.description}</p>
                 <Link to="/services" className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                  Explore services <ArrowRight className="h-4 w-4" />
+                  Discover services <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             ))}
