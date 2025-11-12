@@ -19,7 +19,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { DottedSurface } from "@/components/ui/dotted-surface";
 import TypingAnimation from "@/components/TypingAnimation";
-import projectImage from "@/assets/project-showcase.jpg";
 import Testimonials from "@/components/Testimonials";
 import totalenergiesLogo from "@/assets/totalenergies-logo.png";
 import kengenLogo from "@/assets/kengen-logo.png";
@@ -29,6 +28,8 @@ import fieldWork1 from "@/assets/field-work-1.jpg";
 import fieldWork3 from "@/assets/field-work-3.jpg";
 import fieldWork4 from "@/assets/field-work-4.jpg";
 const Home = () => {
+  const heroImage = "/_MG_2668%20-%20Copy%20-%20Copy%20-%20Copy(1).jpg";
+
   const services = [
     {
       icon: Building2,
@@ -277,7 +278,11 @@ const Home = () => {
               <div className="relative">
                 <div className="absolute -inset-8 rounded-[40px] bg-gradient-to-br from-primary/20 via-primary/10 to-background blur-3xl" />
                 <div className="relative overflow-hidden rounded-[36px] border border-foreground/10 bg-background/85 shadow-2xl backdrop-blur">
-                  <img src={projectImage} alt="Engineers collaborating in a project command centre" className="h-full w-full object-cover" />
+                  <img
+                    src={heroImage}
+                    alt="Engineers collaborating in a project command centre"
+                    className="h-full w-full object-cover"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
                   <div className="absolute top-6 left-6 right-6 flex items-center justify-between rounded-2xl border border-white/10 bg-background/80 p-4 text-sm text-secondary-foreground backdrop-blur">
                     <div>
