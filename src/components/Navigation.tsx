@@ -18,11 +18,11 @@ const Navigation = () => {
 
   const navLinks: Array<{ name: string; path: string; external?: boolean }> = [
     { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Industry Solutions", path: "/industry-solutions" },
-    { name: "Certifications", path: "/certifications" },
-    { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
+    { name: "Portal", path: "https://murbanportal.com/", external: true },
   ];
 
   const isActive = (path: string) => location.pathname === path;
