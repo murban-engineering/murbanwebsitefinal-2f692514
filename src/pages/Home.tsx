@@ -18,7 +18,6 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
-import TypingAnimation from "@/components/TypingAnimation";
 import projectImage from "@/assets/project-showcase.jpg";
 import Testimonials from "@/components/Testimonials";
 import totalenergiesLogo from "@/assets/totalenergies-logo.png";
@@ -28,7 +27,6 @@ import kpcLogo from "@/assets/kpc-logo.png";
 import fieldWork1 from "@/assets/field-work-1.jpg";
 import fieldWork3 from "@/assets/field-work-3.jpg";
 import fieldWork4 from "@/assets/field-work-4.jpg";
-import portSunset from "@/assets/port-sunset.jpg";
 const Home = () => {
   const services = [
     {
@@ -64,8 +62,6 @@ const Home = () => {
     { value: "ISO 9001", label: "Certified Excellence" },
   ];
 
-  const heroMetrics = stats.slice(0, 3);
-
   const differentiators = [
     {
       icon: Sparkles,
@@ -84,19 +80,6 @@ const Home = () => {
       title: "Sustainability by Design",
       description:
         "We engineer for carbon, water and energy performance from day zero, ensuring compliance and positive impact.",
-    },
-  ];
-
-  const heroHighlights = [
-    {
-      icon: Sparkles,
-      title: "Connected delivery",
-      description: "Integrated teams orchestrating design and construction workflows with absolute transparency.",
-    },
-    {
-      icon: Shield,
-      title: "Resilient systems",
-      description: "High-performance structures and MEP solutions engineered to adapt, scale and thrive.",
     },
   ];
 
@@ -191,84 +174,70 @@ const Home = () => {
 
   return (
     <div className="relative min-h-screen bg-background">
-      {/* Gradient Background */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
-      </div>
-      
-      <div className="relative z-10">
-        <div className="relative z-20">
-          <div className="container mx-auto flex justify-end px-4 pt-6">
-            <ThemeToggle id="home-theme-toggle" />
-          </div>
+      <div className="relative">
+        {/* Theme Toggle */}
+        <div className="absolute right-4 top-24 z-20">
+          <ThemeToggle id="home-theme-toggle" />
         </div>
-        {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-          {/* Background Image */}
-          <div className="absolute inset-0 -z-10">
-            <img 
-              src={portSunset} 
-              alt="Port machinery at sunset" 
-              className="h-full w-full object-cover"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-          </div>
 
-          <div className="container relative mx-auto px-4 py-20">
-            <div className="max-w-3xl space-y-8">
-              <Badge
-                variant="outline"
-                className="inline-flex items-center gap-3 rounded-full border border-primary/40 bg-background/80 px-6 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-primary backdrop-blur"
-              >
-                <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" /> Modern infrastructure partner
-              </Badge>
+        {/* Hero Section - Clean minimal design */}
+        <section className="pt-32 pb-20 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl">
+              {/* Label */}
+              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                Engineering Solutions Company
+              </span>
               
-              <h1 className="font-serif text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
-                Engineering the next era with
-                <span className="mt-3 block text-primary">
-                  <TypingAnimation text="Murban Engineering" speed={40} className="text-primary" />
-                </span>
+              {/* Main Heading - Two-tone style */}
+              <h1 className="mt-6 font-serif text-4xl font-bold leading-[1.1] sm:text-5xl md:text-6xl lg:text-7xl">
+                <span className="text-foreground">We build infrastructure</span>
+                <br />
+                <span className="text-muted-foreground">that drives real progress.</span>
               </h1>
               
-              <p className="max-w-2xl text-lg text-muted-foreground md:text-xl">
-                We integrate structural ingenuity, smart MEP systems and strategic advisory to deliver future-ready spaces
-                that respond to people, climate and performance goals.
+              {/* Description */}
+              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+                We deliver comprehensive engineering solutions for businesses that need systems they can
+                rely on. From structural design to MEP systems, we partner with clients to create
+                infrastructure that works reliably and scales with growth.
               </p>
               
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                <Button size="lg" asChild className="text-base rounded-full px-8 shadow-primary/40 shadow-2xl">
+              {/* Buttons */}
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+                <Button size="lg" asChild className="rounded-lg px-8 text-base">
                   <Link to="/contact">
-                    Start a project <ArrowRight className="ml-2 h-5 w-5" />
+                    Start a Project <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
                   asChild
-                  className="text-base rounded-full border-foreground/20 bg-background/70 px-8 backdrop-blur hover:bg-foreground/5"
+                  className="rounded-lg border-border px-8 text-base hover:bg-muted"
                 >
-                  <Link to="/services">Explore services</Link>
+                  <Link to="/services">View Our Work</Link>
                 </Button>
               </div>
-              
-              {/* Stats Row */}
-              <div className="grid gap-4 sm:grid-cols-3 pt-8">
-                {heroMetrics.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="rounded-2xl border border-foreground/10 bg-background/80 p-5 text-left shadow-lg backdrop-blur"
-                  >
-                    <span className="text-3xl font-semibold text-foreground md:text-4xl">{stat.value}</span>
-                    <span className="mt-2 block text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                      {stat.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Stats Row - Clean cards */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-xl border border-border bg-background p-6"
+                >
+                  <span className="text-3xl font-bold text-foreground md:text-4xl">{stat.value}</span>
+                  <span className="mt-2 block text-sm text-muted-foreground">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -327,34 +296,7 @@ const Home = () => {
           </div>
         </section>
 
-      {/* Stats Section */}
-      <section className="relative py-20">
-        {/* Smooth gradient transition */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background via-muted/20 to-muted/40 -z-10" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-muted/40 via-background to-background" />
-        <div className="container mx-auto px-4">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.4em] text-primary">Proof points</span>
-            <h2 className="mt-4 text-3xl font-serif font-bold md:text-4xl">Quantified impact earned over 25+ years</h2>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="group relative overflow-hidden rounded-[28px] border border-foreground/10 bg-background/95 p-8 shadow-lg shadow-primary/10 transition-all hover:-translate-y-1 hover:shadow-primary/20"
-              >
-                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-primary/5 transition-transform group-hover:scale-125" />
-                <div className="relative">
-                  <span className="text-4xl font-semibold text-foreground md:text-5xl">{stat.value}</span>
-                  <p className="mt-3 text-sm uppercase tracking-wide text-muted-foreground">{stat.label}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
+        {/* Services Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="mx-auto mb-16 max-w-3xl text-center">

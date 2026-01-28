@@ -18,88 +18,78 @@ const Navigation = () => {
 
   const navLinks: Array<{ name: string; path: string; external?: boolean }> = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Industry Solutions", path: "/industry-solutions" },
     { name: "Certifications", path: "/certifications" },
-    { name: "Portal", path: "https://murbanportal.com/", external: true },
-    { name: "Contact Us", path: "/contact" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
 
-  const desktopLinks = navLinks.filter((link) => link.name !== "Contact Us");
-
   return (
     <nav
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border/60 shadow-lg" : "bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-background border-b border-border shadow-sm" : "bg-background"
       }`}
     >
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 rounded-full border border-border/40 bg-background/90 px-4 py-2 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 backdrop-blur-md">
-            <div className="relative h-10 w-10 overflow-hidden rounded-full ring-2 ring-primary/20">
+          <Link to="/" className="flex items-center gap-3">
+            <div className="relative h-10 w-10 overflow-hidden rounded-lg">
               <img src={murbanLogo} alt="Murban Engineering Logo" className="h-full w-full object-cover" />
             </div>
-            <div className="text-base font-bold tracking-tight">
-              <span className="bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
-                Murban Engineering
-              </span>
-            </div>
+            <span className="text-xl font-bold tracking-tight text-foreground">
+              MURBAN ENGINEERING
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
-            <div className="flex items-center gap-1 rounded-full border border-border/60 bg-background/70 p-1 shadow-sm">
-              {desktopLinks.map((link) => {
-                const active = !link.external && isActive(link.path);
+          <div className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => {
+              const active = isActive(link.path);
 
-                if (link.external) {
-                  return (
-                    <a
-                      key={link.path}
-                      href={link.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group relative inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-foreground transition-all hover:text-primary"
-                    >
-                      {link.name}
-                      <span className="absolute inset-0 rounded-full border border-transparent transition-all group-hover:border-primary/40" />
-                    </a>
-                  );
-                }
-
+              if (link.external) {
                 return (
-                  <Link
+                  <a
                     key={link.path}
-                    to={link.path}
-                    className={`group relative inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition-all ${
-                      active
-                        ? "bg-gradient-to-r from-primary/15 via-primary/10 to-secondary/20 text-primary shadow-sm"
-                        : "text-foreground hover:text-primary"
-                    }`}
+                    href={link.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {link.name}
-                    <span
-                      className={`absolute inset-0 rounded-full border border-primary/30 transition-opacity ${
-                        active ? "opacity-100" : "opacity-0"
-                      }`}
-                    />
-                  </Link>
+                  </a>
                 );
-              })}
-            </div>
-            <Button asChild size="lg" className="rounded-full shadow-primary/30 shadow-lg">
-              <Link to="/contact">Start a project</Link>
+              }
+
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`text-sm font-medium transition-colors ${
+                    active
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* CTA Button */}
+          <div className="hidden lg:block">
+            <Button asChild size="lg" className="rounded-lg px-6">
+              <Link to="/contact">Start a Project</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden rounded-full border border-border/70 bg-background/80 p-2 shadow-sm"
+            className="lg:hidden rounded-lg border border-border bg-background p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -113,10 +103,10 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-6">
-            <div className="space-y-4 rounded-3xl border border-border/60 bg-background/95 p-6 shadow-xl">
+          <div className="lg:hidden pb-6">
+            <div className="space-y-2 border-t border-border pt-4">
               {navLinks.map((link) => {
-                const active = !link.external && isActive(link.path);
+                const active = isActive(link.path);
 
                 if (link.external) {
                   return (
@@ -126,10 +116,9 @@ const Navigation = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center justify-between rounded-2xl border border-transparent bg-foreground/5 px-4 py-3 text-sm font-medium text-foreground transition-all hover:border-primary/40 hover:text-primary"
+                      className="block px-4 py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {link.name}
-                      <span className="text-xs text-muted-foreground">External</span>
                     </a>
                   );
                 }
@@ -139,22 +128,23 @@ const Navigation = () => {
                     key={link.path}
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-medium transition-all ${
+                    className={`block px-4 py-3 text-sm font-medium transition-colors ${
                       active
-                        ? "bg-gradient-to-r from-primary/15 via-primary/10 to-secondary/20 text-primary"
-                        : "bg-foreground/5 text-foreground hover:bg-foreground/10 hover:text-primary"
+                        ? "text-foreground bg-muted rounded-lg"
+                        : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {link.name}
-                    {active && <span className="text-xs uppercase tracking-wide">Now</span>}
                   </Link>
                 );
               })}
-              <Button asChild className="w-full rounded-2xl text-base">
-                <Link to="/contact" onClick={() => setIsOpen(false)}>
-                  Start a project
-                </Link>
-              </Button>
+              <div className="pt-4 px-4">
+                <Button asChild className="w-full rounded-lg">
+                  <Link to="/contact" onClick={() => setIsOpen(false)}>
+                    Start a Project
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         )}
