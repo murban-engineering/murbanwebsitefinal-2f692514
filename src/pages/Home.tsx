@@ -150,6 +150,8 @@ const Home = () => {
     { name: "KPC", logo: kpcLogo, width: "w-20" },
   ];
 
+  const marqueeLogos = [...clientLogos, ...clientLogos];
+
   const transformationHighlights = [
     {
       icon: Sparkles,
@@ -427,15 +429,17 @@ const Home = () => {
           <p className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
             Trusted by industry leaders
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-12">
-            {clientLogos.map((client) => (
-              <img
-                key={client.name}
-                src={client.logo}
-                alt={client.name}
-                className={`${client.width} h-auto opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0`}
-              />
-            ))}
+          <div className="logo-marquee overflow-hidden">
+            <div className="logo-marquee-track flex w-max items-center gap-12">
+              {marqueeLogos.map((client, index) => (
+                <img
+                  key={`${client.name}-${index}`}
+                  src={client.logo}
+                  alt={client.name}
+                  className={`${client.width} h-auto opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
