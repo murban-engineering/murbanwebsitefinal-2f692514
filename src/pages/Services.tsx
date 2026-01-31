@@ -33,6 +33,7 @@ import {
   StructureLiftIcon,
   WeldingArcIcon,
   SurfaceTreatmentIcon,
+  ArrowRightIcon,
 } from "@/components/ui/icons";
 import type { IconComponent } from "@/components/ui/icons";
 import { Badge } from "@/components/ui/badge";
@@ -54,6 +55,8 @@ type ServiceCardProps = {
   description: string;
   onSelect?: () => void;
   showCTA?: boolean;
+  ctaHref?: string;
+  ctaLabel?: string;
 };
 
 type ServiceItemInput = {
@@ -94,6 +97,8 @@ const ServiceCard = ({
   description,
   onSelect,
   showCTA = true,
+  ctaHref = "/contact",
+  ctaLabel = "View service",
 }: ServiceCardProps) => {
   const trackerIndices = Array.from({ length: 25 }, (_, index) => index + 1);
   const cardClasses = ["service-card"];
@@ -132,20 +137,21 @@ const ServiceCard = ({
             tabIndex={0}
             aria-label={`${title} service overview`}
           >
-            <p className="service-card-prompt">Click to explore</p>
+            <p className="service-card-prompt">Learn more</p>
             <div className="service-card-header">
               <span className="service-card-icon-wrapper" aria-hidden="true">
                 <Icon className="service-card-icon" aria-hidden="true" strokeWidth={2.5} />
               </span>
               <h3 className="service-card-title">{title}</h3>
             </div>
-          <p className="service-card-description">{description}</p>
-        </article>
+            <p className="service-card-description">{description}</p>
+          </article>
+        </div>
       </div>
-    </div>
       {showCTA && (
-        <Link to="/contact" className="service-card-cta">
-          Talk to our team
+        <Link to={ctaHref} className="service-card-cta">
+          <span>{ctaLabel}</span>
+          <ArrowRightIcon className="service-card-cta-icon" aria-hidden="true" />
         </Link>
       )}
     </div>
@@ -2179,7 +2185,7 @@ const Services = () => {
                 title={service.title}
                 description={service.description}
                 onSelect={() => navigate(`/services/${service.slug}`)}
-                showCTA={false}
+                ctaHref={`/services/${service.slug}`}
               />
             ))}
           </div>
@@ -2221,7 +2227,7 @@ const Services = () => {
                 title={service.title}
                 description={service.description}
                 onSelect={() => navigate(`/services/${service.slug}`)}
-                showCTA={false}
+                ctaHref={`/services/${service.slug}`}
               />
             ))}
           </div>
