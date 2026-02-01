@@ -158,7 +158,6 @@ const ServiceCard = ({
 const serviceSections = [
   { id: "service-spotlight", label: "Service Spotlight" },
   { id: "fabrication-services", label: "Engineering & Fabrication" },
-  { id: "services-contact", label: "Contact Our Team" },
 ];
 
 const ndtServiceItems: ServiceItemInput[] = [
@@ -2091,25 +2090,6 @@ const Services = () => {
               Comprehensive Non-Destructive Testing and turnkey engineering support to keep critical infrastructure running at peak performance.
             </p>
             
-            {/* Primary CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <Button 
-                size="lg" 
-                asChild
-                className="bg-primary hover:bg-primary/90 text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-xl px-8 text-base"
-              >
-                <Link to="/contact">Get Started Today</Link>
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                asChild
-                className="border-2 border-white/60 bg-white/10 text-white hover:bg-white/20 backdrop-blur-md rounded-xl px-8 text-base transition-all duration-300 hover:scale-105"
-              >
-                <Link to="/project-gallery">View Projects</Link>
-              </Button>
-            </div>
-
             {/* Navigation to sections */}
             <nav
               aria-label="Services sections"
@@ -2265,16 +2245,6 @@ const Services = () => {
           <p className="mt-4 max-w-2xl mx-auto text-white/90">
             Ready to start your next project? Contact our team to discover how Murban's inspection and engineering experts can bring your vision to life.
           </p>
-          <Button 
-            size="lg" 
-            variant="secondary" 
-            asChild 
-            className="mt-8 text-base shadow-lg transition-all duration-300 hover:scale-105 rounded-xl px-10 bg-background text-foreground hover:bg-background/90"
-          >
-            <Link to="/contact">
-              Get in Touch
-            </Link>
-          </Button>
         </div>
       </section>
     </div>
