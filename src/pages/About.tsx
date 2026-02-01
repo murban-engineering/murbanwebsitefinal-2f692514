@@ -89,8 +89,6 @@ const About = () => {
 
       {/* Company Profile */}
       <section className="py-20 relative">
-        {/* Smooth gradient transition from hero */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary via-background/20 to-background -z-10" />
         <div className="container mx-auto space-y-12 px-4">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div className="space-y-6 animate-fade-in">
