@@ -1,10 +1,5 @@
 import * as React from "react";
-import {
-  FacebookIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  TwitterIcon,
-} from "@/components/ui/icons";
+import { LinkedinIcon } from "@/components/ui/icons";
 import { Link } from "react-router-dom";
 
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -45,24 +40,6 @@ const additionalServices = [
 const linkedInCompanyUrl = "https://ke.linkedin.com/company/murban-engineering";
 
 const socialLinks = [
-  {
-    label: "Facebook",
-    href: "https://www.facebook.com/",
-    icon: FacebookIcon,
-    tooltip: "Follow us on Facebook",
-  },
-  {
-    label: "Twitter",
-    href: "https://www.twitter.com/",
-    icon: TwitterIcon,
-    tooltip: "Follow us on Twitter",
-  },
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/",
-    icon: InstagramIcon,
-    tooltip: "Follow us on Instagram",
-  },
   {
     label: "LinkedIn",
     href: linkedInCompanyUrl,
