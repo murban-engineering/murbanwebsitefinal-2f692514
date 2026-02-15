@@ -4,6 +4,52 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getServiceBySlug, getServiceDetailBySlug, getServiceSlugForName } from "./Services";
 
+import magneticTestingImg from "@/assets/magnetic-testing.jpg";
+import chimneyIndustryImg from "@/assets/chimney-industry.jpg";
+import oilRigImg from "@/assets/oil-rig-vessel.jpg";
+import oilContainerImg from "@/assets/oil-container.jpg";
+import pipelineInspectionImg from "@/assets/pipeline-inspection.jpg";
+import steelFactoryImg from "@/assets/steel-factory.jpg";
+import servicesPlant from "@/assets/services-plant.jpg";
+import servicesPipeline from "@/assets/services-pipeline.jpg";
+
+const serviceImageMap: Record<string, string> = {
+  "magnetic-particle-testing": magneticTestingImg,
+  "fluorescent-magnet-particle-testing": magneticTestingImg,
+  "surface-hardness-testing": magneticTestingImg,
+  "boiler-inspection-services": chimneyIndustryImg,
+  "thermal-camera-inspection": chimneyIndustryImg,
+  "murban-gas-detection": chimneyIndustryImg,
+  "ndt-inspection-services": pipelineInspectionImg,
+  "api-570-piping-inspection-and-certification": pipelineInspectionImg,
+  "pipeline-inspection": pipelineInspectionImg,
+  "ultrasonic-flaw-testing-c-scan": pipelineInspectionImg,
+  "ultrasonic-flaw-testing-b-scan": pipelineInspectionImg,
+  "api-653-aboveground-storage-tank-inspection-and-certification": oilContainerImg,
+  "sphere-tank-inspections": oilContainerImg,
+  "tank-calibration-services": oilContainerImg,
+  "floormap-3d-mfl-scanning": oilContainerImg,
+  "api-510-pressure-vessel-inspection": oilContainerImg,
+  "murban-pressure-testing": oilContainerImg,
+  "api-579-murban-fitness-for-service": oilRigImg,
+  "api-580-murban-risk-based-inspection": oilRigImg,
+  "murban-uav-inspection": oilRigImg,
+  "3d-laser-scanning-services": oilRigImg,
+  "fabrication": steelFactoryImg,
+  "specialized-welding": steelFactoryImg,
+  "construction-and-erection": steelFactoryImg,
+  "surface-preparation-and-paint-works": steelFactoryImg,
+  "detailed-engineering": servicesPipeline,
+  "procurement": servicesPlant,
+  "rt-radiographic-services": pipelineInspectionImg,
+  "dye-penetrant-testing": magneticTestingImg,
+  "paint-coating-inspection": steelFactoryImg,
+  "positive-material-identification-testing": magneticTestingImg,
+  "murban-phased-array-testing": pipelineInspectionImg,
+  "alternating-current-field-measurement": magneticTestingImg,
+  "lifting-equipment-thorough-examination-and-certification": oilRigImg,
+};
+
 const ServiceDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
 
@@ -26,9 +72,24 @@ const ServiceDetailPage = () => {
         .filter(Boolean)
     : [];
 
+  const heroImage = serviceImageMap[slug] ?? pipelineInspectionImg;
+
   return (
-    <div className="min-h-screen bg-background pt-24 pb-16">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen bg-background">
+      {/* Hero Image Banner */}
+      <div className="relative h-64 md:h-80 w-full overflow-hidden">
+        <img
+          src={heroImage}
+          alt={service.title}
+          className="h-full w-full object-cover"
+          loading="eager"
+          width={1920}
+          height={400}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+      </div>
+
+      <div className="container mx-auto px-4 -mt-16 relative z-10 pb-16">
         <nav className="mb-8 flex flex-wrap items-center justify-between gap-4">
           <Button asChild variant="ghost">
             <Link to="/services" className="inline-flex items-center gap-2">
