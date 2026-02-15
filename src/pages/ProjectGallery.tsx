@@ -245,11 +245,6 @@ const ProjectGallery = () => {
 
   return (
     <div className="min-h-screen pt-20 relative">
-      {/* Gradient Background */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
-      </div>
-
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
         <img
@@ -262,8 +257,7 @@ const ProjectGallery = () => {
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 bg-gradient-mesh" />
+        <div className="absolute inset-0 bg-foreground/70" />
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="inline-block px-4 py-2 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 animate-fade-in">
             <span className="text-sm font-medium text-white">Home - Project Gallery</span>

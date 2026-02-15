@@ -177,28 +177,26 @@ const Home = () => {
             width={1920}
             height={1080}
           />
-          {/* Clean gradient overlay for readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
+          <div className="absolute inset-0 bg-foreground/70" />
         </div>
 
         {/* Content */}
         <div className="container relative z-10 mx-auto px-4 py-32">
           <div className="max-w-2xl">
             {/* Label */}
-            <span className="inline-block rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-primary">
+            <span className="inline-block rounded-full bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-white">
               Engineering Excellence
             </span>
             
             {/* Main Heading */}
-            <h1 className="mt-8 text-4xl font-semibold leading-tight text-foreground sm:text-5xl md:text-6xl">
+            <h1 className="mt-8 text-4xl font-semibold leading-tight text-white sm:text-5xl md:text-6xl">
               Building Tomorrow's
               <br />
               <span className="text-primary">Infrastructure</span> Today
             </h1>
             
             {/* Description */}
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/80">
               We deliver comprehensive engineering solutions for businesses that need 
               reliable systems. From structural design to MEP, we create infrastructure 
               that scales with your growth, including advanced NDT and other engineering services.

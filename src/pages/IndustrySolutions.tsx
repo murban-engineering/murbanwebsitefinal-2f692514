@@ -195,14 +195,13 @@ const IndustrySolutions = () => {
             width={1920}
             height={1080}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
+          <div className="absolute inset-0 bg-foreground/70" />
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-semibold mb-6 text-foreground">
+          <h1 className="text-5xl md:text-6xl font-semibold mb-6 text-white">
             Industry Solutions
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
             Tailored inspection and integrity solutions for diverse industries across Africa
           </p>
         </div>
@@ -328,23 +327,25 @@ const IndustrySolutions = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-muted">
-        <div className="container mx-auto px-4">
-          <Card className="bg-gradient-hero text-secondary-foreground border-0">
-            <CardContent className="p-12 text-center">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-                Ready to Discuss Your Industry Needs?
-              </h2>
-              <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-                Our team of experts is ready to provide tailored solutions for your specific industry challenges.
-              </p>
-              <Button size="lg" variant="secondary" asChild className="text-lg">
-                <Link to="/contact">
-                  Get in Touch
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src={industryHero} alt="" className="h-full w-full object-cover" loading="lazy" />
+          <div className="absolute inset-0 bg-foreground/70" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-white">
+              Ready to Discuss Your Industry Needs?
+            </h2>
+            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+              Our team of experts is ready to provide tailored solutions for your specific industry challenges.
+            </p>
+            <Button size="lg" asChild className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg">
+              <Link to="/contact">
+                Get in Touch
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
     </div>

@@ -166,11 +166,6 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen pt-20 relative">
-      {/* Gradient Background */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
-      </div>
-      
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0 z-0">
@@ -184,23 +179,22 @@ const Contact = () => {
             width={1920}
             height={1080}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
+          <div className="absolute inset-0 bg-foreground/70" />
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="inline-block px-4 py-2 mb-6 rounded-full bg-primary/10 backdrop-blur-md border border-border animate-fade-in">
-            <span className="text-sm font-medium text-primary">Home - Contact Us</span>
+          <div className="inline-block px-4 py-2 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 animate-fade-in">
+            <span className="text-sm font-medium text-white">Home - Contact Us</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-semibold mb-6 text-foreground animate-fade-in leading-tight">
+          <h1 className="text-5xl md:text-7xl font-semibold mb-6 text-white animate-fade-in leading-tight">
             CONTACT US
           </h1>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-foreground animate-fade-in">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-white animate-fade-in">
             Get in Touch
           </h2>
-          <p className="text-2xl md:text-3xl font-medium mb-4 text-muted-foreground animate-fade-in">
+          <p className="text-2xl md:text-3xl font-medium mb-4 text-white/80 animate-fade-in">
             Do You Have Any Questions?
           </p>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-muted-foreground animate-fade-in">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/80 animate-fade-in">
             Let's connect — we'd love to hear from you.
           </p>
         </div>

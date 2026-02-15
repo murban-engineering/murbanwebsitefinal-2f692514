@@ -60,11 +60,6 @@ const About = () => {
 
   return (
     <div className="min-h-screen pt-20 relative">
-      {/* Gradient Background */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
-      </div>
-      
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden min-h-[50vh] flex items-center z-10">
         <div className="absolute inset-0 z-0">
@@ -78,14 +73,13 @@ const About = () => {
             width={1920}
             height={1080}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
+          <div className="absolute inset-0 bg-foreground/70" />
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-semibold mb-6 animate-fade-in text-foreground">
+          <h1 className="text-5xl md:text-6xl font-semibold mb-6 animate-fade-in text-white">
             About Murban Engineering
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto animate-fade-in">
+          <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto animate-fade-in">
             Specialist in Asset Integrity, Inspection, and Non-Destructive Testing
           </p>
         </div>
@@ -137,18 +131,19 @@ const About = () => {
 
       {/* Where We Work */}
       <section className="py-20 relative overflow-hidden">
-        {/* Smooth gradient transition */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background via-background/50 to-muted" />
-        <div className="absolute inset-0 bg-muted" />
+        <div className="absolute inset-0 z-0">
+          <img src={fieldWork5} alt="" className="h-full w-full object-cover" loading="lazy" />
+          <div className="absolute inset-0 bg-foreground/70" />
+        </div>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Where We Work</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <div className="text-center mb-12 relative z-10">
+            <MapPin className="h-12 w-12 text-white mx-auto mb-4" />
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-white">Where We Work</h2>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
               We offer our services across many African countries
             </p>
           </div>
-          <AfricaMap />
+          <div className="relative z-10"><AfricaMap /></div>
         </div>
       </section>
 
@@ -248,13 +243,14 @@ const About = () => {
 
       {/* Values Section */}
       <section className="py-20 relative overflow-hidden">
-        {/* Smooth gradient transition */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background via-background/50 to-muted" />
-        <div className="absolute inset-0 bg-muted" />
+        <div className="absolute inset-0 z-0">
+          <img src={fieldWork2} alt="" className="h-full w-full object-cover" loading="lazy" />
+          <div className="absolute inset-0 bg-foreground/70" />
+        </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Core Values</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-white">Core Values</h2>
+            <p className="text-xl text-white/80 max-w-2xl mx-auto">
               Our Compass: How We Work and What We Stand For
             </p>
           </div>
