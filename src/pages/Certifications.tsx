@@ -142,27 +142,21 @@ const Certifications = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `url(${fieldWork4})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
+        <div className="absolute inset-0 z-0">
+          <img src={fieldWork4} alt="" className="h-full w-full object-cover" loading="eager" />
+          <div className="absolute inset-0 bg-foreground/70" />
         </div>
         
         <div className="container relative z-10 mx-auto px-4">
           <div className="max-w-3xl">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+            <Badge className="mb-4 bg-white/10 text-white border-white/20">
               <ShieldIcon className="w-3 h-3 mr-1" />
               Industry Leading Standards
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-white">
               Certifications & Compliance
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-8">
               Our commitment to excellence is validated through rigorous international standards and industry-leading certifications. Download our certificates to verify our credentials.
             </p>
             <div className="flex flex-wrap gap-4">
