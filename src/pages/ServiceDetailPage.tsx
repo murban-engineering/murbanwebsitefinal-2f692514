@@ -76,68 +76,56 @@ const ServiceDetailPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Image Banner */}
-      <div className="relative h-64 md:h-80 w-full overflow-hidden">
-        <img
-          src={heroImage}
-          alt={service.title}
-          className="h-full w-full object-cover"
-          loading="eager"
-          width={1920}
-          height={400}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-      </div>
-
-      <div className="container mx-auto px-4 -mt-16 relative z-10 pb-16">
-        <nav className="mb-8 flex flex-wrap items-center justify-between gap-4">
-          <Button asChild variant="ghost">
-            <Link to="/services" className="inline-flex items-center gap-2">
-              <ArrowLeftIcon className="h-4 w-4" />
-              Back to services
-            </Link>
-          </Button>
-          <Button asChild variant="outline">
-            <Link to="/contact" className="inline-flex items-center gap-2">
-              Discuss your project
-              <ArrowRightIcon className="h-4 w-4" />
-            </Link>
-          </Button>
-        </nav>
-
-        <div className="mx-auto max-w-5xl space-y-10">
-          <header className="space-y-6">
-            <Badge className="bg-primary/10 text-primary">
+      {/* Hero Section - Image left, text right */}
+      <div className="w-full">
+        <div className="grid md:grid-cols-2">
+          <div className="h-64 md:h-96">
+            <img
+              src={heroImage}
+              alt={service.title}
+              className="h-full w-full object-cover"
+              loading="eager"
+              width={960}
+              height={400}
+            />
+          </div>
+          <div className="flex flex-col justify-center bg-muted/30 p-8 md:p-12">
+            <Badge className="mb-4 w-fit bg-primary/10 text-primary">
               {detail?.label ?? service.title}
             </Badge>
-
-            {detail?.breadcrumb && (
-              <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                {detail.breadcrumb.map((crumb, index) => (
-                  <span key={`${crumb}-${index}`} className="flex items-center gap-2">
-                    {index > 0 && <span className="opacity-60">/</span>}
-                    <span>{crumb}</span>
-                  </span>
-                ))}
-                <span className="opacity-60">/</span>
-                <span className="text-foreground">{detail?.label ?? service.title}</span>
-              </div>
-            )}
-
-            <h1 className="text-4xl font-serif font-bold text-foreground md:text-5xl">
+            <h1 className="text-3xl font-serif font-bold text-foreground md:text-4xl lg:text-5xl">
               {detail?.headline ?? service.title}
             </h1>
-
-            <div className="space-y-4 text-lg text-muted-foreground">
-              {descriptionParagraphs.length > 0 ? (
-                descriptionParagraphs.map((paragraph, index) => (
-                  <p key={`${slug}-paragraph-${index}`}>{paragraph}</p>
-                ))
-              ) : (
-                <p>{baseDescription}</p>
-              )}
+            <p className="mt-4 text-muted-foreground">
+              {descriptionParagraphs[0] || baseDescription}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button asChild variant="ghost" size="sm">
+                <Link to="/services" className="inline-flex items-center gap-2">
+                  <ArrowLeftIcon className="h-4 w-4" />
+                  Back to services
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="sm">
+                <Link to="/contact" className="inline-flex items-center gap-2">
+                  Discuss your project
+                  <ArrowRightIcon className="h-4 w-4" />
+                </Link>
+              </Button>
             </div>
-          </header>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 py-12">
+        <div className="mx-auto max-w-5xl space-y-10">
+          {descriptionParagraphs.length > 1 && (
+            <div className="space-y-4 text-lg text-muted-foreground">
+              {descriptionParagraphs.slice(1).map((paragraph, index) => (
+                <p key={`${slug}-paragraph-${index}`}>{paragraph}</p>
+              ))}
+            </div>
+          )}
 
           {detail?.sections?.map((section) => (
             <section
