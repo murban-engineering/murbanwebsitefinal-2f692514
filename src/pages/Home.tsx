@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 import projectImage from "@/assets/project-showcase.jpg";
 import Testimonials from "@/components/Testimonials";
@@ -163,9 +164,8 @@ const Home = () => {
         <ThemeToggle id="home-theme-toggle" />
       </div>
 
-      {/* Hero Section - Full width image with overlay */}
+      {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center">
-        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
             src={industrialPlant}
@@ -180,29 +180,24 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
         </div>
 
-        {/* Content */}
         <div className="container relative z-10 mx-auto px-4 py-32">
-          <div className="max-w-2xl">
-            {/* Label */}
+          <AnimateOnScroll direction="left" className="max-w-2xl">
             <span className="inline-block rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-primary">
               Engineering Excellence
             </span>
             
-            {/* Main Heading */}
             <h1 className="mt-8 text-4xl font-semibold leading-tight text-foreground sm:text-5xl md:text-6xl">
               Building Tomorrow's
               <br />
               <span className="text-primary">Infrastructure</span> Today
             </h1>
             
-            {/* Description */}
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
               We deliver comprehensive engineering solutions for businesses that need 
               reliable systems. From structural design to MEP, we create infrastructure 
               that scales with your growth, including advanced NDT and other engineering services.
             </p>
             
-            {/* Buttons */}
             <div className="mt-10 flex flex-wrap gap-4">
               <Button size="lg" asChild className="rounded-xl px-8 shadow-lg shadow-primary/20">
                 <Link to="/contact">
@@ -226,128 +221,133 @@ const Home = () => {
                 <Link to="/project-gallery">View Our Projects</Link>
               </Button>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
-      {/* Stats Section - Left-to-right marquee */}
+      {/* Stats Section */}
       <section className="relative z-10 -mt-20 pb-16">
         <div className="container mx-auto px-4">
-          <div className="overflow-hidden rounded-3xl border border-transparent bg-transparent shadow-none">
-            <div className="flex w-max items-center gap-4 px-6 py-6 motion-reduce:animate-none animate-marquee [animation-direction:reverse]">
-              {marqueeStats.map((stat, index) => (
-                <div
-                  key={`${stat.label}-${index}`}
-                  className="min-w-[220px] rounded-2xl border border-border bg-card p-6 shadow-lg shadow-foreground/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                >
-                  <span className="text-3xl font-bold text-primary">{stat.value}</span>
-                  <span className="mt-2 block text-sm font-medium text-muted-foreground">
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
+          <AnimateOnScroll direction="up" delay={200}>
+            <div className="overflow-hidden rounded-3xl border border-transparent bg-transparent shadow-none">
+              <div className="flex w-max items-center gap-4 px-6 py-6 motion-reduce:animate-none animate-marquee [animation-direction:reverse]">
+                {marqueeStats.map((stat, index) => (
+                  <div
+                    key={`${stat.label}-${index}`}
+                    className="min-w-[220px] rounded-2xl border border-border bg-card p-6 shadow-lg shadow-foreground/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  >
+                    <span className="text-3xl font-bold text-primary">{stat.value}</span>
+                    <span className="mt-2 block text-sm font-medium text-muted-foreground">
+                      {stat.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
-      {/* Services Section - Clean grid layout */}
+      {/* Services Section */}
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="mx-auto mb-16 max-w-2xl text-center">
-            <span className="text-sm font-semibold uppercase tracking-widest text-primary">
-              Our Services
-            </span>
-            <h2 className="mt-4 text-3xl font-semibold text-foreground md:text-4xl">
-              Engineering services tailored to your needs
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              From concept to commissioning, our teams create resilient systems that are effortless to operate.
-            </p>
-          </div>
+          <AnimateOnScroll direction="right">
+            <div className="mx-auto mb-16 max-w-2xl text-center">
+              <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+                Our Services
+              </span>
+              <h2 className="mt-4 text-3xl font-semibold text-foreground md:text-4xl">
+                Engineering services tailored to your needs
+              </h2>
+              <p className="mt-4 text-muted-foreground">
+                From concept to commissioning, our teams create resilient systems that are effortless to operate.
+              </p>
+            </div>
+          </AnimateOnScroll>
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {services.map((service) => (
-              <div
+            {services.map((service, i) => (
+              <AnimateOnScroll
                 key={service.title}
-                className="service-card group relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl border border-border/50 bg-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                direction={i % 2 === 0 ? "left" : "right"}
+                delay={i * 100}
               >
-                {/* Animated border glow */}
-                <div className="pointer-events-none absolute inset-0 -z-10 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: 'radial-gradient(circle at 50% 100%, hsl(var(--primary) / 0.15), transparent 70%)' }} />
-
-                {/* Icon */}
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <service.icon className="h-6 w-6" />
-                </div>
-
-                {/* Title & Description */}
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground">{service.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{service.description}</p>
-                </div>
-
-                {/* Divider */}
-                <hr className="border-border" />
-
-                {/* Checklist */}
-                <ul className="flex flex-col gap-2.5 mt-auto">
-                  {service.highlights.map((highlight) => (
-                    <li key={highlight} className="flex items-center gap-2.5">
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                        <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                          <path clipRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fillRule="evenodd" />
-                        </svg>
-                      </span>
-                      <span className="text-sm text-foreground">{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Button */}
-                <Link
-                  to="/services"
-                  className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-inner transition-colors hover:bg-primary/90"
+                <div
+                  className="service-card group relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl border border-border/50 bg-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
-                  Learn More
-                </Link>
-              </div>
+                  <div className="pointer-events-none absolute inset-0 -z-10 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: 'radial-gradient(circle at 50% 100%, hsl(var(--primary) / 0.15), transparent 70%)' }} />
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <service.icon className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground">{service.title}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">{service.description}</p>
+                  </div>
+                  <hr className="border-border" />
+                  <ul className="flex flex-col gap-2.5 mt-auto">
+                    {service.highlights.map((highlight) => (
+                      <li key={highlight} className="flex items-center gap-2.5">
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                          <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                            <path clipRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fillRule="evenodd" />
+                          </svg>
+                        </span>
+                        <span className="text-sm text-foreground">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/services"
+                    className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-inner transition-colors hover:bg-primary/90"
+                  >
+                    Learn More
+                  </Link>
+                </div>
+              </AnimateOnScroll>
             ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <Button size="lg" asChild className="rounded-xl">
-              <Link to="/services">
-                View All Services <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-          </div>
+          <AnimateOnScroll direction="up" delay={300}>
+            <div className="mt-12 text-center">
+              <Button size="lg" asChild className="rounded-xl">
+                <Link to="/services">
+                  View All Services <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* Why Choose Us */}
       <section className="py-24">
         <div className="container mx-auto px-4">
-          <div className="mx-auto mb-16 max-w-2xl text-center">
-            <span className="text-sm font-semibold uppercase tracking-widest text-primary">
-              Why Choose Us
-            </span>
-            <h2 className="mt-4 text-3xl font-semibold text-foreground md:text-4xl">
-              What sets us apart
-            </h2>
-          </div>
+          <AnimateOnScroll direction="left">
+            <div className="mx-auto mb-16 max-w-2xl text-center">
+              <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+                Why Choose Us
+              </span>
+              <h2 className="mt-4 text-3xl font-semibold text-foreground md:text-4xl">
+                What sets us apart
+              </h2>
+            </div>
+          </AnimateOnScroll>
 
           <div className="grid gap-8 md:grid-cols-3">
-            {differentiators.map((item) => (
-              <div
+            {differentiators.map((item, i) => (
+              <AnimateOnScroll
                 key={item.title}
-                className="rounded-2xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                direction={i % 2 === 0 ? "right" : "left"}
+                delay={i * 120}
               >
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                  <item.icon className="h-7 w-7" />
+                <div className="rounded-2xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <item.icon className="h-7 w-7" />
+                  </div>
+                  <h3 className="mt-6 text-xl font-semibold text-foreground">{item.title}</h3>
+                  <p className="mt-3 text-muted-foreground">{item.description}</p>
                 </div>
-                <h3 className="mt-6 text-xl font-semibold text-foreground">{item.title}</h3>
-                <p className="mt-3 text-muted-foreground">{item.description}</p>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -357,54 +357,59 @@ const Home = () => {
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div>
-              <span className="text-sm font-semibold uppercase tracking-widest text-primary">
-                Featured Work
-              </span>
-              <h2 className="mt-4 text-3xl font-semibold text-foreground md:text-4xl">
-                Engineering excellence in action
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Our teams combine deep technical mastery with a human-centric approach. Every engagement 
-                delivers measurable outcomes and resilient systems.
-              </p>
+            <AnimateOnScroll direction="left">
+              <div>
+                <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+                  Featured Work
+                </span>
+                <h2 className="mt-4 text-3xl font-semibold text-foreground md:text-4xl">
+                  Engineering excellence in action
+                </h2>
+                <p className="mt-4 text-lg text-muted-foreground">
+                  Our teams combine deep technical mastery with a human-centric approach. Every engagement 
+                  delivers measurable outcomes and resilient systems.
+                </p>
 
-              <div className="mt-8 space-y-4">
-                {transformationHighlights.map((item) => (
-                  <div key={item.title} className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                      <item.icon className="h-5 w-5" />
+                <div className="mt-8 space-y-4">
+                  {transformationHighlights.map((item) => (
+                    <div key={item.title} className="flex items-start gap-4">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                        <item.icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-foreground">{item.title}</h3>
+                        <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground">{item.title}</h3>
-                      <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
 
-              <Button size="lg" asChild className="mt-8 rounded-xl">
-                <Link to="/industry-solutions">
-                  View Industry Solutions <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
-
-            <div className="relative">
-              <img
-                src={projectImage}
-                alt="Engineering project showcase"
-                className="rounded-3xl shadow-2xl shadow-foreground/10"
-                loading="lazy"
-                decoding="async"
-                width={800}
-                height={600}
-              />
-              <div className="absolute -bottom-6 -left-6 rounded-2xl border border-border bg-card p-6 shadow-xl">
-                <div className="text-3xl font-bold text-primary">98%</div>
-                <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+                <Button size="lg" asChild className="mt-8 rounded-xl">
+                  <Link to="/industry-solutions">
+                    View Industry Solutions <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
               </div>
-            </div>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll direction="right" delay={200}>
+              <div className="relative">
+                <img
+                  src={projectImage}
+                  alt="Engineering project showcase"
+                  className="rounded-3xl shadow-2xl shadow-foreground/10"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                  width={800}
+                  height={600}
+                />
+                <div className="absolute -bottom-6 -left-6 rounded-2xl border border-border bg-card p-6 shadow-xl">
+                  <div className="text-3xl font-bold text-primary">98%</div>
+                  <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+                </div>
+              </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
@@ -412,109 +417,128 @@ const Home = () => {
       {/* Our Process */}
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="mx-auto mb-16 max-w-2xl text-center">
-            <span className="text-sm font-semibold uppercase tracking-widest text-primary">
-              Our Process
-            </span>
-            <h2 className="mt-4 text-3xl font-semibold text-foreground md:text-4xl">
-              How we deliver results
-            </h2>
-          </div>
+          <AnimateOnScroll direction="right">
+            <div className="mx-auto mb-16 max-w-2xl text-center">
+              <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+                Our Process
+              </span>
+              <h2 className="mt-4 text-3xl font-semibold text-foreground md:text-4xl">
+                How we deliver results
+              </h2>
+            </div>
+          </AnimateOnScroll>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {process.map((step, index) => (
-              <div
+              <AnimateOnScroll
                 key={step.title}
-                className="relative rounded-2xl border border-border bg-card p-6 shadow-sm"
+                direction={index % 2 === 0 ? "left" : "right"}
+                delay={index * 100}
               >
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground font-bold">
-                  {index + 1}
+                <div className="relative rounded-2xl border border-border bg-card p-6 shadow-sm">
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground font-bold">
+                    {index + 1}
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Trusted By / Client Logos */}
+      {/* Trusted By */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <p className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-            Trusted by industry leaders
-          </p>
-          <div className="logo-marquee overflow-hidden">
-            <div className="logo-marquee-track flex w-max items-center gap-12">
-              {marqueeLogos.map((client, index) => (
-                <img
-                  key={`${client.name}-${index}`}
-                  src={client.logo}
-                  alt={client.name}
-                  className={`${client.width} h-auto opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0`}
-                  loading="lazy"
-                  decoding="async"
-                />
-              ))}
+          <AnimateOnScroll direction="up">
+            <p className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+              Trusted by industry leaders
+            </p>
+            <div className="logo-marquee overflow-hidden">
+              <div className="logo-marquee-track flex w-max items-center gap-12">
+                {marqueeLogos.map((client, index) => (
+                  <img
+                    key={`${client.name}-${index}`}
+                    src={client.logo}
+                    alt={client.name}
+                    className={`${client.width} h-auto opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0`}
+                    loading="eager"
+                    decoding="async"
+                  />
+                ))}
+              </div>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* Gallery Section */}
       <section className="py-24">
         <div className="container mx-auto px-4">
-          <div className="mx-auto mb-16 max-w-2xl text-center">
-            <span className="text-sm font-semibold uppercase tracking-widest text-primary">
-              Project Gallery
-            </span>
-            <h2 className="mt-4 text-3xl font-semibold text-foreground md:text-4xl">
-              Our work in the field
-            </h2>
-          </div>
+          <AnimateOnScroll direction="left">
+            <div className="mx-auto mb-16 max-w-2xl text-center">
+              <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+                Project Gallery
+              </span>
+              <h2 className="mt-4 text-3xl font-semibold text-foreground md:text-4xl">
+                Our work in the field
+              </h2>
+            </div>
+          </AnimateOnScroll>
 
           <div className="grid gap-4 md:grid-cols-3">
-            <img
-              src={fieldWork1}
-              alt="Field work 1"
-              className="h-64 w-full rounded-2xl object-cover shadow-lg transition-transform duration-300 hover:scale-[1.02]"
-              loading="lazy"
-              decoding="async"
-            />
-            <img
-              src={fieldWork3}
-              alt="Field work 3"
-              className="h-64 w-full rounded-2xl object-cover shadow-lg transition-transform duration-300 hover:scale-[1.02]"
-              loading="lazy"
-              decoding="async"
-            />
-            <img
-              src={fieldWork4}
-              alt="Field work 4"
-              className="h-64 w-full rounded-2xl object-cover shadow-lg transition-transform duration-300 hover:scale-[1.02]"
-              loading="lazy"
-              decoding="async"
-            />
+            <AnimateOnScroll direction="left" delay={0}>
+              <img
+                src={fieldWork1}
+                alt="Field work 1"
+                className="h-64 w-full rounded-2xl object-cover shadow-lg transition-transform duration-300 hover:scale-[1.02]"
+                loading="eager"
+                decoding="async"
+              />
+            </AnimateOnScroll>
+            <AnimateOnScroll direction="up" delay={100}>
+              <img
+                src={fieldWork3}
+                alt="Field work 3"
+                className="h-64 w-full rounded-2xl object-cover shadow-lg transition-transform duration-300 hover:scale-[1.02]"
+                loading="eager"
+                decoding="async"
+              />
+            </AnimateOnScroll>
+            <AnimateOnScroll direction="right" delay={200}>
+              <img
+                src={fieldWork4}
+                alt="Field work 4"
+                className="h-64 w-full rounded-2xl object-cover shadow-lg transition-transform duration-300 hover:scale-[1.02]"
+                loading="eager"
+                decoding="async"
+              />
+            </AnimateOnScroll>
           </div>
 
-          <div className="mt-8 text-center">
-            <Button variant="outline" size="lg" asChild className="rounded-xl">
-              <Link to="/project-gallery">View Full Gallery</Link>
-            </Button>
-          </div>
+          <AnimateOnScroll direction="up" delay={300}>
+            <div className="mt-8 text-center">
+              <Button variant="outline" size="lg" asChild className="rounded-xl">
+                <Link to="/project-gallery">View Full Gallery</Link>
+              </Button>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* Testimonials */}
-      <Testimonials />
+      <AnimateOnScroll direction="right">
+        <Testimonials />
+      </AnimateOnScroll>
 
       {/* CTA Section */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={industrialPlant} alt="" className="h-full w-full object-cover" loading="lazy" />
+          <img src={industrialPlant} alt="" className="h-full w-full object-cover" loading="eager" decoding="async" />
           <div className="absolute inset-0 bg-foreground/70" />
         </div>
-        <div className="container relative z-10 mx-auto px-4 text-center">
+        <AnimateOnScroll direction="up" className="container relative z-10 mx-auto px-4 text-center">
           <h2 className="text-3xl font-semibold text-white md:text-4xl">
             Ready to start your project?
           </h2>
@@ -530,7 +554,7 @@ const Home = () => {
               Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
-        </div>
+        </AnimateOnScroll>
       </section>
     </div>
   );
