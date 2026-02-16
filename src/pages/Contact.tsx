@@ -14,6 +14,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import contactHero from "@/assets/contact-hero.jpg";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 const ACCEPTED_FILE_TYPES = [
@@ -79,12 +80,10 @@ const Contact = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      // Validate file size
       if (file.size > MAX_FILE_SIZE) {
         setErrors(prev => ({ ...prev, file: "File size must be less than 10MB" }));
         return;
       }
-      // Validate file type
       if (!ACCEPTED_FILE_TYPES.includes(file.type)) {
         setErrors(prev => ({ ...prev, file: "Please upload PDF, Word document, or image files only" }));
         return;
@@ -107,10 +106,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Validate form data
       contactSchema.parse(formData);
-
-      // Simulate form submission
       await new Promise(resolve => setTimeout(resolve, 1000));
 
       toast({
@@ -118,7 +114,6 @@ const Contact = () => {
         description: "We'll get back to you as soon as possible.",
       });
 
-      // Reset form
       setFormData({ name: "", email: "", phone: "", serviceType: "", message: "" });
       setSelectedFile(null);
       if (fileInputRef.current) {
@@ -182,21 +177,25 @@ const Contact = () => {
           <div className="absolute inset-0 bg-foreground/70" />
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="inline-block px-4 py-2 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 animate-fade-in">
-            <span className="text-sm font-medium text-white">Home - Contact Us</span>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-semibold mb-6 text-white animate-fade-in leading-tight">
-            CONTACT US
-          </h1>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-white animate-fade-in">
-            Get in Touch
-          </h2>
-          <p className="text-2xl md:text-3xl font-medium mb-4 text-white/80 animate-fade-in">
-            Do You Have Any Questions?
-          </p>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/80 animate-fade-in">
-            Let's connect — we'd love to hear from you.
-          </p>
+          <AnimateOnScroll direction="left">
+            <div className="inline-block px-4 py-2 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+              <span className="text-sm font-medium text-white">Home - Contact Us</span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-semibold mb-6 text-white leading-tight">
+              CONTACT US
+            </h1>
+          </AnimateOnScroll>
+          <AnimateOnScroll direction="right" delay={150}>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-white">
+              Get in Touch
+            </h2>
+            <p className="text-2xl md:text-3xl font-medium mb-4 text-white/80">
+              Do You Have Any Questions?
+            </p>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/80">
+              Let's connect — we'd love to hear from you.
+            </p>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -205,209 +204,180 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {contactInfo.map((info, index) => (
-              <Card 
-                key={index} 
-                className="text-center group hover:-translate-y-2 transition-all duration-300 animate-scale-in border-border/50 hover:border-primary/50 bg-gradient-card hover:shadow-xl"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardContent className="p-8">
-                  <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 group-hover:bg-primary group-hover:scale-110 transition-all shadow-md group-hover:shadow-glow">
-                    <info.icon className="h-8 w-8 text-primary group-hover:text-primary-foreground transition-colors" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{info.title}</h3>
-                  {info.link ? (
-                    <a
-                      href={info.link}
-                      className="text-muted-foreground hover:text-primary transition-colors font-medium"
-                    >
-                      {info.details}
-                    </a>
-                  ) : (
-                    <p className="text-muted-foreground font-medium">{info.details}</p>
-                  )}
-                </CardContent>
-              </Card>
+              <AnimateOnScroll key={index} direction={index % 2 === 0 ? "left" : "right"} delay={index * 100}>
+                <Card 
+                  className="text-center group hover:-translate-y-2 transition-all duration-300 border-border/50 hover:border-primary/50 bg-gradient-card hover:shadow-xl"
+                >
+                  <CardContent className="p-8">
+                    <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 group-hover:bg-primary group-hover:scale-110 transition-all shadow-md group-hover:shadow-glow">
+                      <info.icon className="h-8 w-8 text-primary group-hover:text-primary-foreground transition-colors" />
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">{info.title}</h3>
+                    {info.link ? (
+                      <a
+                        href={info.link}
+                        className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                      >
+                        {info.details}
+                      </a>
+                    ) : (
+                      <p className="text-muted-foreground font-medium">{info.details}</p>
+                    )}
+                  </CardContent>
+                </Card>
+              </AnimateOnScroll>
             ))}
           </div>
 
           {/* Contact Form and Map */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Form */}
-            <Card className="animate-fade-in border-border/50 bg-gradient-card shadow-xl">
-              <CardContent className="p-8">
-                <h2 className="text-3xl font-serif font-bold mb-6">Send Us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <Label htmlFor="name">Name *</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      placeholder="Your name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className={errors.name ? "border-destructive" : ""}
-                    />
-                    {errors.name && (
-                      <p className="text-destructive text-sm mt-1">{errors.name}</p>
-                    )}
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email *</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="Your email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className={errors.email ? "border-destructive" : ""}
-                    />
-                    {errors.email && (
-                      <p className="text-destructive text-sm mt-1">{errors.email}</p>
-                    )}
-                  </div>
-                  <div>
-                    <Label htmlFor="phone">Phone (Optional)</Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      placeholder="Your phone number"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className={errors.phone ? "border-destructive" : ""}
-                    />
-                    {errors.phone && (
-                      <p className="text-destructive text-sm mt-1">{errors.phone}</p>
-                    )}
-                  </div>
-                  <div>
-                    <Label htmlFor="serviceType">Service Type *</Label>
-                    <Select value={formData.serviceType} onValueChange={handleSelectChange}>
-                      <SelectTrigger className={errors.serviceType ? "border-destructive" : ""}>
-                        <SelectValue placeholder="Select a service" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {serviceTypes.map((service) => (
-                          <SelectItem key={service} value={service}>
-                            {service}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    {errors.serviceType && (
-                      <p className="text-destructive text-sm mt-1">{errors.serviceType}</p>
-                    )}
-                  </div>
-                  <div>
-                    <Label htmlFor="message">Message (Optional)</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Tell us about your project or inquiry"
-                      rows={6}
-                      value={formData.message}
-                      onChange={handleChange}
-                      className={errors.message ? "border-destructive" : ""}
-                    />
-                    {errors.message && (
-                      <p className="text-destructive text-sm mt-1">{errors.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <Label htmlFor="file">Attach File (Optional)</Label>
-                    <div className="mt-2">
-                      <input
-                        ref={fileInputRef}
-                        id="file"
-                        type="file"
-                        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                        onChange={handleFileChange}
-                        className="hidden"
+            <AnimateOnScroll direction="left">
+              <Card className="border-border/50 bg-gradient-card shadow-xl">
+                <CardContent className="p-8">
+                  <h2 className="text-3xl font-serif font-bold mb-6">Send Us a Message</h2>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <Label htmlFor="name">Name *</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        placeholder="Your name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className={errors.name ? "border-destructive" : ""}
                       />
-                      {!selectedFile ? (
-                        <Button
-                          type="button"
-                          variant="outline"
-                          onClick={() => fileInputRef.current?.click()}
-                          className="w-full"
-                        >
-                          Upload Document or Image
-                        </Button>
-                      ) : (
-                        <div className="flex items-center justify-between p-3 border border-border rounded-lg">
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm">{selectedFile.name}</span>
-                            <span className="text-xs text-muted-foreground">
-                              ({(selectedFile.size / 1024 / 1024).toFixed(2)} MB)
-                            </span>
-                          </div>
-                          <Button
-                            type="button"
-                            variant="ghost"
-                            size="sm"
-                            onClick={handleRemoveFile}
-                          >
-                            Remove
-                          </Button>
-                        </div>
-                      )}
-                      <p className="text-xs text-muted-foreground mt-1">
-                        PDF, Word, or images up to 10MB
-                      </p>
-                      {errors.file && (
-                        <p className="text-destructive text-sm mt-1">{errors.file}</p>
-                      )}
+                      {errors.name && <p className="text-destructive text-sm mt-1">{errors.name}</p>}
                     </div>
-                  </div>
-                  <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                    <Send className="ml-2 h-5 w-5" />
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                    <div>
+                      <Label htmlFor="email">Email *</Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Your email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className={errors.email ? "border-destructive" : ""}
+                      />
+                      {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
+                    </div>
+                    <div>
+                      <Label htmlFor="phone">Phone (Optional)</Label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="Your phone number"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className={errors.phone ? "border-destructive" : ""}
+                      />
+                      {errors.phone && <p className="text-destructive text-sm mt-1">{errors.phone}</p>}
+                    </div>
+                    <div>
+                      <Label htmlFor="serviceType">Service Type *</Label>
+                      <Select value={formData.serviceType} onValueChange={handleSelectChange}>
+                        <SelectTrigger className={errors.serviceType ? "border-destructive" : ""}>
+                          <SelectValue placeholder="Select a service" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {serviceTypes.map((service) => (
+                            <SelectItem key={service} value={service}>{service}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      {errors.serviceType && <p className="text-destructive text-sm mt-1">{errors.serviceType}</p>}
+                    </div>
+                    <div>
+                      <Label htmlFor="message">Message (Optional)</Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        placeholder="Tell us about your project or inquiry"
+                        rows={6}
+                        value={formData.message}
+                        onChange={handleChange}
+                        className={errors.message ? "border-destructive" : ""}
+                      />
+                      {errors.message && <p className="text-destructive text-sm mt-1">{errors.message}</p>}
+                    </div>
+                    <div>
+                      <Label htmlFor="file">Attach File (Optional)</Label>
+                      <div className="mt-2">
+                        <input
+                          ref={fileInputRef}
+                          id="file"
+                          type="file"
+                          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                          onChange={handleFileChange}
+                          className="hidden"
+                        />
+                        {!selectedFile ? (
+                          <Button type="button" variant="outline" onClick={() => fileInputRef.current?.click()} className="w-full">
+                            Upload Document or Image
+                          </Button>
+                        ) : (
+                          <div className="flex items-center justify-between p-3 border border-border rounded-lg">
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm">{selectedFile.name}</span>
+                              <span className="text-xs text-muted-foreground">
+                                ({(selectedFile.size / 1024 / 1024).toFixed(2)} MB)
+                              </span>
+                            </div>
+                            <Button type="button" variant="ghost" size="sm" onClick={handleRemoveFile}>Remove</Button>
+                          </div>
+                        )}
+                        <p className="text-xs text-muted-foreground mt-1">PDF, Word, or images up to 10MB</p>
+                        {errors.file && <p className="text-destructive text-sm mt-1">{errors.file}</p>}
+                      </div>
+                    </div>
+                    <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                      <Send className="ml-2 h-5 w-5" />
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </AnimateOnScroll>
 
             {/* Google Map */}
-            <Card className="animate-fade-in border-border/50 shadow-xl overflow-hidden">
-              <CardContent className="p-0 h-full flex flex-col">
-                <div className="w-full flex-1 min-h-[500px]">
-                  <iframe
-                    title="Murban Engineering Office Location - Mombasa, Kenya"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.75772082584!2d39.5942!3d-4.0435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x184012e78ec02c15%3A0x3b46b3c6a9bd771b!2sPort%20Reitz%2C%20Mombasa!5e0!3m2!1sen!2ske!4v1700000000000"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0, minHeight: "500px" }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                </div>
-                <div className="p-4 bg-card border-t border-border">
-                  <div className="flex items-center justify-between flex-wrap gap-3">
-                    <div className="flex items-center gap-2">
-                      <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
-                      <p className="text-sm text-muted-foreground font-medium">
-                        Off-Airport Road, Port Reitz, Mombasa, Kenya
-                      </p>
-                    </div>
-                    <Button variant="outline" size="sm" asChild>
-                      <a
-                        href="https://www.google.com/maps/search/?api=1&query=Port+Reitz+Mombasa+Kenya"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Open in Google Maps
-                      </a>
-                    </Button>
+            <AnimateOnScroll direction="right" delay={200}>
+              <Card className="border-border/50 shadow-xl overflow-hidden">
+                <CardContent className="p-0 h-full flex flex-col">
+                  <div className="w-full flex-1 min-h-[500px]">
+                    <iframe
+                      title="Murban Engineering Office Location - Mombasa, Kenya"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.75772082584!2d39.5942!3d-4.0435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x184012e78ec02c15%3A0x3b46b3c6a9bd771b!2sPort%20Reitz%2C%20Mombasa!5e0!3m2!1sen!2ske!4v1700000000000"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0, minHeight: "500px" }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                  <div className="p-4 bg-card border-t border-border">
+                    <div className="flex items-center justify-between flex-wrap gap-3">
+                      <div className="flex items-center gap-2">
+                        <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                        <p className="text-sm text-muted-foreground font-medium">
+                          Off-Airport Road, Port Reitz, Mombasa, Kenya
+                        </p>
+                      </div>
+                      <Button variant="outline" size="sm" asChild>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Port+Reitz+Mombasa+Kenya" target="_blank" rel="noopener noreferrer">
+                          Open in Google Maps
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
-
     </div>
   );
 };

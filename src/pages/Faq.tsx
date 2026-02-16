@@ -1,3 +1,5 @@
+import AnimateOnScroll from "@/components/AnimateOnScroll";
+
 const faqs = [
   {
     question: "What services fall under Murban Inspection Services?",
@@ -25,23 +27,27 @@ const Faq = () => {
   return (
     <div className="container mx-auto px-4 py-16 md:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl space-y-12">
-        <header className="space-y-4 text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-primary">FAQ</p>
-          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Answers to common questions
-          </h1>
-          <p className="text-base text-muted-foreground">
-            Learn more about how Murban Inspection Services and Murban Engineering Services partner with clients across East
-            Africa and beyond.
-          </p>
-        </header>
+        <AnimateOnScroll direction="left">
+          <header className="space-y-4 text-center">
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary">FAQ</p>
+            <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Answers to common questions
+            </h1>
+            <p className="text-base text-muted-foreground">
+              Learn more about how Murban Inspection Services and Murban Engineering Services partner with clients across East
+              Africa and beyond.
+            </p>
+          </header>
+        </AnimateOnScroll>
 
         <dl className="space-y-6">
-          {faqs.map((item) => (
-            <div key={item.question} className="rounded-lg border bg-card p-6 text-left">
-              <dt className="text-lg font-semibold text-foreground">{item.question}</dt>
-              <dd className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.answer}</dd>
-            </div>
+          {faqs.map((item, i) => (
+            <AnimateOnScroll key={item.question} direction={i % 2 === 0 ? "right" : "left"} delay={i * 100}>
+              <div className="rounded-lg border bg-card p-6 text-left">
+                <dt className="text-lg font-semibold text-foreground">{item.question}</dt>
+                <dd className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.answer}</dd>
+              </div>
+            </AnimateOnScroll>
           ))}
         </dl>
       </div>

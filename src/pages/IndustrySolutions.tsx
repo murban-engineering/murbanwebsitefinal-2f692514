@@ -10,6 +10,7 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 import oilGasImg from "@/assets/oil-gas-industry.png";
 import storageTerminalsImg from "@/assets/storage-terminals.png";
 import renewableEnergyImg from "@/assets/renewable-energy.png";
@@ -198,91 +199,91 @@ const IndustrySolutions = () => {
           <div className="absolute inset-0 bg-foreground/70" />
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-semibold mb-6 text-white">
-            Industry Solutions
-          </h1>
-          <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
-            Tailored inspection and integrity solutions for diverse industries across Africa
-          </p>
+          <AnimateOnScroll direction="left">
+            <h1 className="text-5xl md:text-6xl font-semibold mb-6 text-white">
+              Industry Solutions
+            </h1>
+          </AnimateOnScroll>
+          <AnimateOnScroll direction="right" delay={150}>
+            <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
+              Tailored inspection and integrity solutions for diverse industries across Africa
+            </p>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* Industries Grid */}
       <section className="py-20">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-              Industries We Serve
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Delivering specialized expertise across multiple sectors
-            </p>
-          </div>
+          <AnimateOnScroll direction="up">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+                Industries We Serve
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Delivering specialized expertise across multiple sectors
+              </p>
+            </div>
+          </AnimateOnScroll>
 
           <div className="space-y-12">
             {industries.map((industry, index) => (
-              <Card key={index} className="group transition-shadow duration-300 border-border overflow-hidden bg-card/50 backdrop-blur-sm shadow-md hover:shadow-lg">
-                <div className="grid md:grid-cols-5 gap-0">
-                  {/* Image Section with Title Overlay */}
-                  <div className="md:col-span-2 relative h-96 md:h-auto overflow-hidden">
-                    <img 
-                      src={industry.image} 
-                      alt={industry.title}
-                      className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500"
-                      loading="lazy"
-                      decoding="async"
-                      width={600}
-                      height={400}
-                    />
-                    {/* Glossy overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                    
-                    {/* Title and Icon on Image */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col items-center text-center">
-                      <div className="mb-3 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary backdrop-blur-md border border-primary shadow-lg">
-                        <industry.icon className="h-7 w-7 text-primary-foreground" />
+              <AnimateOnScroll key={index} direction={index % 2 === 0 ? "left" : "right"} delay={100}>
+                <Card className="group transition-shadow duration-300 border-border overflow-hidden bg-card/50 backdrop-blur-sm shadow-md hover:shadow-lg">
+                  <div className="grid md:grid-cols-5 gap-0">
+                    <div className="md:col-span-2 relative h-96 md:h-auto overflow-hidden">
+                      <img 
+                        src={industry.image} 
+                        alt={industry.title}
+                        className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500"
+                        loading="lazy"
+                        decoding="async"
+                        width={600}
+                        height={400}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col items-center text-center">
+                        <div className="mb-3 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary backdrop-blur-md border border-primary shadow-lg">
+                          <industry.icon className="h-7 w-7 text-primary-foreground" />
+                        </div>
+                        <CardTitle className="text-xl font-serif text-white font-bold">{industry.title}</CardTitle>
                       </div>
-                      <CardTitle className="text-xl font-serif text-white font-bold">{industry.title}</CardTitle>
                     </div>
-                  </div>
-                  
-                  {/* Content Section */}
-                  <div className="md:col-span-3 p-6 bg-gradient-to-br from-card via-card to-card/80">
-                    <div className="space-y-5">
-                      <div>
-                        <h4 className="text-base font-semibold mb-2 text-primary flex items-center">
-                          <span className="w-1 h-5 bg-primary mr-2 rounded-full"></span>
-                          Assets Covered
-                        </h4>
-                        <p className="text-sm text-muted-foreground pl-3">{industry.assetsCovered}</p>
-                      </div>
-                      
-                      <div>
-                        <h4 className="text-base font-semibold mb-2 text-primary flex items-center">
-                          <span className="w-1 h-5 bg-primary mr-2 rounded-full"></span>
-                          Key Services
-                        </h4>
-                        <div className="grid sm:grid-cols-2 gap-1.5 pl-3">
-                          {industry.services.map((service, idx) => (
-                            <div key={idx} className="flex items-start text-xs">
-                              <span className="text-primary mr-1.5 mt-0.5">•</span>
-                              <span className="leading-snug">{service}</span>
-                            </div>
-                          ))}
+                    <div className="md:col-span-3 p-6 bg-gradient-to-br from-card via-card to-card/80">
+                      <div className="space-y-5">
+                        <div>
+                          <h4 className="text-base font-semibold mb-2 text-primary flex items-center">
+                            <span className="w-1 h-5 bg-primary mr-2 rounded-full"></span>
+                            Assets Covered
+                          </h4>
+                          <p className="text-sm text-muted-foreground pl-3">{industry.assetsCovered}</p>
+                        </div>
+                        <div>
+                          <h4 className="text-base font-semibold mb-2 text-primary flex items-center">
+                            <span className="w-1 h-5 bg-primary mr-2 rounded-full"></span>
+                            Key Services
+                          </h4>
+                          <div className="grid sm:grid-cols-2 gap-1.5 pl-3">
+                            {industry.services.map((service, idx) => (
+                              <div key={idx} className="flex items-start text-xs">
+                                <span className="text-primary mr-1.5 mt-0.5">•</span>
+                                <span className="leading-snug">{service}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="text-base font-semibold mb-2 text-primary flex items-center">
+                            <span className="w-1 h-5 bg-primary mr-2 rounded-full"></span>
+                            Why It Matters
+                          </h4>
+                          <p className="text-sm text-muted-foreground leading-relaxed pl-3">{industry.whyItMatters}</p>
                         </div>
                       </div>
-                      
-                      <div>
-                        <h4 className="text-base font-semibold mb-2 text-primary flex items-center">
-                          <span className="w-1 h-5 bg-primary mr-2 rounded-full"></span>
-                          Why It Matters
-                        </h4>
-                        <p className="text-sm text-muted-foreground leading-relaxed pl-3">{industry.whyItMatters}</p>
-                      </div>
                     </div>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -291,38 +292,44 @@ const IndustrySolutions = () => {
       {/* Fabrication & Engineering Services Overview */}
       <section className="py-20 bg-muted/40">
         <div className="container mx-auto px-4 max-w-5xl space-y-12">
-          <div className="text-center space-y-4">
-            <p className="text-sm uppercase tracking-[0.3em] text-primary font-semibold">
-              Home - Industry Solutions
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold">
-              Fabrication and Engineering Services
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Our experienced engineers provide comprehensive design and drafting services, including structural analysis,
-              layout plans, material selection, and complete project documentation. Every design is delivered to meet the highest
-              standards of quality, safety, and regulatory compliance.
-            </p>
-          </div>
+          <AnimateOnScroll direction="right">
+            <div className="text-center space-y-4">
+              <p className="text-sm uppercase tracking-[0.3em] text-primary font-semibold">
+                Home - Industry Solutions
+              </p>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold">
+                Fabrication and Engineering Services
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Our experienced engineers provide comprehensive design and drafting services, including structural analysis,
+                layout plans, material selection, and complete project documentation. Every design is delivered to meet the highest
+                standards of quality, safety, and regulatory compliance.
+              </p>
+            </div>
+          </AnimateOnScroll>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {engineeringServices.map((service) => (
-              <Card key={service} className="h-full border-dashed border-border/60 bg-background/80 backdrop-blur">
-                <CardContent className="p-6 flex items-center h-full">
-                  <span className="text-sm font-semibold tracking-wide leading-snug">{service}</span>
-                </CardContent>
-              </Card>
+            {engineeringServices.map((service, i) => (
+              <AnimateOnScroll key={service} direction={i % 2 === 0 ? "left" : "right"} delay={(i % 6) * 50}>
+                <Card className="h-full border-dashed border-border/60 bg-background/80 backdrop-blur">
+                  <CardContent className="p-6 flex items-center h-full">
+                    <span className="text-sm font-semibold tracking-wide leading-snug">{service}</span>
+                  </CardContent>
+                </Card>
+              </AnimateOnScroll>
             ))}
           </div>
 
-          <div className="bg-card border border-border rounded-3xl shadow-sm p-8 md:p-12 space-y-4">
-            <h3 className="text-2xl md:text-3xl font-serif font-semibold text-primary">Detailed Engineering</h3>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              Our experienced engineers provide comprehensive design and drafting services, including structural analysis,
-              layout plans, material selection, and comprehensive project documentation. We ensure that all designs comply
-              with the highest quality and safety standards in the industry.
-            </p>
-          </div>
+          <AnimateOnScroll direction="up">
+            <div className="bg-card border border-border rounded-3xl shadow-sm p-8 md:p-12 space-y-4">
+              <h3 className="text-2xl md:text-3xl font-serif font-semibold text-primary">Detailed Engineering</h3>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                Our experienced engineers provide comprehensive design and drafting services, including structural analysis,
+                layout plans, material selection, and comprehensive project documentation. We ensure that all designs comply
+                with the highest quality and safety standards in the industry.
+              </p>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -332,7 +339,7 @@ const IndustrySolutions = () => {
           <img src={industryHero} alt="" className="h-full w-full object-cover" loading="lazy" />
           <div className="absolute inset-0 bg-foreground/70" />
         </div>
-        <div className="container mx-auto px-4 relative z-10">
+        <AnimateOnScroll direction="up" className="container mx-auto px-4 relative z-10">
           <div className="text-center">
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-white">
               Ready to Discuss Your Industry Needs?
@@ -346,7 +353,7 @@ const IndustrySolutions = () => {
               </Link>
             </Button>
           </div>
-        </div>
+        </AnimateOnScroll>
       </section>
     </div>
   );

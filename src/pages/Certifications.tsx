@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircleIcon, AwardIcon, ShieldIcon } from "@/components/ui/icons";
 import fieldWork4 from "@/assets/field-work-4.jpg";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 // Custom Download Icon Component
 const DownloadIcon = ({ className }: { className?: string }) => (
@@ -133,10 +134,31 @@ const Certifications = () => {
   };
 
   const handleDownload = (certId: string) => {
-    // Mock download functionality
     console.log(`Downloading certificate: ${certId}`);
-    // In production, this would trigger actual certificate download
   };
+
+  const renderCertCard = (cert: typeof certifications.api[0], iconComponent: React.ReactNode, index: number, direction: "left" | "right") => (
+    <AnimateOnScroll key={cert.id} direction={direction} delay={index * 100}>
+      <Card className="hover:shadow-xl transition-all duration-300 group h-full">
+        <CardHeader>
+          {iconComponent}
+          <CardTitle className="text-xl">{cert.name}</CardTitle>
+          <CardDescription className="font-mono text-xs">{cert.standard}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground mb-4">{cert.description}</p>
+          <div className="flex items-center gap-2 mb-4 text-xs text-muted-foreground">
+            <CheckCircleIcon className="w-4 h-4 text-green-600" />
+            <span>Valid: {cert.issueDate} - {cert.validUntil}</span>
+          </div>
+          <Button onClick={() => handleDownload(cert.id)} className="w-full rounded-full" variant="outline">
+            <DownloadIcon className="w-4 h-4 mr-2" />
+            Download Certificate
+          </Button>
+        </CardContent>
+      </Card>
+    </AnimateOnScroll>
+  );
 
   return (
     <div className="min-h-screen">
@@ -148,7 +170,7 @@ const Certifications = () => {
         </div>
         
         <div className="container relative z-10 mx-auto px-4">
-          <div className="max-w-3xl">
+          <AnimateOnScroll direction="left" className="max-w-3xl">
             <Badge className="mb-4 bg-white/10 text-white border-white/20">
               <ShieldIcon className="w-3 h-3 mr-1" />
               Industry Leading Standards
@@ -157,7 +179,7 @@ const Certifications = () => {
               Certifications & Compliance
             </h1>
             <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-8">
-              Our commitment to excellence is validated through rigorous international standards and industry-leading certifications. Download our certificates to verify our credentials.
+              Our commitment to excellence is validated through rigorous international standards and industry-leading certifications.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" className="rounded-full shadow-lg hover:scale-105 transition-transform">
@@ -168,56 +190,31 @@ const Certifications = () => {
                 Contact Compliance Team
               </Button>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* API Certifications */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-              API Standards
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              American Petroleum Institute
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Certified to the highest API standards for oil and gas industry equipment and quality management
-            </p>
-          </div>
+          <AnimateOnScroll direction="right">
+            <div className="text-center mb-12">
+              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+                API Standards
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+                American Petroleum Institute
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Certified to the highest API standards for oil and gas industry equipment and quality management
+              </p>
+            </div>
+          </AnimateOnScroll>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {certifications.api.map((cert) => (
-              <Card key={cert.id} className="hover:shadow-xl transition-all duration-300 group">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <FileCheckIcon className="w-6 h-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">{cert.name}</CardTitle>
-                  <CardDescription className="font-mono text-xs">
-                    {cert.standard}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {cert.description}
-                  </p>
-                  <div className="flex items-center gap-2 mb-4 text-xs text-muted-foreground">
-                    <CheckCircleIcon className="w-4 h-4 text-green-600" />
-                    <span>Valid: {cert.issueDate} - {cert.validUntil}</span>
-                  </div>
-                  <Button 
-                    onClick={() => handleDownload(cert.id)}
-                    className="w-full rounded-full"
-                    variant="outline"
-                  >
-                    <DownloadIcon className="w-4 h-4 mr-2" />
-                    Download Certificate
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+            {certifications.api.map((cert, i) =>
+              renderCertCard(cert, <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors"><FileCheckIcon className="w-6 h-6 text-primary" /></div>, i, i % 2 === 0 ? "left" : "right")
+            )}
           </div>
         </div>
       </section>
@@ -225,49 +222,24 @@ const Certifications = () => {
       {/* ISO Certifications */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-              ISO Standards
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              International Organization for Standardization
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive ISO certifications ensuring quality, environmental responsibility, and workplace safety
-            </p>
-          </div>
+          <AnimateOnScroll direction="left">
+            <div className="text-center mb-12">
+              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+                ISO Standards
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+                International Organization for Standardization
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Comprehensive ISO certifications ensuring quality, environmental responsibility, and workplace safety
+              </p>
+            </div>
+          </AnimateOnScroll>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {certifications.iso.map((cert) => (
-              <Card key={cert.id} className="hover:shadow-xl transition-all duration-300 group">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 transition-colors">
-                    <AwardIcon className="w-6 h-6 text-secondary" />
-                  </div>
-                  <CardTitle className="text-lg">{cert.name}</CardTitle>
-                  <CardDescription className="font-mono text-xs">
-                    {cert.standard}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {cert.description}
-                  </p>
-                  <div className="flex items-center gap-2 mb-4 text-xs text-muted-foreground">
-                    <CheckCircleIcon className="w-4 h-4 text-green-600" />
-                    <span>Valid: {cert.issueDate} - {cert.validUntil}</span>
-                  </div>
-                  <Button 
-                    onClick={() => handleDownload(cert.id)}
-                    className="w-full rounded-full"
-                    variant="outline"
-                  >
-                    <DownloadIcon className="w-4 h-4 mr-2" />
-                    Download
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+            {certifications.iso.map((cert, i) =>
+              renderCertCard(cert, <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 transition-colors"><AwardIcon className="w-6 h-6 text-secondary" /></div>, i, i % 2 === 0 ? "right" : "left")
+            )}
           </div>
         </div>
       </section>
@@ -275,49 +247,24 @@ const Certifications = () => {
       {/* Industry Certifications */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-              Industry Standards
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              Additional Industry Certifications
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Specialized certifications for welding, pressure vessels, and corrosion resistance
-            </p>
-          </div>
+          <AnimateOnScroll direction="right">
+            <div className="text-center mb-12">
+              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+                Industry Standards
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+                Additional Industry Certifications
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Specialized certifications for welding, pressure vessels, and corrosion resistance
+              </p>
+            </div>
+          </AnimateOnScroll>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {certifications.industry.map((cert) => (
-              <Card key={cert.id} className="hover:shadow-xl transition-all duration-300 group">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                    <ShieldIcon className="w-6 h-6 text-accent-foreground" />
-                  </div>
-                  <CardTitle className="text-xl">{cert.name}</CardTitle>
-                  <CardDescription className="font-mono text-xs">
-                    {cert.standard}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {cert.description}
-                  </p>
-                  <div className="flex items-center gap-2 mb-4 text-xs text-muted-foreground">
-                    <CheckCircleIcon className="w-4 h-4 text-green-600" />
-                    <span>Valid: {cert.issueDate} - {cert.validUntil}</span>
-                  </div>
-                  <Button 
-                    onClick={() => handleDownload(cert.id)}
-                    className="w-full rounded-full"
-                    variant="outline"
-                  >
-                    <DownloadIcon className="w-4 h-4 mr-2" />
-                    Download Certificate
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+            {certifications.industry.map((cert, i) =>
+              renderCertCard(cert, <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors"><ShieldIcon className="w-6 h-6 text-accent-foreground" /></div>, i, i % 2 === 0 ? "left" : "right")
+            )}
           </div>
         </div>
       </section>
@@ -330,7 +277,7 @@ const Certifications = () => {
             backgroundSize: '40px 40px'
           }} />
         </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
+        <AnimateOnScroll direction="up" className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
             Need Certification Documentation?
           </h2>
@@ -353,7 +300,7 @@ const Certifications = () => {
               Contact Compliance Team
             </Button>
           </div>
-        </div>
+        </AnimateOnScroll>
       </section>
     </div>
   );

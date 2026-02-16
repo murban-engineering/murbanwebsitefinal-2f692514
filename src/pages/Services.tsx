@@ -39,7 +39,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
-
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 import servicesBuilding from "@/assets/services-building.jpg";
 import storageTanks from "@/assets/storage-tanks.jpg";
 import modernFactory from "@/assets/modern-factory.jpg";
@@ -2130,7 +2130,7 @@ const Services = () => {
         </div>
 
         <div className="container relative z-10 mx-auto px-4 text-center">
-          <div className="animate-fade-in">
+          <AnimateOnScroll direction="left">
             <Badge className="mb-6 border border-white/40 bg-white/15 text-white backdrop-blur-md text-sm uppercase tracking-wider">
               Murban Engineering – NDT & Asset Integrity Services
             </Badge>
@@ -2158,7 +2158,7 @@ const Services = () => {
                 ))}
               </div>
             </nav>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -2170,17 +2170,19 @@ const Services = () => {
           className={`relative py-24 ${clusterIndex % 2 === 0 ? "bg-background" : "bg-muted/30"}`}
         >
           <div className="container relative z-10 mx-auto px-4">
-            <div className="mx-auto mb-16 max-w-4xl text-center">
-              <span className="text-sm font-semibold uppercase tracking-widest text-primary">
-                Service Cluster {clusterIndex + 1}
-              </span>
-              <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-foreground">
-                {cluster.label}
-              </h2>
-              <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-                {cluster.description}
-              </p>
-            </div>
+            <AnimateOnScroll direction={clusterIndex % 2 === 0 ? "right" : "left"}>
+              <div className="mx-auto mb-16 max-w-4xl text-center">
+                <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+                  Service Cluster {clusterIndex + 1}
+                </span>
+                <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-foreground">
+                  {cluster.label}
+                </h2>
+                <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+                  {cluster.description}
+                </p>
+              </div>
+            </AnimateOnScroll>
             <div className="services-grid services-grid--selectable">
               {cluster.services.map((service) => (
                 <ServiceCard
@@ -2215,17 +2217,19 @@ const Services = () => {
         </div>
 
         <div className="container relative z-10 mx-auto px-4">
-          <div className="mx-auto mb-16 max-w-3xl text-center">
-            <span className="text-sm font-semibold uppercase tracking-widest text-primary">
-              Engineering & Fabrication
-            </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-foreground">
-              Murban Engineering and Fabrication Services
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              From detailed engineering to turnkey fabrication and installation
-            </p>
-          </div>
+          <AnimateOnScroll direction="left">
+            <div className="mx-auto mb-16 max-w-3xl text-center">
+              <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+                Engineering & Fabrication
+              </span>
+              <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-foreground">
+                Murban Engineering and Fabrication Services
+              </h2>
+              <p className="mt-4 text-muted-foreground">
+                From detailed engineering to turnkey fabrication and installation
+              </p>
+            </div>
+          </AnimateOnScroll>
           <div className="services-grid">
             {fabricationServices.map((service) => (
               <ServiceCard
