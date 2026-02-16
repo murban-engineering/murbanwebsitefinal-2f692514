@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getServiceBySlug, getServiceDetailBySlug, getServiceSlugForName } from "./Services";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 import magneticTestingImg from "@/assets/magnetic-testing.jpg";
 import chimneyIndustryImg from "@/assets/chimney-industry.jpg";
@@ -79,90 +80,94 @@ const ServiceDetailPage = () => {
       {/* Hero Section - Image left, text right */}
       <div className="w-full">
         <div className="grid md:grid-cols-2">
-          <div className="h-64 md:h-96">
-            <img
-              src={heroImage}
-              alt={service.title}
-              className="h-full w-full object-cover"
-              loading="eager"
-              width={960}
-              height={400}
-            />
-          </div>
-          <div className="flex flex-col justify-center bg-muted/30 p-8 md:p-12">
-            <Badge className="mb-4 w-fit bg-primary/10 text-primary">
-              {detail?.label ?? service.title}
-            </Badge>
-            <h1 className="text-3xl font-serif font-bold text-foreground md:text-4xl lg:text-5xl">
-              {detail?.headline ?? service.title}
-            </h1>
-            <p className="mt-4 text-muted-foreground">
-              {descriptionParagraphs[0] || baseDescription}
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Button asChild variant="ghost" size="sm">
-                <Link to="/services" className="inline-flex items-center gap-2">
-                  <ArrowLeftIcon className="h-4 w-4" />
-                  Back to services
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="sm">
-                <Link to="/contact" className="inline-flex items-center gap-2">
-                  Discuss your project
-                  <ArrowRightIcon className="h-4 w-4" />
-                </Link>
-              </Button>
+          <AnimateOnScroll direction="left">
+            <div className="h-64 md:h-96">
+              <img
+                src={heroImage}
+                alt={service.title}
+                className="h-full w-full object-cover"
+                loading="eager"
+                width={960}
+                height={400}
+              />
             </div>
-          </div>
+          </AnimateOnScroll>
+          <AnimateOnScroll direction="right" delay={150}>
+            <div className="flex flex-col justify-center bg-muted/30 p-8 md:p-12">
+              <Badge className="mb-4 w-fit bg-primary/10 text-primary">
+                {detail?.label ?? service.title}
+              </Badge>
+              <h1 className="text-3xl font-serif font-bold text-foreground md:text-4xl lg:text-5xl">
+                {detail?.headline ?? service.title}
+              </h1>
+              <p className="mt-4 text-muted-foreground">
+                {descriptionParagraphs[0] || baseDescription}
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Button asChild variant="ghost" size="sm">
+                  <Link to="/services" className="inline-flex items-center gap-2">
+                    <ArrowLeftIcon className="h-4 w-4" />
+                    Back to services
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="sm">
+                  <Link to="/contact" className="inline-flex items-center gap-2">
+                    Discuss your project
+                    <ArrowRightIcon className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </AnimateOnScroll>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-12">
         <div className="mx-auto max-w-5xl space-y-10">
           {descriptionParagraphs.length > 1 && (
-            <div className="space-y-4 text-lg text-muted-foreground">
-              {descriptionParagraphs.slice(1).map((paragraph, index) => (
-                <p key={`${slug}-paragraph-${index}`}>{paragraph}</p>
-              ))}
-            </div>
+            <AnimateOnScroll direction="up">
+              <div className="space-y-4 text-lg text-muted-foreground">
+                {descriptionParagraphs.slice(1).map((paragraph, index) => (
+                  <p key={`${slug}-paragraph-${index}`}>{paragraph}</p>
+                ))}
+              </div>
+            </AnimateOnScroll>
           )}
 
-          {detail?.sections?.map((section) => (
-            <section
-              key={section.title}
-              className="space-y-4 rounded-3xl border border-border/50 bg-card/60 p-6 backdrop-blur-sm"
-            >
-              <h2 className="text-2xl font-semibold text-foreground">
-                {section.title}
-              </h2>
-              <ul className="space-y-3 text-base text-muted-foreground">
-                {section.items.map((item) => {
-                  const itemSlug = getServiceSlugForName(item);
-                  const itemService = itemSlug ? getServiceBySlug(itemSlug) : undefined;
+          {detail?.sections?.map((section, i) => (
+            <AnimateOnScroll key={section.title} direction={i % 2 === 0 ? "left" : "right"} delay={i * 100}>
+              <section className="space-y-4 rounded-3xl border border-border/50 bg-card/60 p-6 backdrop-blur-sm">
+                <h2 className="text-2xl font-semibold text-foreground">
+                  {section.title}
+                </h2>
+                <ul className="space-y-3 text-base text-muted-foreground">
+                  {section.items.map((item) => {
+                    const itemSlug = getServiceSlugForName(item);
+                    const itemService = itemSlug ? getServiceBySlug(itemSlug) : undefined;
 
-                  return (
-                    <li key={item} className="flex items-start gap-3">
-                      <span
-                        className="mt-1 inline-flex h-2 w-2 rounded-full bg-primary"
-                        aria-hidden="true"
-                      />
-                      {itemService ? (
-                        <Link
-                          to={`/services/${itemSlug}`}
-                          className="font-medium text-foreground underline decoration-primary/60 decoration-2 underline-offset-4 transition hover:text-primary"
-                        >
-                          {item}
-                        </Link>
-                      ) : (
-                        <span>{item}</span>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
+                    return (
+                      <li key={item} className="flex items-start gap-3">
+                        <span
+                          className="mt-1 inline-flex h-2 w-2 rounded-full bg-primary"
+                          aria-hidden="true"
+                        />
+                        {itemService ? (
+                          <Link
+                            to={`/services/${itemSlug}`}
+                            className="font-medium text-foreground underline decoration-primary/60 decoration-2 underline-offset-4 transition hover:text-primary"
+                          >
+                            {item}
+                          </Link>
+                        ) : (
+                          <span>{item}</span>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </section>
+            </AnimateOnScroll>
           ))}
-
         </div>
       </div>
     </div>
