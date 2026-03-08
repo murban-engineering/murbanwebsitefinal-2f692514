@@ -284,7 +284,7 @@ const About = () => {
                 <AnimateOnScroll key={index} direction={index % 2 === 0 ? "left" : "right"} delay={index * 100}>
                   <Card className="group hover:shadow-lg transition-all duration-300 border-border">
                     <CardContent className="p-6 text-center">
-                      <value.icon className="h-10 w-10 text-primary mx-auto mb-4" />
+                      <value.icon className="h-10 w-10 text-foreground mx-auto mb-4" />
                       <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
                       <p className="text-muted-foreground">{value.description}</p>
                     </CardContent>
