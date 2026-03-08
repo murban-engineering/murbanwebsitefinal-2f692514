@@ -107,11 +107,11 @@ const About = () => {
                   <h3 className="text-xl font-semibold mb-3">We operate through two divisions:</h3>
                   <ul className="space-y-2 text-muted-foreground">
                     <li className="flex items-start">
-                      <Award className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
+                      <BadgeCheck className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
                       <span><strong>Murban Inspection Services</strong></span>
                     </li>
                     <li className="flex items-start">
-                      <Award className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
+                      <BadgeCheck className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
                       <span><strong>Murban Engineering Services</strong></span>
                     </li>
                   </ul>
