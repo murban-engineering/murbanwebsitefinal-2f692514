@@ -44,7 +44,7 @@ const IndustrySolutions = () => {
       whyItMatters: "At Murban Engineering, we offer industry-leading inspection and integrity solutions tailored to the critical demands of the oil and gas sector. Our services span upstream, midstream, and downstream operations—from pipeline and pressure vessel inspections to storage tank calibration and corrosion assessment. Using advanced techniques like Phased Array Ultrasonic Testing (PAUT), Magnetic Flux Leakage (MFL), and Risk-Based Inspection (RBI), we help oil and gas operators extend asset life, avoid unplanned outages, and meet the highest standards of safety and compliance.",
     },
     {
-      icon: BoilerGuardIcon,
+      icon: Flame,
       title: "Power & Steam Generation",
       image: storageTerminalsImg,
       assetsCovered: "Boilers, heat exchangers, pressure vessels, steam lines",
