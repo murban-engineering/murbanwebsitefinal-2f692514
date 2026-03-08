@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { MessageCircle, X, Send, Bot } from "lucide-react";
+import { BotMessageSquare, X, Send, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type Message = {
@@ -111,7 +111,7 @@ const MurbanAI = () => {
           className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:scale-110 hover:shadow-xl"
           aria-label="Open Murban AI Chat"
         >
-          <MessageCircle className="h-6 w-6" />
+          <BotMessageSquare className="h-6 w-6" />
         </button>
       )}
 
@@ -121,7 +121,7 @@ const MurbanAI = () => {
           {/* Header */}
           <div className="flex items-center justify-between bg-primary px-4 py-3">
             <div className="flex items-center gap-2">
-              <Bot className="h-5 w-5 text-primary-foreground" />
+              <Sparkles className="h-5 w-5 text-primary-foreground" />
               <span className="font-semibold text-primary-foreground">Murban AI</span>
             </div>
             <button

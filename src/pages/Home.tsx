@@ -1,13 +1,14 @@
 import {
   ArrowRight,
-  BarChart3,
-  Compass,
-  ScanSearch,
-  Zap,
-  ClipboardCheck,
-  HardHat,
-  Sparkles,
-  Shield,
+  LineChart,
+  Globe2,
+  Activity,
+  Cpu,
+  FileSearch,
+  Hammer,
+  BrainCircuit,
+  Leaf,
+  ShieldCheck,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -30,7 +31,7 @@ import industrialPlant from "@/assets/industrial-plant.jpg";
 const Home = () => {
   const services = [
     {
-      icon: ScanSearch,
+      icon: Activity,
       title: "General NDT",
       description: "Comprehensive non-destructive testing using magnetic particle, dye penetrant, ultrasonic, and radiographic methods for structural integrity assurance.",
       forText: "Oil & gas, power plants, refineries, marine",
@@ -38,7 +39,7 @@ const Home = () => {
       tag: "General NDT",
     },
     {
-      icon: Zap,
+      icon: Cpu,
       title: "Advanced NDT",
       description: "Cutting-edge inspection techniques including Phased Array UT, TOFD, ACFM, and AUT for complex geometry and high-integrity assets.",
       forText: "Subsea, aerospace, high-pressure systems",
@@ -46,7 +47,7 @@ const Home = () => {
       tag: "Advanced NDT",
     },
     {
-      icon: ClipboardCheck,
+      icon: FileSearch,
       title: "Engineering Assessments",
       description: "API 570, API 653, fitness-for-service evaluations and risk-based inspection programs to extend asset life and ensure code compliance.",
       forText: "Process plants, storage terminals, pipelines",
@@ -54,7 +55,7 @@ const Home = () => {
       tag: "Engineering Assessments",
     },
     {
-      icon: HardHat,
+      icon: Hammer,
       title: "Engineering & Fabrication",
       description: "Structural fabrication, tank construction, piping works and project management delivered to international codes and standards.",
       forText: "Industrial plants, refineries, construction projects",
@@ -73,19 +74,19 @@ const Home = () => {
 
   const differentiators = [
     {
-      icon: Sparkles,
+      icon: BrainCircuit,
       title: "Signature Delivery Experience",
       description:
         "Our cross-functional squads embed alongside your team to accelerate approvals, procurement and commissioning.",
     },
     {
-      icon: BarChart3,
+      icon: LineChart,
       title: "Data-Driven Decisions",
       description:
         "Live project analytics and predictive modelling ensure you are always ahead of risk and budget curveballs.",
     },
     {
-      icon: Compass,
+      icon: Leaf,
       title: "Sustainability by Design",
       description:
         "We engineer for carbon, water and energy performance from day zero, ensuring compliance and positive impact.",
@@ -143,21 +144,21 @@ const Home = () => {
 
   const transformationHighlights = [
     {
-      icon: Sparkles,
+      icon: Globe2,
       title: "Immersive Digital Oversight",
       description:
         "Unified command centres with predictive analytics that surface insights for every stakeholder in real time.",
       stat: "98% uptime across active sites",
     },
     {
-      icon: Compass,
+      icon: Leaf,
       title: "Regenerative Design Systems",
       description:
         "Low-carbon materials, adaptive envelopes and net-positive water strategies embedded at concept stage.",
       stat: "40% average energy intensity reduction",
     },
     {
-      icon: Shield,
+      icon: ShieldCheck,
       title: "Lifecycle Assurance",
       description:
         "Asset integrity programmes, NDT and digital twins that extend operational life and mitigate unplanned downtime.",
@@ -284,10 +285,8 @@ const Home = () => {
                   to={`/services/${service.slug}`}
                   className="group flex h-full flex-col rounded-2xl border border-border/60 bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/30 cursor-pointer"
                 >
-                  <div className="mb-4 inline-flex items-center gap-2">
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
-                      <service.icon className="h-6 w-6" />
-                    </div>
+                  <div className="mb-4 flex items-center gap-3">
+                    <service.icon className="h-7 w-7 text-primary" />
                     <span className="rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
                       {service.tag}
                     </span>
@@ -341,9 +340,7 @@ const Home = () => {
                 delay={i * 120}
               >
                 <div className="rounded-2xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <item.icon className="h-7 w-7" />
-                  </div>
+                  <item.icon className="h-8 w-8 text-primary" />
                   <h3 className="mt-6 text-xl font-semibold text-foreground">{item.title}</h3>
                   <p className="mt-3 text-muted-foreground">{item.description}</p>
                 </div>
@@ -373,9 +370,7 @@ const Home = () => {
                 <div className="mt-8 space-y-4">
                   {transformationHighlights.map((item) => (
                     <div key={item.title} className="flex items-start gap-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                        <item.icon className="h-5 w-5" />
-                      </div>
+                      <item.icon className="h-6 w-6 shrink-0 text-primary mt-0.5" />
                       <div>
                         <h3 className="font-semibold text-foreground">{item.title}</h3>
                         <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>

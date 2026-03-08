@@ -1,11 +1,11 @@
 import {
-  Award,
-  Target,
-  Eye,
-  Shield,
-  Heart,
-  Lightbulb,
-  Users,
+  BadgeCheck,
+  Crosshair,
+  Telescope,
+  ShieldCheck,
+  HeartHandshake,
+  FlameKindling,
+  UsersRound,
   TrendingUp,
   MapPin,
 } from "lucide-react";
@@ -21,17 +21,17 @@ import portSunset from "@/assets/port-sunset.jpg";
 const About = () => {
   const foundationValues = [
     {
-      icon: Heart,
+      icon: HeartHandshake,
       title: "Respect & Diversity",
       description: "We treat our team, clients, communities, and the environment with the highest respect.",
     },
     {
-      icon: Shield,
+      icon: ShieldCheck,
       title: "Ethics & Integrity",
       description: "We uphold the highest standards of honesty and ethical business practices.",
     },
     {
-      icon: Target,
+      icon: Crosshair,
       title: "Safety & Sustainability",
       description: "Safety and sustainability define how we operate and protect our environment.",
     },
@@ -39,13 +39,13 @@ const About = () => {
 
   const driveValues = [
     {
-      icon: Lightbulb,
+      icon: FlameKindling,
       title: "Passion for Innovation",
       description: "We constantly explore new technologies, methods, and ideas to improve how we deliver value. Innovation is embedded in our people, tools, and approach to problem-solving.",
       why: "It keeps Murban at the forefront of inspection and engineering technology, giving our clients future-ready solutions.",
     },
     {
-      icon: Users,
+      icon: UsersRound,
       title: "Customer Obsession",
       description: "We go beyond meeting expectations — we anticipate needs, act on feedback, and build lasting relationships.",
       why: "Your success is our success. We align our work to what matters most to you: safety, uptime, and compliance.",
@@ -107,11 +107,11 @@ const About = () => {
                   <h3 className="text-xl font-semibold mb-3">We operate through two divisions:</h3>
                   <ul className="space-y-2 text-muted-foreground">
                     <li className="flex items-start">
-                      <Award className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
+                      <BadgeCheck className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
                       <span><strong>Murban Inspection Services</strong></span>
                     </li>
                     <li className="flex items-start">
-                      <Award className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
+                      <BadgeCheck className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
                       <span><strong>Murban Engineering Services</strong></span>
                     </li>
                   </ul>
@@ -156,7 +156,7 @@ const About = () => {
             <AnimateOnScroll direction="right">
               <Card className="border-border">
                 <CardContent className="p-8">
-                  <Heart className="h-12 w-12 text-primary mb-4" />
+                  <HeartHandshake className="h-12 w-12 text-primary mb-4" />
                   <h3 className="text-2xl font-serif font-bold mb-4">Our Why (Purpose)</h3>
                   <p className="text-muted-foreground">
                     We exist to enhance safety, reliability, and performance in critical infrastructure through innovative inspection and engineering solutions.
@@ -168,7 +168,7 @@ const About = () => {
               <AnimateOnScroll direction="left" delay={100}>
                 <Card className="border-border">
                   <CardContent className="p-8">
-                    <Eye className="h-12 w-12 text-primary mb-4" />
+                    <Telescope className="h-12 w-12 text-primary mb-4" />
                     <h3 className="text-2xl font-serif font-bold mb-4">Our Vision</h3>
                     <p className="text-muted-foreground">
                       To be the undisputed leader in specialized Non-Destructive Testing and Inspection across Africa through innovation, experience, and technology.
@@ -179,7 +179,7 @@ const About = () => {
               <AnimateOnScroll direction="right" delay={200}>
                 <Card className="border-border">
                   <CardContent className="p-8">
-                    <Target className="h-12 w-12 text-primary mb-4" />
+                    <Crosshair className="h-12 w-12 text-primary mb-4" />
                     <h3 className="text-2xl font-serif font-bold mb-4">Our Mission</h3>
                     <p className="text-muted-foreground">
                       To deliver value to clients by executing world-class asset integrity services that maximize uptime and ensure safety compliance.
@@ -284,9 +284,7 @@ const About = () => {
                 <AnimateOnScroll key={index} direction={index % 2 === 0 ? "left" : "right"} delay={index * 100}>
                   <Card className="group hover:shadow-lg transition-all duration-300 border-border">
                     <CardContent className="p-6 text-center">
-                      <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                        <value.icon className="h-8 w-8 text-primary group-hover:text-primary-foreground" />
-                      </div>
+                      <value.icon className="h-10 w-10 text-primary mx-auto mb-4" />
                       <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
                       <p className="text-muted-foreground">{value.description}</p>
                     </CardContent>
@@ -306,9 +304,7 @@ const About = () => {
                 <AnimateOnScroll key={index} direction={index % 2 === 0 ? "right" : "left"} delay={index * 100}>
                   <Card className="group hover:shadow-lg transition-all duration-300 border-border">
                     <CardContent className="p-6">
-                      <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary/10 group-hover:bg-secondary group-hover:text-secondary-foreground transition-colors">
-                        <value.icon className="h-8 w-8 text-secondary group-hover:text-secondary-foreground" />
-                      </div>
+                      <value.icon className="h-10 w-10 text-primary mb-4" />
                       <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
                       <p className="text-muted-foreground text-sm mb-3">{value.description}</p>
                       <p className="text-xs text-primary font-medium italic">Why it matters: {value.why}</p>
