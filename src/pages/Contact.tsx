@@ -210,7 +210,7 @@ const Contact = () => {
                 >
                   <CardContent className="p-8">
                     <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 group-hover:bg-primary group-hover:scale-110 transition-all shadow-md group-hover:shadow-glow">
-                      <info.icon className="h-8 w-8 text-primary group-hover:text-primary-foreground transition-colors" />
+                      <info.icon className="h-8 w-8 text-foreground group-hover:text-primary-foreground transition-colors" />
                     </div>
                     <h3 className="text-lg font-semibold mb-2">{info.title}</h3>
                     {info.link ? (
@@ -360,7 +360,7 @@ const Contact = () => {
                   <div className="p-4 bg-card border-t border-border">
                     <div className="flex items-center justify-between flex-wrap gap-3">
                       <div className="flex items-center gap-2">
-                        <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                        <MapPin className="h-5 w-5 text-foreground flex-shrink-0" />
                         <p className="text-sm text-muted-foreground font-medium">
                           Off-Airport Road, Port Reitz, Mombasa, Kenya
                         </p>

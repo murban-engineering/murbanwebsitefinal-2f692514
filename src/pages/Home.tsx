@@ -311,7 +311,7 @@ const Home = () => {
                   className="group flex h-full flex-col rounded-2xl border border-border/60 bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/30 cursor-pointer"
                 >
                   <div className="mb-4 flex items-center gap-3">
-                    <service.icon className="h-7 w-7 text-primary" />
+                    <service.icon className="h-7 w-7 text-foreground" />
                     <span className="rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
                       {service.tag}
                     </span>
@@ -365,7 +365,7 @@ const Home = () => {
                 delay={i * 120}
               >
                 <div className="rounded-2xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-                  <item.icon className="h-8 w-8 text-primary" />
+                  <item.icon className="h-8 w-8 text-foreground" />
                   <h3 className="mt-6 text-xl font-semibold text-foreground">{item.title}</h3>
                   <p className="mt-3 text-muted-foreground">{item.description}</p>
                 </div>
@@ -395,7 +395,7 @@ const Home = () => {
                 <div className="mt-8 space-y-4">
                   {transformationHighlights.map((item) => (
                     <div key={item.title} className="flex items-start gap-4">
-                      <item.icon className="h-6 w-6 shrink-0 text-primary mt-0.5" />
+                      <item.icon className="h-6 w-6 shrink-0 text-foreground mt-0.5" />
                       <div>
                         <h3 className="font-semibold text-foreground">{item.title}</h3>
                         <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
