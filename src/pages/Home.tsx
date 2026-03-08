@@ -285,10 +285,8 @@ const Home = () => {
                   to={`/services/${service.slug}`}
                   className="group flex h-full flex-col rounded-2xl border border-border/60 bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/30 cursor-pointer"
                 >
-                  <div className="mb-4 inline-flex items-center gap-2">
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
-                      <service.icon className="h-6 w-6" />
-                    </div>
+                  <div className="mb-4 flex items-center gap-3">
+                    <service.icon className="h-7 w-7 text-primary" />
                     <span className="rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
                       {service.tag}
                     </span>
