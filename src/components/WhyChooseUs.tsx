@@ -1,5 +1,5 @@
 import { CircleCheckBig } from "lucide-react";
-import teamImage from "@/assets/team-collaboration.jpg";
+import magneticTesting from "@/assets/magnetic-testing.jpg";
 
 const WhyChooseUs = () => {
   const reasons = [
