@@ -22,7 +22,7 @@ import industryHero from "@/assets/industry-hero.jpg";
 const IndustrySolutions = () => {
   const industries = [
     {
-      icon: EnergyReservoirIcon,
+      icon: Fuel,
       title: "Oil & Gas Industry",
       image: oilGasImg,
       assetsCovered: "Storage tanks, sphere tanks, pressure vessels, pipelines, marine terminals, FPSOs",
