@@ -213,7 +213,7 @@ const Certifications = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.api.map((cert, i) =>
-              renderCertCard(cert, <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors"><FileCheckIcon className="w-6 h-6 text-primary" /></div>, i, i % 2 === 0 ? "left" : "right")
+              renderCertCard(cert, <div className="w-12 h-12 rounded-lg bg-foreground/10 flex items-center justify-center mb-4 group-hover:bg-foreground/20 transition-colors"><FileCheckIcon className="w-6 h-6 text-foreground" /></div>, i, i % 2 === 0 ? "left" : "right")
             )}
           </div>
         </div>
