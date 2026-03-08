@@ -108,7 +108,7 @@ const IndustrySolutions = () => {
       whyItMatters: "The renewable energy sector is expanding rapidly, and so is the need for safe, reliable, and long-lasting infrastructure. At Murban, we offer targeted inspection services for geothermal rigs, solar installations, and wind structures. From flaw detection in rig welds to thermal imaging of solar panels and structural surveys using UAVs and laser scanning, we ensure your green energy systems are safe, efficient, and compliant with modern engineering codes.",
     },
     {
-      icon: RailNetworkIcon,
+      icon: Train,
       title: "Rail Industry",
       image: railIndustryImg,
       assetsCovered: "Rail wagons, bogies, bridges, storage depots, fuel tanks",
