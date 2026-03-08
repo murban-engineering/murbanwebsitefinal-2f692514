@@ -1,5 +1,5 @@
 import { CircleCheckBig } from "lucide-react";
-import teamImage from "@/assets/team-collaboration.jpg";
+import magneticTesting from "@/assets/magnetic-testing.jpg";
 
 const WhyChooseUs = () => {
   const reasons = [
@@ -17,7 +17,7 @@ const WhyChooseUs = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in order-2 lg:order-1">
             <img
-              src={teamImage}
+              src={magneticTesting}
               alt="Industrial Equipment"
               className="rounded-lg shadow-xl w-full h-auto"
               loading="lazy"
