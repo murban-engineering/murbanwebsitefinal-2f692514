@@ -124,7 +124,7 @@ const IndustrySolutions = () => {
       whyItMatters: "Railway infrastructure must meet the demands of heavy loads, constant vibration, and dynamic stresses. Murban provides specialized inspection and certification services for railcars, bridges, depots, and fuel wagons. Our techniques—ranging from ultrasonic and radiographic testing to tank calibration and corrosion inspection—help operators ensure safety, prevent failures, and maintain smooth operations across the rail network.",
     },
     {
-      icon: MarineLogisticsIcon,
+      icon: Ship,
       title: "Shipping & Marine Industry",
       image: shippingMarineImg,
       assetsCovered: "Cargo tanks, ballast tanks, marine pipelines, ship hulls, offshore loading arms, vessel pressure systems, tankers, offshore platforms",
