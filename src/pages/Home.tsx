@@ -340,9 +340,7 @@ const Home = () => {
                 delay={i * 120}
               >
                 <div className="rounded-2xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <item.icon className="h-7 w-7" />
-                  </div>
+                  <item.icon className="h-8 w-8 text-primary" />
                   <h3 className="mt-6 text-xl font-semibold text-foreground">{item.title}</h3>
                   <p className="mt-3 text-muted-foreground">{item.description}</p>
                 </div>
