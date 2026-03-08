@@ -121,7 +121,7 @@ const MurbanAI = () => {
           {/* Header */}
           <div className="flex items-center justify-between bg-primary px-4 py-3">
             <div className="flex items-center gap-2">
-              <Bot className="h-5 w-5 text-primary-foreground" />
+              <Sparkles className="h-5 w-5 text-primary-foreground" />
               <span className="font-semibold text-primary-foreground">Murban AI</span>
             </div>
             <button
