@@ -1,12 +1,13 @@
 import {
   ArrowRight,
   BarChart3,
-  FlaskConical,
   Compass,
-  ScanLine,
-  Shield,
+  ScanSearch,
+  Zap,
+  ClipboardCheck,
+  HardHat,
   Sparkles,
-  Wrench,
+  Shield,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
