@@ -35,7 +35,7 @@ import {
   Target,
   Eye,
   Crosshair,
-  Map,
+  Map as MapIcon,
   Globe,
   ArrowRight,
   type LucideIcon,
