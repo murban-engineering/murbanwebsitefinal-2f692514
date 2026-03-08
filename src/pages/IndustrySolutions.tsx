@@ -78,7 +78,7 @@ const IndustrySolutions = () => {
       whyItMatters: "Bulk liquid and fuel terminals are complex facilities that demand accurate calibration, corrosion monitoring, and tank integrity assurance. Murban Engineering provides comprehensive solutions for tank farms, depots, and LPG storage facilities using technologies like 3D laser scanning, UAV-based inspections, and API 653-compliant tank assessments. Our goal is to help operators maintain regulatory compliance, safeguard stored products, and optimize infrastructure performance across the entire terminal lifecycle.",
     },
     {
-      icon: FoodProcessIcon,
+      icon: UtensilsCrossed,
       title: "Food Processing Industry",
       image: foodProcessingImg,
       assetsCovered: "Stainless tanks, pressure vessels, food-grade pipelines, steam boilers",
