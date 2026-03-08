@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { MessageCircle, X, Send, Bot } from "lucide-react";
+import { BotMessageSquare, X, Send, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type Message = {
