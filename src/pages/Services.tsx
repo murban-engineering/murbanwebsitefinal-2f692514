@@ -310,39 +310,37 @@ export const ndtServices: ServiceItem[] = ndtServiceItems.map((service) => ({
 
 const fabricationServiceItems: ServiceItemInput[] = [
   {
-    icon: BlueprintCompassIcon,
+    icon: Ruler,
     title: "Detailed Engineering",
     description: "Comprehensive technical plans and documentation.",
     slug: "detailed-engineering",
   },
   {
-    icon: ProcurementFlowIcon,
+    icon: ShoppingCart,
     title: "Procurement",
     description: "Sourcing materials for project execution.",
     slug: "procurement",
   },
   {
-    icon: FabricationBeamIcon,
+    icon: Factory,
     title: "Fabrication",
     description: "Precision cutting, welding, and assembly services.",
     slug: "fabrication",
   },
   {
-    icon: StructureLiftIcon,
+    icon: Building,
     title: "Construction and Erection",
-    description:
-      "Safe, code-compliant erection of steel structures, pipelines, and storage tanks.",
+    description: "Safe, code-compliant erection of steel structures, pipelines, and storage tanks.",
     slug: "construction-and-erection",
   },
   {
-    icon: WeldingArcIcon,
+    icon: Wrench,
     title: "Specialized Welding",
-    description:
-      "Certified TIG, MIG, SMAW, and SAW welding that safeguards structural integrity.",
+    description: "Certified TIG, MIG, SMAW, and SAW welding that safeguards structural integrity.",
     slug: "specialized-welding",
   },
   {
-    icon: SurfaceTreatmentIcon,
+    icon: Paintbrush,
     title: "Surface Preparation and Paint Works",
     description: "Surface cleaning and industrial paint coating.",
     slug: "surface-preparation-and-paint-works",
