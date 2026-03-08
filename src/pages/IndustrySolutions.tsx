@@ -59,7 +59,7 @@ const IndustrySolutions = () => {
       whyItMatters: "The power industry relies on the continuous and safe operation of high-pressure systems. Our inspection and testing services are designed to support steam generation plants, turbines, and high-energy piping. We conduct in-depth assessments of boilers, heat exchangers, and pressure vessels using ultrasonic flaw detection, surface hardness testing, and pressure validation. These services ensure the structural integrity, operational efficiency, and safety of critical components under extreme conditions.",
     },
     {
-      icon: TerminalLogisticsIcon,
+      icon: Warehouse,
       title: "Storage & Logistics Terminals",
       image: storageTerminalsImg,
       assetsCovered: "Bulk liquid tanks, LPG spheres, loading lines, depot infrastructure",
