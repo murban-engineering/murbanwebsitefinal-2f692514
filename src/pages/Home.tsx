@@ -284,10 +284,15 @@ const Home = () => {
                   to={`/services/${service.slug}`}
                   className="group flex h-full flex-col rounded-2xl border border-border/60 bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/30 cursor-pointer"
                 >
-                  <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
-                    <service.icon className="h-7 w-7" />
+                  <div className="mb-4 inline-flex items-center gap-2">
+                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
+                      <service.icon className="h-6 w-6" />
+                    </div>
+                    <span className="rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+                      {service.tag}
+                    </span>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground">{service.title}</h3>
+                  <h3 className="mt-2 text-xl font-bold text-foreground">{service.title}</h3>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
                   <hr className="my-5 border-border" />
                   <p className="text-sm text-foreground">
