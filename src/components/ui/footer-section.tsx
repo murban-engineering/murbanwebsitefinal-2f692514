@@ -147,6 +147,19 @@ function Footerdemo() {
             </Link>
           </nav>
         </div>
+        <div className="mt-8 border-t pt-6 text-center">
+          <p className="text-xs text-muted-foreground">
+            Powered by{" "}
+            <a
+              href="https://nyotaai.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-primary"
+            >
+              Nyota AI
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
