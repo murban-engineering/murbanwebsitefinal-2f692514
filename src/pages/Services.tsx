@@ -51,7 +51,7 @@ import modernFactory from "@/assets/modern-factory.jpg";
 import "./Services.css";
 
 type ServiceCardProps = {
-  icon: IconComponent;
+  icon: LucideIcon;
   title: string;
   description: string;
   onSelect?: () => void;
@@ -61,14 +61,14 @@ type ServiceCardProps = {
 };
 
 type ServiceItemInput = {
-  icon: IconComponent;
+  icon: LucideIcon;
   title: string;
   description: string;
   slug?: string;
 };
 
 export type ServiceItem = {
-  icon: IconComponent;
+  icon: LucideIcon;
   title: string;
   description: string;
   slug: string;
