@@ -396,8 +396,10 @@ const Home = () => {
                 src={fieldWork1}
                 alt="Field work 1"
                 className="h-72 w-full rounded-3xl object-cover shadow-lg transition-transform duration-300 hover:scale-[1.02]"
-                loading="eager"
+                loading="lazy"
                 decoding="async"
+                width={800}
+                height={288}
               />
             </AnimateOnScroll>
             <AnimateOnScroll direction="right" delay={100}>
@@ -405,8 +407,10 @@ const Home = () => {
                 src={fieldWork3}
                 alt="Field work 3"
                 className="h-72 w-full rounded-3xl object-cover shadow-lg transition-transform duration-300 hover:scale-[1.02]"
-                loading="eager"
+                loading="lazy"
                 decoding="async"
+                width={800}
+                height={288}
               />
             </AnimateOnScroll>
           </div>
@@ -429,7 +433,7 @@ const Home = () => {
       {/* CTA Section */}
        <section className="relative py-24 overflow-hidden">
          <div className="absolute inset-0 z-0">
-           <img src={industrialPlant} alt="" className="h-full w-full object-cover" loading="eager" decoding="async" />
+           <img src={industrialPlant} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" width={1920} height={600} />
            <div className="absolute inset-0 bg-transparent" />
         </div>
         <AnimateOnScroll direction="up" className="container relative z-10 mx-auto px-4 text-center">
