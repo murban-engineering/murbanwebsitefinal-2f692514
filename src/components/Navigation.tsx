@@ -62,7 +62,7 @@ const Navigation = () => {
               const active = isActive(link.path);
               const baseLinkClass = scrolled
                 ? active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                : active ? "text-white" : "text-white/80 hover:text-white";
+                : active ? "text-foreground" : "text-foreground/80 hover:text-foreground";
 
               if (link.external) {
                 return (
