@@ -18,6 +18,7 @@ import fieldWork4 from "@/assets/field-work-4.jpg";
 import fieldWork5 from "@/assets/field-work-5.jpg";
 import fieldWork6 from "@/assets/field-work-6.jpg";
 import constructionBlueprints from "@/assets/construction-blueprints.jpg";
+import modernOilFactory2 from "@/assets/modern-oil-factory-2.jpg";
 
 interface Project {
   id: number;
