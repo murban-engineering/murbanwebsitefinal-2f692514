@@ -51,8 +51,8 @@ const Navigation = () => {
               fetchPriority="high"
             />
             <span className="text-lg font-semibold tracking-tight">
-              <span className={scrolled ? "text-primary" : "text-white"}>MURBAN</span>{" "}
-              <span className={scrolled ? "text-foreground" : "text-white"}>ENGINEERING</span>
+              <span className="text-primary">MURBAN</span>{" "}
+              <span className="text-foreground">ENGINEERING</span>
             </span>
           </Link>
 
@@ -62,7 +62,7 @@ const Navigation = () => {
               const active = isActive(link.path);
               const baseLinkClass = scrolled
                 ? active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                : active ? "text-white" : "text-white/80 hover:text-white";
+                : active ? "text-foreground" : "text-foreground/80 hover:text-foreground";
 
               if (link.external) {
                 return (
