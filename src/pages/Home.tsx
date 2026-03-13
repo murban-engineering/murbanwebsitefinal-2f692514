@@ -26,6 +26,7 @@ import kpcLogo from "@/assets/kpc-logo.png";
 import fieldWork1 from "@/assets/field-work-1.jpg";
 import fieldWork3 from "@/assets/field-work-3.jpg";
 import modernOilFactory from "@/assets/modern-oil-factory.jpg";
+import modernOilFactory3 from "@/assets/modern-oil-factory-3.jpg";
 
 import industrialPlant from "@/assets/industrial-plant.jpg";
 
@@ -391,7 +392,7 @@ const Home = () => {
             </div>
           </AnimateOnScroll>
 
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2">
             <AnimateOnScroll direction="left" delay={0}>
               <img
                 src={fieldWork1}
@@ -403,7 +404,7 @@ const Home = () => {
                 height={288}
               />
             </AnimateOnScroll>
-            <AnimateOnScroll direction="up" delay={100}>
+            <AnimateOnScroll direction="right" delay={100}>
               <img
                 src={modernOilFactory}
                 alt="Modern oil factory"
@@ -414,11 +415,22 @@ const Home = () => {
                 height={288}
               />
             </AnimateOnScroll>
-            <AnimateOnScroll direction="right" delay={200}>
+            <AnimateOnScroll direction="left" delay={200}>
+              <img
+                src={modernOilFactory3}
+                alt="Modern oil factory facility"
+                className="h-72 w-full rounded-3xl object-cover shadow-lg transition-transform duration-300 hover:scale-[1.02]"
+                loading="lazy"
+                decoding="async"
+                width={800}
+                height={288}
+              />
+            </AnimateOnScroll>
+            <AnimateOnScroll direction="right" delay={300}>
               <img
                 src={fieldWork3}
                 alt="Field work 3"
-                className="h-72 w-full rounded-3xl object-cover shadow-lg transition-transform duration-300 hover:scale-[1.02] md:col-span-2 xl:col-span-1"
+                className="h-72 w-full rounded-3xl object-cover shadow-lg transition-transform duration-300 hover:scale-[1.02]"
                 loading="lazy"
                 decoding="async"
                 width={800}
