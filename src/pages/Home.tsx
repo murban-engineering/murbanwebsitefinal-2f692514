@@ -231,7 +231,7 @@ const Home = () => {
                 size="lg"
                 variant="secondary"
                 asChild
-                className="rounded-xl bg-[#1C2A5F] px-8 text-white shadow-lg hover:bg-[#16224d]"
+                className="rounded-xl px-8"
               >
                 <Link to="/project-gallery">View Our Projects</Link>
               </Button>
