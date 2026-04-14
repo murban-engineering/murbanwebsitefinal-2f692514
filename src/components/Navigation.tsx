@@ -21,7 +21,7 @@ const Navigation = () => {
     { name: "Services", path: "/services" },
     { name: "Industry Solutions", path: "/industry-solutions" },
     { name: "Contact", path: "/contact" },
-    { name: "Portal", path: "https://portal.murban-eng.com/", external: true },
+    { name: "Portal", path: "https://murbanportal.com/", external: true },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -43,7 +43,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img
-              src={`${import.meta.env.BASE_URL}murbanlogo.ico`}
+              src="/murbanlogo.ico"
               alt="Murban Engineering Logo"
               className="h-10 w-10 object-contain rounded-md"
               loading="eager"
