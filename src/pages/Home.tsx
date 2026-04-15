@@ -403,28 +403,8 @@ const Home = () => {
                 height={288}
               />
             </AnimateOnScroll>
-            <AnimateOnScroll direction="right" delay={100}>
-              <img
-                src={modernOilFactory}
-                alt="Modern oil factory"
-                className="h-72 w-full rounded-3xl object-cover shadow-lg transition-transform duration-300 hover:scale-[1.02]"
-                loading="lazy"
-                decoding="async"
-                width={800}
-                height={288}
-              />
-            </AnimateOnScroll>
-            <AnimateOnScroll direction="left" delay={200}>
-              <img
-                src={modernOilFactory3}
-                alt="Modern oil factory facility"
-                className="h-72 w-full rounded-3xl object-cover shadow-lg transition-transform duration-300 hover:scale-[1.02]"
-                loading="lazy"
-                decoding="async"
-                width={800}
-                height={288}
-              />
-            </AnimateOnScroll>
+       
+          
             <AnimateOnScroll direction="right" delay={300}>
               <img
                 src={fieldWork3}
