@@ -5,10 +5,11 @@
     <title>Murban Engineering</title>
     <script>
       // GitHub Pages SPA fallback
-      var loc = window.location;
-      window.location.replace(
-        loc.origin + "/?p=" + encodeURIComponent(loc.pathname + loc.search + loc.hash)
-      );
+      var path = window.location.pathname;
+      var search = window.location.search || "";
+      var hash = window.location.hash || "";
+      var target = window.location.origin + window.location.pathname.replace(/\/404\.html$/, "/") + "?p=" + encodeURIComponent(path + search + hash);
+      window.location.replace(target);
     </script>
   </head>
   <body></body>
