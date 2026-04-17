@@ -197,9 +197,9 @@ const Home = () => {
               Asset Integrity & NDT Specialists
             </span>
             
-            <h1 className="mt-8 text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl whitespace-nowrap">
-              <span className="text-foreground">Murban </span>
-              <span className="text-[hsl(0,70%,35%)]">Engineering</span>
+            <h1 className="mt-8 flex flex-col items-start leading-none">
+              <span className="text-6xl font-extrabold tracking-tight text-[hsl(355,95%,45%)] sm:text-7xl md:text-8xl">MURBAN</span>
+              <span className="mt-2 text-base font-semibold tracking-[0.45em] text-[hsl(227,75%,28%)] sm:text-lg md:text-xl">ENGINEERING</span>
             </h1>
             
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
