@@ -97,7 +97,7 @@ All colors MUST be HSL.
 
     --border: 227 15% 25%;
     --input: 227 15% 25%;
-    --ring: 358 71% 35%;
+    --ring: 355 95% 45%;
     
     /* Dark Mode Glossy Effects */
     --glass-bg: hsl(227 30% 18% / 0.8);
