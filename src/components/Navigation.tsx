@@ -52,9 +52,9 @@ const Navigation = () => {
               width={40}
               height={40}
             />
-            <span className="text-lg font-semibold tracking-tight">
-              <span className="text-primary">MURBAN</span>{" "}
-              <span className="text-foreground">ENGINEERING</span>
+            <span className="flex flex-col leading-none">
+              <span className="text-xl font-extrabold tracking-tight text-[hsl(0,85%,50%)]">MURBAN</span>
+              <span className="text-[10px] font-semibold tracking-[0.3em] text-[hsl(220,90%,40%)]">ENGINEERING</span>
             </span>
           </Link>
 
