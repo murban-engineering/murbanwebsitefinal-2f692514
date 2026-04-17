@@ -192,12 +192,12 @@ const Home = () => {
         </div>
 
         <div className="container relative z-10 mx-auto px-4 py-32">
-          <AnimateOnScroll direction="left" className="max-w-2xl">
+          <AnimateOnScroll direction="left" className="max-w-2xl lg:max-w-4xl">
             <span className="inline-block rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-primary">
               Asset Integrity & NDT Specialists
             </span>
             
-            <h1 className="mt-8 text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
+            <h1 className="mt-8 text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl whitespace-nowrap">
               <span className="text-foreground">Murban </span>
               <span className="text-[hsl(0,70%,35%)]">Engineering</span>
             </h1>
