@@ -192,7 +192,7 @@ const Home = () => {
         </div>
 
         <div className="container relative z-10 mx-auto px-4 py-32">
-          <AnimateOnScroll direction="left" className="max-w-2xl">
+          <AnimateOnScroll direction="left" className="max-w-2xl lg:max-w-4xl">
             <span className="inline-block rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-primary">
               Asset Integrity & NDT Specialists
             </span>
