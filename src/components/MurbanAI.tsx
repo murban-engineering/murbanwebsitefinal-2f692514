@@ -121,12 +121,12 @@ const MurbanAI = () => {
            {/* Header */}
            <div className="flex items-center justify-between bg-transparent px-4 py-3">
             <div className="flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-primary-foreground" />
-              <span className="font-semibold text-primary-foreground">Murban AI</span>
+              <Sparkles className="h-5 w-5 text-primary" />
+              <span className="font-semibold text-foreground">Murban AI</span>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="rounded-lg p-1 text-primary-foreground/80 hover:bg-primary-foreground/10 hover:text-primary-foreground"
+              className="rounded-lg p-1 text-foreground hover:bg-muted"
               aria-label="Close chat"
             >
               <X className="h-5 w-5" />
