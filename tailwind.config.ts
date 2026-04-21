@@ -50,8 +50,15 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        serif: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        display: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.035em' }],
+        'display-lg': ['3.75rem', { lineHeight: '1.15', letterSpacing: '-0.03em' }],
+        'display-md': ['3rem', { lineHeight: '1.2', letterSpacing: '-0.025em' }],
+        'display-sm': ['2.25rem', { lineHeight: '1.25', letterSpacing: '-0.02em' }],
       },
       backgroundImage: {
         'gradient-hero': 'var(--gradient-hero)',
@@ -68,6 +75,8 @@ export default {
         '2xl': 'var(--shadow-2xl)',
         'glow': 'var(--shadow-glow)',
         'primary': 'var(--shadow-primary)',
+        'card': 'var(--shadow-card)',
+        'card-hover': 'var(--shadow-card-hover)',
       },
       borderRadius: {
         lg: "var(--radius)",

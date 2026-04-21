@@ -50,70 +50,70 @@ const socialLinks = [
 
 function Footerdemo() {
   return (
-    <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
-      <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
+    <footer className="relative border-t border-border/40 bg-gradient-subtle text-foreground transition-colors duration-300">
+      <div className="container mx-auto px-4 py-16 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
-          <div className="space-y-6 lg:col-span-2">
+          <div className="space-y-8 lg:col-span-2">
             <div>
-              <h2 className="mb-4 text-3xl font-bold tracking-tight">Murban Engineering</h2>
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <h2 className="mb-5 text-3xl font-bold tracking-tight">Murban Engineering</h2>
+              <p className="text-sm leading-relaxed text-muted-foreground max-w-md">
                 Our operations are split into two divisions, Murban Inspection Services and Murban Engineering Services. We pick
                 the best talent from the industry and continually invest in their development through rigorous external and internal
                 training so they stay ahead of industry trends.
               </p>
             </div>
-            <address className="space-y-2 text-sm not-italic text-muted-foreground">
-              <p>Off Airport Road, Mombasa Port Reitz</p>
+            <address className="space-y-3 text-sm not-italic text-muted-foreground">
+              <p className="flex items-center gap-2">Off Airport Road, Mombasa Port Reitz</p>
               <p>
-                <a href="tel:+254202650618" className="transition-colors hover:text-primary">
+                <a href="tel:+254202650618" className="transition-all duration-200 hover:text-primary">
                   +254 20 265 0618
                 </a>
               </p>
               <p>
-                <a href="mailto:info@murban-eng.com" className="transition-colors hover:text-primary">
+                <a href="mailto:info@murban-eng.com" className="transition-all duration-200 hover:text-primary">
                   info@murban-eng.com
                 </a>
               </p>
             </address>
           </div>
           <div>
-            <h3 className="mb-4 text-lg font-semibold">Company</h3>
-            <nav className="space-y-2 text-sm">
+            <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-foreground">Company</h3>
+            <nav className="space-y-3 text-sm">
               {companyLinks.map((link) => (
-                <Link key={link.to} to={link.to} className="block transition-colors hover:text-primary">
+                <Link key={link.to} to={link.to} className="block text-muted-foreground transition-all duration-200 hover:text-primary hover:translate-x-1">
                   {link.label}
                 </Link>
               ))}
             </nav>
           </div>
           <div>
-            <h3 className="mb-4 text-lg font-semibold">Services</h3>
-            <nav className="space-y-2 text-sm">
+            <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-foreground">Services</h3>
+            <nav className="space-y-3 text-sm">
               {primaryServices.map((link) => (
-                <Link key={link.to} to={link.to} className="block transition-colors hover:text-primary">
+                <Link key={link.to} to={link.to} className="block text-muted-foreground transition-all duration-200 hover:text-primary hover:translate-x-1">
                   {link.label}
                 </Link>
               ))}
             </nav>
           </div>
           <div>
-            <h3 className="mb-4 text-lg font-semibold">Services</h3>
-            <nav className="space-y-2 text-sm">
+            <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-foreground">More Services</h3>
+            <nav className="space-y-3 text-sm">
               {additionalServices.map((link) => (
-                <Link key={link.to} to={link.to} className="block transition-colors hover:text-primary">
+                <Link key={link.to} to={link.to} className="block text-muted-foreground transition-all duration-200 hover:text-primary hover:translate-x-1">
                   {link.label}
                 </Link>
               ))}
             </nav>
           </div>
           <div className="relative">
-            <h3 className="mb-4 text-lg font-semibold">Follow Us</h3>
+            <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-foreground">Follow Us</h3>
             <TooltipProvider>
-              <div className="mb-6 flex space-x-4">
+              <div className="mb-8 flex space-x-3">
                 {socialLinks.map(({ label, href, icon: Icon, tooltip }) => (
                   <Tooltip key={label}>
                     <TooltipTrigger asChild>
-                      <Button asChild variant="outline" size="icon" className="rounded-full">
+                      <Button asChild variant="outline" size="icon" className="rounded-xl border-border/50 bg-card hover:bg-muted hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5">
                         <a href={href} target="_blank" rel="noopener noreferrer">
                           <Icon className="h-4 w-4" />
                           <span className="sr-only">{label}</span>
@@ -127,10 +127,10 @@ function Footerdemo() {
                 ))}
               </div>
             </TooltipProvider>
-            <ThemeToggle id="footer-theme-toggle" className="bg-background/90" />
+            <ThemeToggle id="footer-theme-toggle" className="bg-card rounded-xl" />
           </div>
         </div>
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
+        <div className="mt-16 flex flex-col items-center justify-between gap-6 border-t border-border/40 pt-10 text-center md:flex-row">
           <p className="text-sm text-muted-foreground">© 2026 Murban Engineering Services. All rights reserved.</p>
           <p className="text-xs text-muted-foreground">
             Powered by{" "}
@@ -138,22 +138,22 @@ function Footerdemo() {
               href="https://nyotaai.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-primary"
+              className="font-medium transition-all duration-200 hover:text-primary"
             >
               Nyota AI
             </a>
           </p>
-          <nav className="flex gap-4 text-sm">
-            <Link to="/about" className="transition-colors hover:text-primary">
+          <nav className="flex gap-6 text-sm">
+            <Link to="/about" className="text-muted-foreground transition-all duration-200 hover:text-primary">
               About Us
             </Link>
-            <Link to="/privacy-policy" className="transition-colors hover:text-primary">
+            <Link to="/privacy-policy" className="text-muted-foreground transition-all duration-200 hover:text-primary">
               Privacy &amp; Policy
             </Link>
-            <Link to="/faq" className="transition-colors hover:text-primary">
+            <Link to="/faq" className="text-muted-foreground transition-all duration-200 hover:text-primary">
               FAQ
             </Link>
-            <Link to="/contact" className="transition-colors hover:text-primary">
+            <Link to="/contact" className="text-muted-foreground transition-all duration-200 hover:text-primary">
               Contact
             </Link>
           </nav>

@@ -2,106 +2,129 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Modern Design System - Murban Engineering
+   A refined, contemporary design system with clean aesthetics
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    /* Modern neutral background with subtle warmth */
+    --background: 220 14% 98%;
+    --foreground: 222 47% 11%;
 
+    /* Elevated card with clean white */
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Murban Red - Primary Brand Color #E30613 */
-    --primary: 355 95% 45%;
+    /* Murban Red - Primary Brand Color - Refined */
+    --primary: 355 90% 48%;
     --primary-foreground: 0 0% 100%;
     
-    /* Murban Blue - Secondary Brand Color #1C2A5F */
-    --secondary: 227 55% 24%;
+    /* Murban Blue - Secondary Brand Color - Deepened */
+    --secondary: 224 60% 22%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 40%;
+    /* Refined muted tones */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
     /* Accent uses Murban Blue */
-    --accent: 227 55% 24%;
+    --accent: 224 60% 22%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 355 95% 45%;
+    /* Softer borders for modern feel */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 355 90% 48%;
 
-    --radius: 1rem;
+    /* Slightly larger radius for modern cards */
+    --radius: 1.125rem;
     
-    /* Glossy Effects */
-    --glass-bg: hsl(0 0% 100% / 0.8);
-    --glass-border: hsl(0 0% 100% / 0.2);
-    --glass-shadow: 0 8px 32px 0 hsl(0 0% 0% / 0.1);
-    --glass-blur: blur(10px);
+    /* Modern Glass Effects */
+    --glass-bg: hsl(0 0% 100% / 0.85);
+    --glass-border: hsl(220 13% 91% / 0.5);
+    --glass-shadow: 0 8px 32px 0 hsl(222 47% 11% / 0.08);
+    --glass-blur: blur(16px);
 
-    /* Murban Brand Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(355 95% 45%) 0%, hsl(227 55% 24%) 100%);
-    --gradient-hero-overlay: linear-gradient(135deg, hsl(355 95% 45% / 0.95) 0%, hsl(227 55% 24% / 0.85) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
-    --gradient-mesh: radial-gradient(at 40% 20%, hsl(355 95% 45% / 0.15) 0px, transparent 50%),
-                     radial-gradient(at 80% 80%, hsl(227 55% 24% / 0.15) 0px, transparent 50%);
-    --gradient-shine: linear-gradient(110deg, transparent 0%, hsl(0 0% 100% / 0.1) 45%, hsl(0 0% 100% / 0.2) 50%, hsl(0 0% 100% / 0.1) 55%, transparent 100%);
+    /* Refined Brand Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(355 90% 48%) 0%, hsl(224 60% 22%) 100%);
+    --gradient-hero-overlay: linear-gradient(135deg, hsl(355 90% 48% / 0.92) 0%, hsl(224 60% 22% / 0.88) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 100%);
+    --gradient-mesh: radial-gradient(ellipse 80% 50% at 20% 40%, hsl(355 90% 48% / 0.08) 0%, transparent 70%),
+                     radial-gradient(ellipse 60% 40% at 80% 60%, hsl(224 60% 22% / 0.06) 0%, transparent 70%);
+    --gradient-shine: linear-gradient(105deg, transparent 0%, hsl(0 0% 100% / 0.08) 45%, hsl(0 0% 100% / 0.15) 50%, hsl(0 0% 100% / 0.08) 55%, transparent 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(220 14% 98%) 0%, hsl(220 14% 96%) 100%);
     
-    /* Modern Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.06);
-    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -2px hsl(0 0% 0% / 0.05);
-    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.1), 0 10px 10px -5px hsl(0 0% 0% / 0.04);
-    --shadow-2xl: 0 25px 50px -12px hsl(0 0% 0% / 0.25);
-    --shadow-glow: 0 0 40px hsl(355 95% 45% / 0.3), 0 0 80px hsl(355 95% 45% / 0.15);
-    --shadow-primary: 0 20px 40px -12px hsl(355 95% 45% / 0.4);
+    /* Refined Shadow System */
+    --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.04);
+    --shadow-md: 0 4px 6px -1px hsl(222 47% 11% / 0.07), 0 2px 4px -2px hsl(222 47% 11% / 0.04);
+    --shadow-lg: 0 10px 15px -3px hsl(222 47% 11% / 0.08), 0 4px 6px -4px hsl(222 47% 11% / 0.04);
+    --shadow-xl: 0 20px 25px -5px hsl(222 47% 11% / 0.08), 0 8px 10px -6px hsl(222 47% 11% / 0.03);
+    --shadow-2xl: 0 25px 50px -12px hsl(222 47% 11% / 0.18);
+    --shadow-glow: 0 0 30px hsl(355 90% 48% / 0.2), 0 0 60px hsl(355 90% 48% / 0.1);
+    --shadow-primary: 0 16px 32px -8px hsl(355 90% 48% / 0.3);
+    --shadow-card: 0 2px 8px -2px hsl(222 47% 11% / 0.05), 0 4px 16px -4px hsl(222 47% 11% / 0.08);
+    --shadow-card-hover: 0 8px 24px -8px hsl(222 47% 11% / 0.1), 0 16px 40px -12px hsl(222 47% 11% / 0.12);
     
-    /* Premium Transitions */
+    /* Refined Transitions */
     --transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
   .dark {
-    --background: 227 30% 10%;
-    --foreground: 0 0% 98%;
+    /* Deep, rich dark background */
+    --background: 224 28% 8%;
+    --foreground: 210 40% 98%;
 
-    --card: 227 25% 14%;
-    --card-foreground: 0 0% 98%;
+    /* Elevated dark cards */
+    --card: 224 25% 12%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 227 25% 14%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 224 25% 12%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 355 95% 45%;
+    /* Adjusted primary for dark mode visibility */
+    --primary: 355 85% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 227 55% 30%;
+    --secondary: 224 50% 35%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 227 15% 20%;
-    --muted-foreground: 0 0% 65%;
+    /* Refined dark mode muted tones */
+    --muted: 224 20% 18%;
+    --muted-foreground: 215 16% 60%;
 
-    --accent: 227 55% 30%;
+    --accent: 224 50% 35%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 63% 31%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 227 15% 25%;
-    --input: 227 15% 25%;
-    --ring: 355 95% 45%;
+    /* Subtle dark borders */
+    --border: 224 18% 22%;
+    --input: 224 18% 22%;
+    --ring: 355 85% 55%;
     
-    /* Dark Mode Glossy Effects */
-    --glass-bg: hsl(227 30% 18% / 0.8);
-    --glass-border: hsl(0 0% 100% / 0.1);
+    /* Dark Mode Glass Effects */
+    --glass-bg: hsl(224 28% 12% / 0.9);
+    --glass-border: hsl(210 40% 98% / 0.08);
+    
+    /* Dark mode gradients */
+    --gradient-mesh: radial-gradient(ellipse 80% 50% at 20% 40%, hsl(355 85% 55% / 0.06) 0%, transparent 70%),
+                     radial-gradient(ellipse 60% 40% at 80% 60%, hsl(224 50% 35% / 0.08) 0%, transparent 70%);
+    --gradient-subtle: linear-gradient(180deg, hsl(224 25% 12%) 0%, hsl(224 28% 8%) 100%);
+    
+    /* Dark mode shadows */
+    --shadow-card: 0 2px 8px -2px hsl(0 0% 0% / 0.3), 0 4px 16px -4px hsl(0 0% 0% / 0.4);
+    --shadow-card-hover: 0 8px 24px -8px hsl(0 0% 0% / 0.4), 0 16px 40px -12px hsl(0 0% 0% / 0.5);
   }
 }
 
@@ -118,15 +141,50 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
     overflow-x: hidden;
     max-width: 100vw;
-    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'ss01' 1, 'ss02' 1;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+  }
+
+  /* Modern heading styles */
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.025em;
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  h1 {
+    letter-spacing: -0.035em;
+  }
+
+  /* Improved paragraph readability */
+  p {
+    text-wrap: pretty;
   }
 
   svg.modern-icon {
     display: inline-block;
     flex-shrink: 0;
+  }
+
+  /* Modern selection color */
+  ::selection {
+    background: hsl(var(--primary) / 0.15);
+    color: hsl(var(--foreground));
+  }
+
+  /* Smooth focus transitions */
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+    transition: outline-offset 0.15s ease;
+  }
+
+  /* Better link interactions */
+  a {
+    text-decoration-skip-ink: auto;
   }
 }
 
@@ -144,6 +202,84 @@ All colors MUST be HSL.
   .logo-marquee-track {
     animation: logo-marquee 22s linear infinite;
   }
+
+  /* Modern card hover effects */
+  .card-hover {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Subtle shine effect */
+  .shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-shine);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .shine:hover::after {
+    opacity: 1;
+  }
+
+  /* Modern gradient text */
+  .gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtle background pattern */
+  .bg-grid {
+    background-image: 
+      linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Soft glow effect */
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Modern button press effect */
+  .btn-press:active {
+    transform: scale(0.98);
+  }
+
+  /* Smooth fade mask for edges */
+  .fade-edge-x {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
+  }
+
+  .fade-edge-y {
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
+  }
 }
 
 @keyframes logo-marquee {
@@ -153,4 +289,32 @@ All colors MUST be HSL.
   100% {
     transform: translateX(-50%);
   }
+}
+
+/* Subtle floating animation */
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-subtle {
+  animation: float-subtle 5s ease-in-out infinite;
+}
+
+/* Modern pulse animation */
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2.5s ease-in-out infinite;
 }

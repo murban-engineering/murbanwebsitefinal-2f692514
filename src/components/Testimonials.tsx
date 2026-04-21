@@ -54,17 +54,20 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-28 relative overflow-hidden">
       {/* Smooth gradient transition from previous section */}
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background via-background/50 to-muted" />
-      <div className="absolute inset-0 bg-muted" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background via-background/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-subtle" />
       <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+        <div className="text-center mb-20">
+          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+            Client Stories
+          </span>
+          <h2 className="mt-5 text-4xl md:text-5xl font-semibold tracking-tight">
             Testimonials
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
             What our clients say about working with us
           </p>
         </div>
@@ -80,14 +83,17 @@ const Testimonials = () => {
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index}>
-                  <Card className="border-border bg-card shadow-lg">
-                    <CardContent className="p-8 md:p-12">
-                      <Quote className="h-12 w-12 text-primary mb-6 opacity-50" />
-                      <p className="text-lg md:text-xl mb-8 leading-relaxed text-card-foreground">
+                  <Card className="border-border/40 bg-card shadow-card rounded-3xl overflow-hidden">
+                    <CardContent className="p-10 md:p-14">
+                      <Quote className="h-14 w-14 text-primary/30 mb-8" />
+                      <p className="text-lg md:text-xl mb-10 leading-relaxed text-card-foreground">
                         {testimonial.text}
                       </p>
-                      <div className="flex items-center">
-                        <div className="font-semibold text-primary text-xl">
+                      <div className="flex items-center gap-4">
+                        <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                          <span className="text-primary font-bold text-lg">{testimonial.company.charAt(0)}</span>
+                        </div>
+                        <div className="font-semibold text-foreground text-lg">
                           {testimonial.company}
                         </div>
                       </div>
@@ -96,8 +102,8 @@ const Testimonials = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
+            <CarouselPrevious className="hidden md:flex -left-6 border-border/50 bg-card/90 backdrop-blur-sm hover:bg-muted transition-all duration-300" />
+            <CarouselNext className="hidden md:flex -right-6 border-border/50 bg-card/90 backdrop-blur-sm hover:bg-muted transition-all duration-300" />
           </Carousel>
         </div>
       </div>
