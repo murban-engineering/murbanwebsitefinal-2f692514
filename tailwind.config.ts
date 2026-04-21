@@ -66,6 +66,7 @@ export default {
         'gradient-card': 'var(--gradient-card)',
         'gradient-mesh': 'var(--gradient-mesh)',
         'gradient-shine': 'var(--gradient-shine)',
+        'gradient-subtle': 'var(--gradient-subtle)',
       },
       boxShadow: {
         'sm': 'var(--shadow-sm)',
