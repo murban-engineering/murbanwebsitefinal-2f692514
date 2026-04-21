@@ -93,13 +93,6 @@ const Navigation = () => {
             })}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
-            <Button asChild size="lg" variant="outline" className="rounded-lg px-6">
-              <Link to="/contact">Start a Project</Link>
-            </Button>
-          </div>
-
           {/* Mobile Menu Button */}
           <button
             className="lg:hidden rounded-lg border border-border bg-background p-2"
@@ -156,13 +149,6 @@ const Navigation = () => {
                   </Link>
                 );
               })}
-              <div className="pt-4 px-4">
-                <Button asChild className="w-full rounded-lg">
-                  <Link to="/contact" onClick={() => setIsOpen(false)}>
-                    Start a Project
-                  </Link>
-                </Button>
-              </div>
             </div>
           </div>
         )}
