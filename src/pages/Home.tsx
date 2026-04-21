@@ -207,6 +207,11 @@ const Home = () => {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
+              <Button size="lg" asChild className="rounded-xl px-8 shadow-lg shadow-primary/20">
+                <Link to="/contact">
+                  Start a Project <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
               <Button
                 size="lg"
                 variant="outline"
