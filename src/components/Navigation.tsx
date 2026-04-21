@@ -35,17 +35,19 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-background/70 backdrop-blur-md border-b border-border/50" : "bg-transparent"
+        scrolled 
+          ? "bg-background/80 backdrop-blur-xl border-b border-border/40 shadow-sm" 
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3 group">
             <img
               src="/murbanlogo.ico"
               alt="Murban Engineering Logo"
-              className="h-10 w-10 object-contain rounded-md"
+              className="h-10 w-10 object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
               loading="eager"
               decoding="async"
               fetchPriority="high"
@@ -53,18 +55,22 @@ const Navigation = () => {
               height={40}
             />
             <span className="flex flex-col leading-none font-sans">
-              <span className="text-xl font-extrabold tracking-tight text-[hsl(0,85%,50%)]">MURBAN</span>
-              <span className="text-[10px] font-semibold tracking-[0.3em] text-[hsl(220,90%,40%)]">ENGINEERING</span>
+              <span className="text-xl font-bold tracking-tight text-primary transition-colors">MURBAN</span>
+              <span className="text-[10px] font-semibold tracking-[0.3em] text-secondary">ENGINEERING</span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => {
               const active = isActive(link.path);
               const baseLinkClass = scrolled
-                ? active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                : active ? "text-foreground" : "text-foreground/80 hover:text-foreground";
+                ? active 
+                  ? "text-foreground bg-muted" 
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                : active 
+                  ? "text-foreground bg-foreground/10" 
+                  : "text-foreground/80 hover:text-foreground hover:bg-foreground/5";
 
               if (link.external) {
                 return (
@@ -73,7 +79,7 @@ const Navigation = () => {
                     href={link.path}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`text-sm font-medium transition-colors ${baseLinkClass}`}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${baseLinkClass}`}
                   >
                     {link.name}
                   </a>
@@ -85,7 +91,7 @@ const Navigation = () => {
                   key={link.path}
                   to={link.path}
                   onClick={link.path === "/" ? handleHomeClick : undefined}
-                  className={`text-sm font-medium transition-colors ${baseLinkClass}`}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${baseLinkClass}`}
                 >
                   {link.name}
                 </Link>
@@ -95,22 +101,22 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden rounded-lg border border-border bg-background p-2"
+            className="lg:hidden rounded-xl border border-border/50 bg-background/80 backdrop-blur-sm p-2.5 shadow-sm transition-all duration-200 hover:bg-muted active:scale-95"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className="h-6 w-6 text-foreground" />
+              <X className="h-5 w-5 text-foreground" />
             ) : (
-              <Menu className="h-6 w-6 text-foreground" />
+              <Menu className="h-5 w-5 text-foreground" />
             )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden pb-6 bg-background/95 backdrop-blur-md rounded-b-2xl shadow-lg">
-            <div className="space-y-2 border-t border-border pt-4">
+          <div className="lg:hidden pb-6 bg-background/95 backdrop-blur-xl rounded-b-3xl shadow-xl border-x border-b border-border/30">
+            <div className="space-y-1 border-t border-border/30 pt-4 px-2">
               {navLinks.map((link) => {
                 const active = isActive(link.path);
 
@@ -122,7 +128,7 @@ const Navigation = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setIsOpen(false)}
-                      className="block px-4 py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                      className="block px-4 py-3 text-sm font-medium text-muted-foreground transition-all duration-200 hover:text-foreground hover:bg-muted/50 rounded-xl"
                     >
                       {link.name}
                     </a>
@@ -139,10 +145,10 @@ const Navigation = () => {
                       }
                       setIsOpen(false);
                     }}
-                    className={`block px-4 py-3 text-sm font-medium transition-colors ${
+                    className={`block px-4 py-3 text-sm font-medium transition-all duration-200 rounded-xl ${
                       active
-                        ? "text-foreground bg-muted rounded-lg"
-                        : "text-muted-foreground hover:text-foreground"
+                        ? "text-foreground bg-muted"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                     }`}
                   >
                     {link.name}

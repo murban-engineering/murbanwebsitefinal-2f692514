@@ -2109,7 +2109,7 @@ const Services = () => {
       {/* Hero Section with Industrial Image */}
       <section
         id="services-hero"
-        className="relative overflow-hidden py-32 md:py-40"
+        className="relative overflow-hidden py-36 md:py-44"
       >
         {/* Background Image */}
         <div className="absolute inset-0">
@@ -2123,19 +2123,21 @@ const Services = () => {
             width={1920}
             height={1080}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-background/40" />
+          <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
         </div>
 
         <div className="container relative z-10 mx-auto px-4 text-center">
           <AnimateOnScroll direction="left">
-            <Badge className="mb-6 border border-primary/40 bg-primary/10 text-primary backdrop-blur-md text-sm uppercase tracking-wider">
-              Murban Engineering – NDT & Asset Integrity Services
-            </Badge>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold mb-6 leading-[1.1] text-foreground drop-shadow-sm">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-primary shadow-sm mb-8">
+              <span className="h-2 w-2 rounded-full bg-primary animate-pulse-soft" />
+              NDT & Asset Integrity Services
+            </span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold mb-8 leading-[1.1] text-foreground tracking-tight">
               Precision Inspection &<br />Engineering Services
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto text-muted-foreground leading-relaxed mb-10">
+            <p className="text-lg md:text-xl max-w-3xl mx-auto text-muted-foreground leading-relaxed mb-12">
               Comprehensive Non-Destructive Testing and Advanced NDT support to keep critical infrastructure running at peak performance.
             </p>
             
@@ -2149,7 +2151,7 @@ const Services = () => {
                   <a
                     key={section.id}
                     href={`#${section.id}`}
-                    className="group inline-flex items-center gap-2 rounded-xl border border-primary/30 bg-background/60 px-5 py-2.5 text-sm font-medium text-foreground backdrop-blur-sm transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:scale-105 hover:shadow-lg"
+                    className="group inline-flex items-center gap-2 rounded-2xl border border-border/50 bg-card/80 px-6 py-3 text-sm font-medium text-foreground backdrop-blur-md shadow-sm transition-all duration-300 hover:bg-primary/5 hover:border-primary/30 hover:-translate-y-0.5 hover:shadow-md"
                   >
                     <span>{section.label}</span>
                   </a>
@@ -2165,18 +2167,18 @@ const Services = () => {
         <section
           key={cluster.id}
           id={cluster.id}
-          className={`relative py-24 ${clusterIndex % 2 === 0 ? "bg-background" : "bg-muted/30"}`}
+          className={`relative py-28 ${clusterIndex % 2 === 0 ? "bg-background" : "bg-gradient-subtle"}`}
         >
           <div className="container relative z-10 mx-auto px-4">
             <AnimateOnScroll direction={clusterIndex % 2 === 0 ? "right" : "left"}>
-              <div className="mx-auto mb-16 max-w-4xl text-center">
-                <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+              <div className="mx-auto mb-20 max-w-4xl text-center">
+                <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
                   Service Cluster {clusterIndex + 1}
                 </span>
-                <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-foreground">
+                <h2 className="mt-5 text-4xl md:text-5xl font-semibold text-foreground tracking-tight">
                   {cluster.label}
                 </h2>
-                <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+                <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
                   {cluster.description}
                 </p>
               </div>
@@ -2200,32 +2202,33 @@ const Services = () => {
       {/* Fabrication Services Section */}
       <section
         id="fabrication-services"
-        className="relative overflow-hidden py-24"
+        className="relative overflow-hidden py-28"
       >
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
             src={storageTanks}
             alt="Industrial storage tanks"
-            className="h-full w-full object-cover rounded-3xl"
+            className="h-full w-full object-cover"
             loading="lazy"
             decoding="async"
             width={1920}
             height={1080}
           />
-          <div className="absolute inset-0 bg-background/95" />
+          <div className="absolute inset-0 bg-background/97" />
+          <div className="absolute inset-0 bg-gradient-mesh opacity-20" />
         </div>
 
         <div className="container relative z-10 mx-auto px-4">
           <AnimateOnScroll direction="left">
-            <div className="mx-auto mb-16 max-w-3xl text-center">
-              <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+            <div className="mx-auto mb-20 max-w-3xl text-center">
+              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
                 Engineering & Fabrication
               </span>
-              <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-foreground">
+              <h2 className="mt-5 text-4xl md:text-5xl font-semibold text-foreground tracking-tight">
                 Murban Engineering and Fabrication Services
               </h2>
-              <p className="mt-4 text-muted-foreground">
+              <p className="mt-5 text-lg text-muted-foreground">
                 From detailed engineering to turnkey fabrication and installation
               </p>
             </div>
@@ -2242,11 +2245,11 @@ const Services = () => {
               />
             ))}
           </div>
-          <div className="mt-12 text-center">
+          <div className="mt-16 text-center">
             <Button 
               size="lg"
               asChild
-              className="bg-primary hover:bg-primary/90 text-white shadow-lg transition-all duration-300 hover:scale-105 rounded-xl px-8"
+              className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/30 rounded-2xl px-10"
             >
               <Link to="/contact">Discuss Your Next Build</Link>
             </Button>
@@ -2255,28 +2258,36 @@ const Services = () => {
       </section>
 
       {/* CTA Section with Image Background */}
-      <section id="services-contact" className="py-24 relative">
+      <section id="services-contact" className="py-32 relative overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={modernFactory}
             alt="Modern industrial factory"
-            className="h-full w-full object-cover rounded-3xl"
+            className="h-full w-full object-cover"
             loading="lazy"
             decoding="async"
             width={1920}
             height={1080}
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/80 to-primary/70" />
         </div>
         <div className="container relative z-10 mx-auto px-4 text-center">
-          <span className="text-sm font-semibold uppercase tracking-widest text-white/80">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-white mb-6">
             Contact Our Team
           </span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-white">
-            Let's Build Something Great Together
+          <h2 className="text-4xl md:text-5xl font-semibold text-white tracking-tight">
+            Let&apos;s Build Something Great Together
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-white/90">
-            Ready to start your next project? Contact our team to discover how Murban's inspection and engineering experts can bring your vision to life.
+          <p className="mt-6 max-w-2xl mx-auto text-lg text-white/85 leading-relaxed">
+            Ready to start your next project? Contact our team to discover how Murban&apos;s inspection and engineering experts can bring your vision to life.
           </p>
+          <Button
+            size="lg"
+            asChild
+            className="mt-10 rounded-2xl bg-white text-secondary px-10 py-6 text-lg font-semibold shadow-xl transition-all duration-300 hover:bg-white/95 hover:shadow-2xl hover:-translate-y-1"
+          >
+            <Link to="/contact">Get in Touch</Link>
+          </Button>
         </div>
       </section>
     </div>

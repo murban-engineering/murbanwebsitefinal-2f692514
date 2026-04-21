@@ -162,7 +162,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen pt-20 relative">
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden min-h-[50vh] flex items-center">
+      <section className="relative py-32 overflow-hidden min-h-[55vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <img
             src={contactHero}
@@ -174,49 +174,46 @@ const Contact = () => {
             width={1920}
             height={1080}
           />
-          <div className="absolute inset-0 bg-foreground/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/80 to-primary/60" />
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <AnimateOnScroll direction="left">
-            <div className="inline-block px-4 py-2 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
-              <span className="text-sm font-medium text-white">Home - Contact Us</span>
-            </div>
-            <h1 className="text-5xl md:text-7xl font-semibold mb-6 text-white leading-tight">
-              CONTACT US
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-white mb-8">
+              Contact Us
+            </span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold mb-8 text-white tracking-tight">
+              Get in Touch
             </h1>
           </AnimateOnScroll>
           <AnimateOnScroll direction="right" delay={150}>
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-white">
-              Get in Touch
-            </h2>
-            <p className="text-2xl md:text-3xl font-medium mb-4 text-white/80">
+            <p className="text-xl md:text-2xl font-medium mb-4 text-white/90">
               Do You Have Any Questions?
             </p>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/80">
-              Let's connect — we'd love to hear from you.
+            <p className="text-lg md:text-xl max-w-3xl mx-auto text-white/75 leading-relaxed">
+              Let&apos;s connect — we&apos;d love to hear from you.
             </p>
           </AnimateOnScroll>
         </div>
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-20">
+      <section className="py-28">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
             {contactInfo.map((info, index) => (
               <AnimateOnScroll key={index} direction={index % 2 === 0 ? "left" : "right"} delay={index * 100}>
                 <Card 
-                  className="text-center group hover:-translate-y-2 transition-all duration-300 border-border/50 hover:border-primary/50 bg-gradient-card hover:shadow-xl"
+                  className="text-center group hover:-translate-y-2 transition-all duration-400 border-border/40 hover:border-primary/30 bg-card shadow-card hover:shadow-card-hover rounded-3xl"
                 >
-                  <CardContent className="p-8">
-                    <div className="mb-4 inline-flex items-center justify-center group-hover:scale-110 transition-all">
-                      <info.icon className="h-8 w-8 text-primary group-hover:text-primary/70 transition-colors" />
+                  <CardContent className="p-10">
+                    <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/15">
+                      <info.icon className="h-7 w-7 text-primary" />
                     </div>
-                    <h3 className="text-lg font-semibold mb-2">{info.title}</h3>
+                    <h3 className="text-lg font-semibold mb-3">{info.title}</h3>
                     {info.link ? (
                       <a
                         href={info.link}
-                        className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                        className="text-muted-foreground hover:text-primary transition-all duration-200 font-medium"
                       >
                         {info.details}
                       </a>
@@ -233,9 +230,9 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Form */}
             <AnimateOnScroll direction="left">
-              <Card className="border-border/50 bg-gradient-card shadow-xl">
-                <CardContent className="p-8">
-                  <h2 className="text-3xl font-serif font-bold mb-6">Send Us a Message</h2>
+              <Card className="border-border/40 bg-card shadow-card rounded-3xl overflow-hidden">
+                <CardContent className="p-10">
+                  <h2 className="text-3xl font-semibold mb-8">Send Us a Message</h2>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <Label htmlFor="name">Name *</Label>
@@ -343,7 +340,7 @@ const Contact = () => {
 
             {/* Google Map */}
             <AnimateOnScroll direction="right" delay={200}>
-              <Card className="border-border/50 shadow-xl overflow-hidden">
+              <Card className="border-border/40 shadow-card rounded-3xl overflow-hidden">
                 <CardContent className="p-0 h-full flex flex-col">
                   <div className="w-full flex-1 min-h-[500px]">
                     <iframe
