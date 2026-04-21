@@ -132,17 +132,6 @@ function Footerdemo() {
         </div>
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
           <p className="text-sm text-muted-foreground">© 2026 Murban Engineering Services. All rights reserved.</p>
-          <p className="text-xs text-muted-foreground">
-            Powered by{" "}
-            <a
-              href="https://nyotaai.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-primary"
-            >
-              Nyota AI
-            </a>
-          </p>
           <nav className="flex gap-4 text-sm">
             <Link to="/about" className="transition-colors hover:text-primary">
               About Us
