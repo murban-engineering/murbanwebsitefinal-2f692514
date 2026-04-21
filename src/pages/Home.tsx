@@ -1,5 +1,4 @@
 import {
-  ArrowRight,
   LineChart,
   Globe2,
   Activity,
