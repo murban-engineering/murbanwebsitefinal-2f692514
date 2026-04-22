@@ -1,310 +1,316 @@
 import {
   ArrowRight,
-  LineChart,
+  ArrowUpRight,
+  CheckCircle2,
   Globe2,
+  Shield,
+  Zap,
   Activity,
   Cpu,
   FileSearch,
   Hammer,
-  BrainCircuit,
-  Leaf,
-  ShieldCheck,
+  ChevronDown,
+  Play,
+  Star,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
-
-import projectImage from "@/assets/project-showcase.jpg";
 import Testimonials from "@/components/Testimonials";
+
 import totalenergiesLogo from "@/assets/totalenergies-logo.png";
 import kengenLogo from "@/assets/kengen-logo.png";
 import bolloreLogo from "@/assets/bollore-logo.png";
 import kpcLogo from "@/assets/kpc-logo.png";
 import fieldWork1 from "@/assets/field-work-1.jpg";
+import fieldWork2 from "@/assets/field-work-2.jpg";
 import fieldWork3 from "@/assets/field-work-3.jpg";
 import modernOilFactory from "@/assets/modern-oil-factory.jpg";
-import modernOilFactory3 from "@/assets/modern-oil-factory-3.jpg";
-
 import industrialPlant from "@/assets/industrial-plant.jpg";
+import storageTanks from "@/assets/storage-tanks.jpg";
 
 const Home = () => {
   const services = [
     {
       icon: Activity,
       title: "General NDT",
-      description: "Comprehensive non-destructive testing using magnetic particle, dye penetrant, ultrasonic, and radiographic methods for structural integrity assurance.",
-      forText: "Oil & gas, power plants, refineries, marine",
+      description: "Comprehensive non-destructive testing using magnetic particle, dye penetrant, ultrasonic, and radiographic methods.",
+      forText: "Oil & gas, power plants, refineries",
       slug: "ndt-inspection-services",
-      tag: "General NDT",
+      number: "01",
     },
     {
       icon: Cpu,
       title: "Advanced NDT",
-      description: "Cutting-edge inspection techniques including Phased Array UT, TOFD, ACFM, and AUT for complex geometry and high-integrity assets.",
+      description: "Cutting-edge inspection techniques including Phased Array UT, TOFD, ACFM, and AUT for complex assets.",
       forText: "Subsea, aerospace, high-pressure systems",
       slug: "phased-array-ultrasonic-testing",
-      tag: "Advanced NDT",
+      number: "02",
     },
     {
       icon: FileSearch,
       title: "Engineering Assessments",
-      description: "API 570, API 653, fitness-for-service evaluations and risk-based inspection programs to extend asset life and ensure code compliance.",
-      forText: "Process plants, storage terminals, pipelines",
+      description: "API 570, API 653, fitness-for-service evaluations and risk-based inspection programs.",
+      forText: "Process plants, storage terminals",
       slug: "api-570-piping-inspection-and-certification",
-      tag: "Engineering Assessments",
+      number: "03",
     },
     {
       icon: Hammer,
       title: "Engineering & Fabrication",
-      description: "Structural fabrication, tank construction, piping works and project management delivered to international codes and standards.",
-      forText: "Industrial plants, refineries, construction projects",
+      description: "Structural fabrication, tank construction, piping works delivered to international codes.",
+      forText: "Industrial plants, refineries",
       slug: "tank-calibration-services",
-      tag: "Engineering & Fabrication",
+      number: "04",
     },
   ];
 
   const stats = [
-    { value: "2007", label: "Established" },
-    { value: "20", label: "Years Experience" },
-    { value: "35+", label: "Countries Worldwide" },
-    { value: "6,500+", label: "Inspections" },
-  ];
-  const marqueeStats = [...stats, ...stats];
-
-  const differentiators = [
-    {
-      icon: BrainCircuit,
-      title: "Signature Delivery Experience",
-      description:
-        "Our cross-functional squads embed alongside your team to accelerate approvals, procurement and commissioning.",
-    },
-    {
-      icon: LineChart,
-      title: "Data-Driven Decisions",
-      description:
-        "Live project analytics and predictive modelling ensure you are always ahead of risk and budget curveballs.",
-    },
-    {
-      icon: Leaf,
-      title: "Sustainability by Design",
-      description:
-        "We engineer for carbon, water and energy performance from day zero, ensuring compliance and positive impact.",
-    },
+    { value: "2007", label: "Established", suffix: "" },
+    { value: "20", label: "Years Experience", suffix: "+" },
+    { value: "35", label: "Countries", suffix: "+" },
+    { value: "6,500", label: "Inspections", suffix: "+" },
   ];
 
-  const process = [
+  const features = [
     {
-      title: "Discover",
-      description: "Immersive workshops to align scope, metrics and stakeholders from day one.",
+      icon: Shield,
+      title: "Certified Excellence",
+      description: "API, ISO, and ASME certified professionals delivering industry-leading standards.",
     },
     {
-      title: "Design",
-      description: "Iterative co-design with digital twins, rapid prototyping and compliance reviews.",
+      icon: Zap,
+      title: "Rapid Response",
+      description: "24/7 emergency inspection services with mobile teams across Africa.",
     },
     {
-      title: "Deliver",
-      description: "On-site leadership coupled with smart monitoring to keep execution seamless.",
-    },
-    {
-      title: "Optimize",
-      description: "Operational intelligence, retro-commissioning and continuous performance tuning.",
-    },
-  ];
-
-  const projects = [
-    {
-      title: "Regional Smart Logistics Hub",
-      description:
-        "A 120,000 sqm logistics campus integrating autonomous warehousing, renewable microgrids and resilient structures.",
-      impact: "32% faster fulfilment, 18% energy reduction",
-    },
-    {
-      title: "Urban Mixed-Use Tower",
-      description:
-        "Iconic high-rise featuring adaptive façade systems, community amenities and net-zero ready mechanical systems.",
-      impact: "LEED Platinum pre-certified, 24-month delivery",
-    },
-    {
-      title: "Industrial Utilities Upgrade",
-      description:
-        "Mission-critical plant revitalization ensuring continuity, safety compliance and digital oversight.",
-      impact: "Zero downtime transition, predictive maintenance deployed",
+      icon: Globe2,
+      title: "Pan-African Reach",
+      description: "Operations spanning 35+ countries with local expertise and global standards.",
     },
   ];
 
   const clientLogos = [
-    { name: "TotalEnergies", logo: totalenergiesLogo, width: "w-28" },
-    { name: "KenGen", logo: kengenLogo, width: "w-24" },
-    { name: "Bolloré Africa Logistics", logo: bolloreLogo, width: "w-36" },
-    { name: "KPC", logo: kpcLogo, width: "w-20" },
+    { name: "TotalEnergies", logo: totalenergiesLogo },
+    { name: "KenGen", logo: kengenLogo },
+    { name: "Bolloré", logo: bolloreLogo },
+    { name: "KPC", logo: kpcLogo },
   ];
 
-  const marqueeLogos = [...clientLogos, ...clientLogos];
-
-  const transformationHighlights = [
-    {
-      icon: Globe2,
-      title: "Immersive Digital Oversight",
-      description:
-        "Unified command centres with predictive analytics that surface insights for every stakeholder in real time.",
-      stat: "98% uptime across active sites",
-    },
-    {
-      icon: Leaf,
-      title: "Regenerative Design Systems",
-      description:
-        "Low-carbon materials, adaptive envelopes and net-positive water strategies embedded at concept stage.",
-      stat: "40% average energy intensity reduction",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Lifecycle Assurance",
-      description:
-        "Asset integrity programmes, NDT and digital twins that extend operational life and mitigate unplanned downtime.",
-      stat: "ISO 55001-aligned stewardship",
-    },
+  const projectImages = [
+    { src: fieldWork1, alt: "Pipeline inspection", category: "Oil & Gas" },
+    { src: fieldWork2, alt: "Tank inspection", category: "Storage" },
+    { src: fieldWork3, alt: "Marine inspection", category: "Marine" },
   ];
 
   return (
     <div className="relative min-h-screen bg-background">
-      {/* Theme Toggle */}
-      <div className="fixed right-4 top-24 z-20">
-        <ThemeToggle id="home-theme-toggle" />
-      </div>
-
-      {/* Hero Section */}
-      <section className="relative min-h-[92vh] flex items-center">
+      {/* Hero Section - Evasion Style */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background with overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src={industrialPlant}
             alt="Industrial engineering infrastructure"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover scale-105"
             loading="eager"
             decoding="async"
             fetchPriority="high"
             width={1920}
             height={1080}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/20" />
-          <div className="absolute inset-0 bg-gradient-mesh opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/85 to-secondary/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent" />
         </div>
 
-        <div className="container relative z-10 mx-auto px-4 py-32">
-          <AnimateOnScroll direction="left" className="max-w-2xl lg:max-w-4xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-primary shadow-sm">
-              <span className="h-2 w-2 rounded-full bg-primary animate-pulse-soft" />
-              Asset Integrity & NDT Specialists
-            </span>
-            
-            <h1 className="mt-10 flex flex-col items-start leading-none font-sans">
-              <span className="text-5xl font-bold tracking-tight text-primary sm:text-7xl md:text-8xl">MURBAN</span>
-              <span className="mt-3 text-sm font-semibold tracking-[0.35em] text-secondary sm:text-lg sm:tracking-[0.45em] md:text-xl">ENGINEERING</span>
-            </h1>
-            
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              A specialist firm in Asset Integrity, Inspection, and Non-Destructive Testing (NDT). We deliver reliable and safe inspection solutions for oil & gas, energy, marine, and industrial sectors across Africa.
-            </p>
+        {/* Floating elements */}
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float-subtle" />
+        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-2xl animate-float-subtle [animation-delay:2s]" />
 
-            <div className="mt-12 flex flex-wrap gap-4">
-              <Button size="lg" asChild className="rounded-2xl px-8 shadow-lg shadow-primary/25 transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 btn-press">
-                <Link to="/contact">
-                  Start a Project <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="rounded-2xl bg-background/60 px-8 backdrop-blur-md border-border/50 hover:bg-background/80 transition-all duration-300 hover:-translate-y-0.5"
-              >
-                <Link to="/services">Explore Services</Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="secondary"
-                asChild
-                className="rounded-2xl px-8 transition-all duration-300 hover:-translate-y-0.5"
-              >
-                <Link to="/project-gallery">View Our Projects</Link>
-              </Button>
-            </div>
-          </AnimateOnScroll>
-        </div>
-      </section>
+        {/* Content */}
+        <div className="container relative z-10 mx-auto px-4 pt-32 pb-20">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <AnimateOnScroll direction="left">
+              <div className="space-y-8">
+                {/* Badge */}
+                <div className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-5 py-2.5">
+                  <span className="flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-primary opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+                  </span>
+                  <span className="text-sm font-medium text-white/90 tracking-wide">Asset Integrity Specialists</span>
+                </div>
 
-      {/* Stats Section */}
-      <section className="relative z-10 -mt-20 pb-16">
-        <div className="container mx-auto px-4">
-          <AnimateOnScroll direction="up" delay={200}>
-            <div className="overflow-hidden rounded-3xl">
-              <div className="flex w-max items-center gap-4 px-6 py-6 motion-reduce:animate-none animate-marquee [animation-direction:reverse]">
-                {marqueeStats.map((stat, index) => (
-                  <div
-                    key={`${stat.label}-${index}`}
-                    className="min-w-[220px] rounded-2xl border border-border/50 bg-card/90 backdrop-blur-md p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover hover:border-primary/20"
+                {/* Main heading */}
+                <div className="space-y-4">
+                  <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-none">
+                    <span className="block">MURBAN</span>
+                    <span className="block text-primary mt-2">ENGINEERING</span>
+                  </h1>
+                  <p className="text-lg sm:text-xl text-white/70 max-w-lg leading-relaxed">
+                    Delivering excellence in NDT inspection, asset integrity, and engineering services across Africa since 2007.
+                  </p>
+                </div>
+
+                {/* CTA buttons */}
+                <div className="flex flex-wrap gap-4 pt-4">
+                  <Button 
+                    size="lg" 
+                    asChild 
+                    className="group rounded-full px-8 h-14 text-base shadow-2xl shadow-primary/30 hover:shadow-primary/40 transition-all duration-500"
                   >
-                    <span className="text-3xl font-bold text-primary">{stat.value}</span>
-                    <span className="mt-2 block text-sm font-medium text-muted-foreground">
-                      {stat.label}
-                    </span>
+                    <Link to="/contact">
+                      Start Your Project
+                      <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    asChild 
+                    className="rounded-full px-8 h-14 text-base border-white/30 text-white bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
+                  >
+                    <Link to="/services">
+                      Explore Services
+                    </Link>
+                  </Button>
+                </div>
+
+                {/* Trust indicators */}
+                <div className="flex items-center gap-8 pt-8 border-t border-white/10">
+                  <div className="flex -space-x-3">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/80 to-secondary border-2 border-white/20 flex items-center justify-center">
+                        <Star className="w-4 h-4 text-white" />
+                      </div>
+                    ))}
                   </div>
-                ))}
+                  <div>
+                    <p className="text-white font-semibold">Trusted by Industry Leaders</p>
+                    <p className="text-white/60 text-sm">6,500+ inspections completed</p>
+                  </div>
+                </div>
               </div>
+            </AnimateOnScroll>
+
+            {/* Hero image card */}
+            <AnimateOnScroll direction="right" delay={200} className="hidden lg:block">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-transparent rounded-3xl blur-2xl" />
+                <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+                  <img
+                    src={modernOilFactory}
+                    alt="Modern industrial facility"
+                    className="w-full h-[500px] object-cover"
+                    loading="eager"
+                    decoding="async"
+                    width={600}
+                    height={500}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-white/60 text-sm">Latest Project</p>
+                        <p className="text-white font-semibold text-lg">Pipeline Integrity Assessment</p>
+                      </div>
+                      <Button variant="secondary" size="sm" asChild className="rounded-full">
+                        <Link to="/project-gallery">
+                          View <ArrowUpRight className="ml-1 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimateOnScroll>
+          </div>
+
+          {/* Scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50">
+            <span className="text-xs tracking-widest uppercase">Scroll</span>
+            <ChevronDown className="h-5 w-5 animate-bounce" />
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section - Modern Bento Style */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-subtle" />
+        <div className="container mx-auto px-4 relative z-10">
+          <AnimateOnScroll direction="up">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {stats.map((stat, i) => (
+                <div
+                  key={stat.label}
+                  className="group relative rounded-3xl border border-border/50 bg-card p-8 text-center transition-all duration-500 hover:border-primary/30 hover:shadow-card-hover hover:-translate-y-1"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+                  <div className="relative">
+                    <span className="text-4xl md:text-5xl font-bold text-primary">
+                      {stat.value}{stat.suffix}
+                    </span>
+                    <p className="mt-3 text-sm font-medium text-muted-foreground tracking-wide uppercase">
+                      {stat.label}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </AnimateOnScroll>
         </div>
       </section>
 
-      {/* Trusted By */}
-      <section className="py-20 bg-gradient-subtle">
+      {/* Trusted By - Elegant Marquee */}
+      <section className="py-16 border-y border-border/30">
         <div className="container mx-auto px-4">
           <AnimateOnScroll direction="up">
-            <p className="mb-10 text-center text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              Trusted by industry leaders
+            <p className="mb-12 text-center text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+              Trusted by Industry Leaders
             </p>
-            <div className="logo-marquee overflow-hidden rounded-2xl">
-              <div className="logo-marquee-track flex w-max items-center gap-16 py-4">
-                {marqueeLogos.map((client, index) => (
-                  <img
-                    key={`${client.name}-${index}`}
-                    src={client.logo}
-                    alt={client.name}
-                    className={`${client.width} h-auto opacity-60 grayscale transition-all duration-500 hover:opacity-100 hover:grayscale-0 hover:scale-105`}
-                    loading="lazy"
-                    decoding="async"
-                    fetchPriority="low"
-                    width={180}
-                    height={72}
-                  />
-                ))}
-              </div>
+            <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
+              {clientLogos.map((client) => (
+                <img
+                  key={client.name}
+                  src={client.logo}
+                  alt={client.name}
+                  className="h-8 md:h-10 w-auto opacity-50 grayscale transition-all duration-500 hover:opacity-100 hover:grayscale-0"
+                  loading="lazy"
+                  decoding="async"
+                  width={120}
+                  height={40}
+                />
+              ))}
             </div>
           </AnimateOnScroll>
         </div>
       </section>
 
-      {/* Services Preview Section */}
-      <section className="py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-mesh opacity-40" />
+      {/* Services Section - Evasion Card Style */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
         <div className="container mx-auto px-4 relative z-10">
-          <AnimateOnScroll direction="right">
-            <div className="mx-auto mb-20 max-w-2xl text-center">
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-                What We Do
-              </span>
-              <h2 className="mt-5 text-4xl font-semibold text-foreground md:text-5xl tracking-tight">
-                Our Services
-              </h2>
-              <p className="mt-5 text-lg text-muted-foreground">
-                Featured offerings pulled directly from our core services catalog.
-              </p>
+          <AnimateOnScroll direction="up">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-20">
+              <div className="max-w-2xl">
+                <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                  Our Services
+                </span>
+                <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+                  What We Do Best
+                </h2>
+              </div>
+              <Button variant="outline" size="lg" asChild className="rounded-full w-fit">
+                <Link to="/services">
+                  View All Services <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
           </AnimateOnScroll>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid md:grid-cols-2 gap-6">
             {services.map((service, i) => (
               <AnimateOnScroll
                 key={service.title}
@@ -313,70 +319,68 @@ const Home = () => {
               >
                 <Link
                   to={`/services/${service.slug}`}
-                  className="group flex h-full flex-col rounded-3xl border border-border/40 bg-card p-8 shadow-card transition-all duration-400 hover:-translate-y-2 hover:shadow-card-hover hover:border-primary/30 cursor-pointer"
+                  className="group relative flex flex-col h-full rounded-3xl border border-border/40 bg-card overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-card-hover hover:-translate-y-1"
                 >
-                  <div className="mb-5 flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 transition-colors duration-300 group-hover:bg-primary/15">
-                      <service.icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <span className="rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
-                      {service.tag}
-                    </span>
+                  {/* Card number */}
+                  <div className="absolute top-6 right-6 text-7xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors duration-500">
+                    {service.number}
                   </div>
-                  <h3 className="mt-2 text-xl font-semibold text-foreground">{service.title}</h3>
-                  <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
-                  <hr className="my-6 border-border/50" />
-                  <p className="text-sm text-foreground">
-                    <span className="font-semibold">For:</span>{" "}
-                    <span className="text-muted-foreground">{service.forText}</span>
-                  </p>
-                  <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all duration-300 group-hover:gap-3">
-                    Learn More <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  
+                  <div className="relative p-8 md:p-10 flex-1">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 transition-all duration-300 group-hover:bg-primary group-hover:scale-110">
+                        <service.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+                    
+                    <div className="flex items-center justify-between mt-auto pt-6 border-t border-border/50">
+                      <span className="text-sm text-muted-foreground">
+                        <span className="font-medium text-foreground">For:</span> {service.forText}
+                      </span>
+                      <div className="flex items-center gap-2 text-primary font-medium">
+                        Learn more
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-2" />
+                      </div>
+                    </div>
                   </div>
                 </Link>
               </AnimateOnScroll>
             ))}
           </div>
-
-          <AnimateOnScroll direction="up" delay={300}>
-            <div className="mt-16 text-center">
-              <Button size="lg" asChild className="rounded-2xl px-8 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                <Link to="/services">
-                  View All Services <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
-          </AnimateOnScroll>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-28 bg-gradient-subtle">
-        <div className="container mx-auto px-4">
-          <AnimateOnScroll direction="left">
-            <div className="mx-auto mb-20 max-w-2xl text-center">
+      {/* Features Section - Clean Grid */}
+      <section className="py-32 bg-secondary text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-mesh opacity-10" />
+        <div className="container mx-auto px-4 relative z-10">
+          <AnimateOnScroll direction="up">
+            <div className="text-center mb-20">
               <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
                 Why Choose Us
               </span>
-              <h2 className="mt-5 text-4xl font-semibold text-foreground md:text-5xl tracking-tight">
-                What sets us apart
+              <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+                Built on Trust & Excellence
               </h2>
             </div>
           </AnimateOnScroll>
 
-          <div className="grid gap-8 md:grid-cols-3">
-            {differentiators.map((item, i) => (
-              <AnimateOnScroll
-                key={item.title}
-                direction={i % 2 === 0 ? "right" : "left"}
-                delay={i * 120}
-              >
-                <div className="group rounded-3xl border border-border/40 bg-card p-10 shadow-card transition-all duration-400 hover:-translate-y-2 hover:shadow-card-hover hover:border-primary/20">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 transition-all duration-300 group-hover:bg-primary/15 group-hover:scale-110">
-                    <item.icon className="h-7 w-7 text-primary" />
+          <div className="grid md:grid-cols-3 gap-8">
+            {features.map((feature, i) => (
+              <AnimateOnScroll key={feature.title} direction="up" delay={i * 150}>
+                <div className="group text-center p-10 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-500 hover:bg-white/10 hover:-translate-y-2">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/20 mx-auto mb-8 transition-all duration-300 group-hover:scale-110 group-hover:bg-primary">
+                    <feature.icon className="h-8 w-8 text-primary group-hover:text-primary-foreground transition-colors" />
                   </div>
-                  <h3 className="mt-8 text-xl font-semibold text-foreground">{item.title}</h3>
-                  <p className="mt-4 text-muted-foreground leading-relaxed">{item.description}</p>
+                  <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
+                  <p className="text-white/70 leading-relaxed">{feature.description}</p>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -384,90 +388,127 @@ const Home = () => {
         </div>
       </section>
 
-
-      {/* Gallery Section */}
-      <section className="py-28">
+      {/* Project Gallery Preview */}
+      <section className="py-32">
         <div className="container mx-auto px-4">
-          <AnimateOnScroll direction="left">
-            <div className="mx-auto mb-20 max-w-2xl text-center">
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-                Project Gallery
-              </span>
-              <h2 className="mt-5 text-4xl font-semibold text-foreground md:text-5xl tracking-tight">
-                Our work in the field
-              </h2>
+          <AnimateOnScroll direction="up">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+              <div className="max-w-2xl">
+                <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                  Recent Projects
+                </span>
+                <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+                  Work That Speaks
+                </h2>
+              </div>
+              <Button variant="outline" size="lg" asChild className="rounded-full w-fit">
+                <Link to="/project-gallery">
+                  View Gallery <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
           </AnimateOnScroll>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            <AnimateOnScroll direction="left" delay={0}>
-              <div className="group overflow-hidden rounded-3xl shadow-card transition-all duration-500 hover:shadow-card-hover">
-                <img
-                  src={fieldWork1}
-                  alt="Field work 1"
-                  className="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                  decoding="async"
-                  width={800}
-                  height={320}
-                />
-              </div>
-            </AnimateOnScroll>
-       
-          
-            <AnimateOnScroll direction="right" delay={300}>
-              <div className="group overflow-hidden rounded-3xl shadow-card transition-all duration-500 hover:shadow-card-hover">
-                <img
-                  src={fieldWork3}
-                  alt="Field work 3"
-                  className="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                  decoding="async"
-                  width={800}
-                  height={320}
-                />
-              </div>
-            </AnimateOnScroll>
+          <div className="grid md:grid-cols-3 gap-6">
+            {projectImages.map((project, i) => (
+              <AnimateOnScroll key={i} direction="up" delay={i * 100}>
+                <Link to="/project-gallery" className="group relative block rounded-3xl overflow-hidden aspect-[4/5]">
+                  <img
+                    src={project.src}
+                    alt={project.alt}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
+                    width={400}
+                    height={500}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <Badge variant="secondary" className="mb-3 bg-white/20 text-white border-0">
+                      {project.category}
+                    </Badge>
+                    <h3 className="text-xl font-bold text-white">{project.alt}</h3>
+                  </div>
+                  <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
+                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                      <ArrowUpRight className="h-5 w-5 text-secondary" />
+                    </div>
+                  </div>
+                </Link>
+              </AnimateOnScroll>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <AnimateOnScroll direction="up" delay={300}>
-            <div className="mt-12 text-center">
-              <Button variant="outline" size="lg" asChild className="rounded-2xl px-8 border-border/50 transition-all duration-300 hover:-translate-y-0.5">
-                <Link to="/project-gallery">View Full Gallery</Link>
-              </Button>
+      {/* Testimonials */}
+      <Testimonials />
+
+      {/* CTA Section - Premium Style */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={storageTanks}
+            alt="Storage tanks at sunset"
+            className="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+            width={1920}
+            height={600}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/90 to-primary/80" />
+        </div>
+        <div className="container relative z-10 mx-auto px-4">
+          <AnimateOnScroll direction="up">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-8">
+                Ready to Partner with Africa&apos;s Leading Inspection Experts?
+              </h2>
+              <p className="text-xl text-white/80 mb-12 leading-relaxed">
+                Get in touch to discuss your next project. Our team is ready to deliver excellence.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button 
+                  size="lg" 
+                  asChild 
+                  className="rounded-full px-10 h-14 text-base bg-white text-secondary hover:bg-white/90 shadow-2xl"
+                >
+                  <Link to="/contact">
+                    Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  asChild 
+                  className="rounded-full px-10 h-14 text-base border-white/30 text-white hover:bg-white/10"
+                >
+                  <Link to="/about">Learn About Us</Link>
+                </Button>
+              </div>
             </div>
           </AnimateOnScroll>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <AnimateOnScroll direction="right">
-        <Testimonials />
-      </AnimateOnScroll>
-
-      {/* CTA Section */}
-       <section className="relative py-32 overflow-hidden">
-         <div className="absolute inset-0 z-0">
-           <img src={industrialPlant} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" width={1920} height={600} />
-           <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/80 to-primary/70" />
+      {/* Industries Quick Links */}
+      <section className="py-20 border-t border-border/30">
+        <div className="container mx-auto px-4">
+          <AnimateOnScroll direction="up">
+            <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
+              <span className="text-muted-foreground font-medium">Industries we serve:</span>
+              {["Oil & Gas", "Power Generation", "Storage Terminals", "Marine", "Rail", "Renewable Energy"].map((industry) => (
+                <Link
+                  key={industry}
+                  to="/industry-solutions"
+                  className="px-4 py-2 rounded-full border border-border/50 bg-card hover:border-primary/30 hover:text-primary transition-all duration-300"
+                >
+                  {industry}
+                </Link>
+              ))}
+            </div>
+          </AnimateOnScroll>
         </div>
-        <AnimateOnScroll direction="up" className="container relative z-10 mx-auto px-4 text-center">
-          <h2 className="text-4xl font-semibold text-white md:text-5xl tracking-tight">
-            Ready to start your project?
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-xl text-white/85 leading-relaxed">
-            Let&apos;s discuss how we can help you build infrastructure that drives real progress.
-          </p>
-          <Button
-            size="lg"
-            asChild
-            className="mt-10 rounded-2xl bg-white text-secondary px-10 py-6 text-lg font-semibold shadow-xl transition-all duration-300 hover:bg-white/95 hover:shadow-2xl hover:-translate-y-1 btn-press"
-          >
-            <Link to="/contact">
-              Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-        </AnimateOnScroll>
       </section>
     </div>
   );
