@@ -183,7 +183,7 @@ const About = () => {
                     </div>
                     <h3 className="text-2xl font-semibold mb-4">Our Vision</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      To be the undisputed leader in specialized Non-Destructive Testing and Inspection across Africa through innovation, experience, and technology.
+                      It is our vision to be the undisputed leaders in the field of specialized Non-Destructive Testing, inspection, and related services through innovation, experience, and use of advanced technology.
                     </p>
                   </CardContent>
                 </Card>
@@ -196,7 +196,7 @@ const About = () => {
                     </div>
                     <h3 className="text-2xl font-semibold mb-4">Our Mission</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      To deliver value to clients by executing world-class asset integrity services that maximize uptime and ensure safety compliance.
+                      We will deliver value to our clients by executing world class asset integrity services that maximize up-time and safety.
                     </p>
                   </CardContent>
                 </Card>
