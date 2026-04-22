@@ -67,10 +67,10 @@ const Home = () => {
   ];
 
   const stats = [
-    { value: "25+", label: "Years Experience" },
-    { value: "1.8k", label: "Projects Delivered" },
-    { value: "42", label: "Expert Engineers" },
-    { value: "ISO 9001", label: "Certified" },
+    { value: "2007", label: "Established" },
+    { value: "20", label: "Years Experience" },
+    { value: "35+", label: "Countries Worldwide" },
+    { value: "6,500+", label: "Inspections" },
   ];
   const marqueeStats = [...stats, ...stats];
 

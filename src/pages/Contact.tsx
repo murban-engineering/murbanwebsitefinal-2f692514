@@ -1,10 +1,5 @@
 import { useState, useRef } from "react";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Send,
-} from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -139,23 +134,22 @@ const Contact = () => {
     }
   };
 
-  const contactInfo = [
+  const officeLocations = [
     {
-      icon: Mail,
-      title: "Email Address",
-      details: "info@murban-eng.com",
-      link: "mailto:info@murban-eng.com",
+      title: "Mombasa — HQ",
+      addressLine1: "Port Reitz Road, Off Airport Road",
+      addressLine2: "P.O. Box 99215 – 80107",
+      city: "Mombasa, Kenya",
+      tel: "+254 202650168",
+      mob: "+254 724966694",
     },
     {
-      icon: Phone,
-      title: "Phone Number",
-      details: "+ 254 20 265 0618",
-      link: "tel:+254202650618",
-    },
-    {
-      icon: MapPin,
-      title: "Address",
-      details: "P. O. Box 99215, Off-Airport Road Port Reiz, Mombasa, Coast 80107, KE",
+      title: "Nairobi — Office",
+      addressLine1: "Kofisi Karen Road",
+      addressLine2: "P.O. Box 856 00606",
+      city: "Nairobi, Kenya",
+      tel: "+254 203673821",
+      mob: "+254 703041821",
     },
   ];
 
@@ -199,31 +193,45 @@ const Contact = () => {
       {/* Contact Info Cards */}
       <section className="py-28">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-            {contactInfo.map((info, index) => (
+          <div className="mb-8 text-center">
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">Our Office Locations</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            {officeLocations.map((office, index) => (
               <AnimateOnScroll key={index} direction={index % 2 === 0 ? "left" : "right"} delay={index * 100}>
                 <Card 
-                  className="text-center group hover:-translate-y-2 transition-all duration-400 border-border/40 hover:border-primary/30 bg-card shadow-card hover:shadow-card-hover rounded-3xl"
+                  className="group hover:-translate-y-2 transition-all duration-400 border-border/40 hover:border-primary/30 bg-card shadow-card hover:shadow-card-hover rounded-3xl"
                 >
-                  <CardContent className="p-10">
-                    <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/15">
-                      <info.icon className="h-7 w-7 text-primary" />
+                  <CardContent className="p-8">
+                    <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/15">
+                      <MapPin className="h-6 w-6 text-primary" />
                     </div>
-                    <h3 className="text-lg font-semibold mb-3">{info.title}</h3>
-                    {info.link ? (
-                      <a
-                        href={info.link}
-                        className="text-muted-foreground hover:text-primary transition-all duration-200 font-medium"
-                      >
-                        {info.details}
+                    <h3 className="text-2xl font-semibold mb-4">{office.title}</h3>
+                    <p className="text-muted-foreground">{office.addressLine1}</p>
+                    <p className="text-muted-foreground">{office.addressLine2}</p>
+                    <p className="text-muted-foreground mb-5">{office.city}</p>
+                    <p className="font-medium">
+                      Tel:{" "}
+                      <a href={`tel:${office.tel.replace(/\s/g, "")}`} className="text-muted-foreground hover:text-primary">
+                        {office.tel}
                       </a>
-                    ) : (
-                      <p className="text-muted-foreground font-medium">{info.details}</p>
-                    )}
+                    </p>
+                    <p className="font-medium">
+                      Mob:{" "}
+                      <a href={`tel:${office.mob.replace(/\s/g, "")}`} className="text-muted-foreground hover:text-primary">
+                        {office.mob}
+                      </a>
+                    </p>
                   </CardContent>
                 </Card>
               </AnimateOnScroll>
             ))}
+          </div>
+          <div className="mb-16 text-center">
+            <a href="mailto:info@murban-eng.com" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary">
+              <Mail className="h-4 w-4" />
+              info@murban-eng.com
+            </a>
           </div>
 
           {/* Contact Form and Map */}
