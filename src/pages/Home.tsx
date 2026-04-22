@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Activity, Cpu, Wrench, Shield, Gauge, Waves, Radio, Thermometer, Zap, CheckCircle2, Play, ChevronRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Activity, Cpu, Wrench, Shield, Gauge, Waves, Radio, Thermometer, Zap, CheckCircle2, Play, ChevronRight, Search, User, ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -18,6 +18,7 @@ import fieldWork5 from "@/assets/field-work-5.jpg";
 import storageTanks from "@/assets/storage-tanks.jpg";
 import pipelineInspection from "@/assets/pipeline-inspection.jpg";
 import oilRigVessel from "@/assets/oil-rig-vessel.jpg";
+import heroImage from "@/assets/hero-engineering.jpg";
 
 const Home = () => {
   // Featured Services - eCommerce style "products"
@@ -81,110 +82,104 @@ const Home = () => {
 
   return (
     <div className="relative min-h-screen bg-background overflow-hidden">
-      {/* Hero Section - Evasion Style */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <img
-            src={industrialPlant}
-            alt="Industrial facility"
-            className="h-full w-full object-cover scale-105"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background" />
-          <div className="absolute inset-0 bg-gradient-mesh opacity-60" />
-        </div>
+      {/* Hero Section - Maison Luxury Style */}
+      <section className="relative min-h-screen flex">
+        {/* Left Dark Sidebar */}
+        <div className="hidden lg:flex flex-col w-56 bg-secondary text-white relative z-20">
+          {/* Navigation Links */}
+          <div className="flex items-center gap-8 px-8 py-8">
+            <Link to="/" className="text-xs font-medium tracking-widest uppercase hover:text-primary transition-colors">
+              Home
+            </Link>
+            <Link to="/services" className="text-xs font-medium tracking-widest uppercase text-white/60 hover:text-white transition-colors">
+              Services
+            </Link>
+            <Link to="/about" className="text-xs font-medium tracking-widest uppercase text-white/60 hover:text-white transition-colors">
+              About
+            </Link>
+          </div>
 
-        <div className="container relative z-10 mx-auto px-4 pt-32 pb-20">
-          <div className="max-w-6xl mx-auto">
-            {/* Main Hero Content */}
-            <AnimateOnScroll direction="up">
-              <div className="text-center mb-16">
-                <Badge variant="outline" className="mb-8 px-6 py-2.5 text-sm font-medium tracking-wide border-primary/30 bg-primary/5 text-primary">
-                  <span className="mr-2 h-2 w-2 rounded-full bg-primary animate-pulse-soft inline-block" />
-                  Asset Integrity & NDT Specialists
-                </Badge>
-                
-                <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-6">
-                  <span className="text-primary">MURBAN</span>
-                </h1>
-                
-                <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
-                  Lightweight, durable<br />and <span className="text-foreground font-medium">inspection-ready.</span>
-                </p>
-              </div>
-            </AnimateOnScroll>
-
-            {/* Tagline */}
-            <AnimateOnScroll direction="up" delay={100}>
-              <div className="text-center mb-16">
-                <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-2">
-                  Meet <span className="text-primary">Inspection</span> & <span className="text-secondary">Engineering</span>.
-                </h2>
-              </div>
-            </AnimateOnScroll>
-
-            {/* Featured Services - Product Cards */}
-            <AnimateOnScroll direction="up" delay={200}>
-              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
-                {featuredServices.map((service, index) => (
-                  <Link
-                    key={service.id}
-                    to={`/services/${service.slug}`}
-                    className="group relative"
-                  >
-                    <div className="relative overflow-hidden rounded-[2rem] bg-card border border-border/50 shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-2 hover:border-primary/30">
-                      {/* Service Image */}
-                      <div className="aspect-[4/3] overflow-hidden">
-                        <img
-                          src={service.image}
-                          alt={service.name}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-                      </div>
-                      
-                      {/* Badge */}
-                      <div className="absolute top-6 left-6">
-                        <Badge className="bg-primary text-primary-foreground font-semibold px-4 py-1.5">
-                          {service.badge}
-                        </Badge>
-                      </div>
-
-                      {/* Content */}
-                      <div className="absolute bottom-0 left-0 right-0 p-8">
-                        <p className="text-sm font-medium text-primary mb-2">{service.tagline}</p>
-                        <h3 className="text-3xl font-bold text-foreground mb-2">{service.name}</h3>
-                        <p className="text-muted-foreground mb-4">{service.description}</p>
-                        <p className="text-2xl font-bold text-primary">{service.price}</p>
-                      </div>
-
-                      {/* Hover Arrow */}
-                      <div className="absolute top-6 right-6 h-12 w-12 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
-                        <ArrowUpRight className="h-5 w-5 text-foreground" />
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </AnimateOnScroll>
-
-            {/* Description */}
-            <AnimateOnScroll direction="up" delay={300}>
-              <div className="text-center max-w-3xl mx-auto">
-                <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">First-class inspection</p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Murban Inspection & Engineering are high-tech asset integrity solutions designed for modern industry. Reliable, certified, and engineered for critical infrastructure across Africa.
-                </p>
-              </div>
-            </AnimateOnScroll>
+          {/* Vertical Season Text */}
+          <div className="flex-1 flex items-center justify-center">
+            <span 
+              className="text-xs font-medium tracking-[0.3em] uppercase text-primary whitespace-nowrap"
+              style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+            >
+              Inspection / Engineering 2026
+            </span>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground">
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
-          <div className="w-px h-12 bg-gradient-to-b from-muted-foreground to-transparent" />
+        {/* Main Hero Content */}
+        <div className="flex-1 relative">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img
+              src={industrialPlant}
+              alt="Industrial facility"
+              className="h-full w-full object-cover"
+              loading="eager"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-secondary/40 via-transparent to-transparent" />
+          </div>
+
+          {/* Top Navigation Bar */}
+          <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-8 py-8">
+            {/* Logo - Centered */}
+            <div className="flex-1" />
+            <Link to="/" className="text-2xl font-serif tracking-[0.2em] text-white">
+              MURBAN
+            </Link>
+            <div className="flex-1 flex items-center justify-end gap-6">
+              <button className="text-white/80 hover:text-white transition-colors">
+                <Search className="h-5 w-5" />
+              </button>
+              <Link to="/contact" className="text-white/80 hover:text-white transition-colors">
+                <User className="h-5 w-5" />
+              </Link>
+              <Link to="/services" className="relative text-white/80 hover:text-white transition-colors">
+                <ShoppingBag className="h-5 w-5" />
+                <span className="absolute -top-2 -right-2 h-4 w-4 rounded-full bg-primary text-[10px] font-medium flex items-center justify-center">
+                  3
+                </span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Hero Text Content */}
+          <div className="relative z-10 h-full flex items-center px-8 md:px-16 lg:px-24 pt-32 pb-20">
+            <div className="max-w-xl">
+              <AnimateOnScroll direction="up">
+                <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] mb-6">
+                  The Art of<br />
+                  <span className="italic">Precision</span>
+                </h1>
+              </AnimateOnScroll>
+              
+              <AnimateOnScroll direction="up" delay={100}>
+                <p className="text-white/70 text-lg md:text-xl mb-10 leading-relaxed max-w-md">
+                  Engineering excellence crafted with precision. Where expertise meets modern industrial refinement.
+                </p>
+              </AnimateOnScroll>
+
+              <AnimateOnScroll direction="up" delay={200}>
+                <Link
+                  to="/services"
+                  className="group inline-flex items-center gap-4 bg-white text-secondary px-8 py-4 text-sm font-medium tracking-widest uppercase hover:bg-white/90 transition-colors"
+                >
+                  Discover Services
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </AnimateOnScroll>
+            </div>
+          </div>
+
+          {/* Bottom Slider Indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3">
+            <div className="w-8 h-0.5 bg-white/30" />
+            <div className="w-8 h-0.5 bg-white" />
+            <div className="w-8 h-0.5 bg-white/30" />
+          </div>
         </div>
       </section>
 

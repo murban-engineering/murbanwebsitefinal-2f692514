@@ -51,8 +51,8 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        serif: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        display: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'Cambria', 'serif'],
+        display: ['"Playfair Display"', 'Georgia', 'Cambria', 'serif'],
       },
       fontSize: {
         'display-xl': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.035em' }],
