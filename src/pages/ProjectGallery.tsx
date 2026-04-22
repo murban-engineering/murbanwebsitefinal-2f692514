@@ -2,15 +2,11 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ArrowRight, MapPin, Calendar, CheckCircle2 } from "lucide-react";
+import { Link } from "react-router-dom";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 
-import oilGasImg from "@/assets/oil-gas-industry.png";
-import storageTerminalsImg from "@/assets/storage-terminals.png";
-import renewableEnergyImg from "@/assets/renewable-energy.png";
 import railIndustryImg from "@/assets/rail-industry.png";
-import shippingMarineImg from "@/assets/shipping-marine.png";
-import projectShowcase from "@/assets/project-showcase.jpg";
-import heroEngineering from "@/assets/hero-engineering.jpg";
 import fieldWork1 from "@/assets/field-work-1.jpg";
 import fieldWork2 from "@/assets/field-work-2.jpg";
 import fieldWork3 from "@/assets/field-work-3.jpg";
@@ -18,7 +14,7 @@ import fieldWork4 from "@/assets/field-work-4.jpg";
 import fieldWork5 from "@/assets/field-work-5.jpg";
 import fieldWork6 from "@/assets/field-work-6.jpg";
 import constructionBlueprints from "@/assets/construction-blueprints.jpg";
-import modernOilFactory2 from "@/assets/modern-oil-factory-2.jpg";
+import industrialPlant from "@/assets/industrial-plant.jpg";
 
 interface Project {
   id: number;
@@ -28,8 +24,6 @@ interface Project {
   year: string;
   description: string;
   image: string;
-  challenges: string[];
-  solutions: string[];
   results: string[];
 }
 
@@ -43,67 +37,51 @@ const ProjectGallery = () => {
   const projects: Project[] = [
     {
       id: 1, title: "TotalEnergies Pipeline Integrity Assessment", category: "Oil & Gas", location: "Mombasa, Kenya", year: "2023",
-      description: "Comprehensive pipeline inspection and integrity assessment for critical crude oil transportation infrastructure.",
+      description: "Comprehensive pipeline inspection and integrity assessment for critical crude oil transportation infrastructure using advanced PAUT and MFL techniques.",
       image: fieldWork1,
-      challenges: ["Aging pipeline infrastructure requiring thorough inspection", "Minimal downtime requirements for critical operations", "Complex corrosion patterns in coastal environment"],
-      solutions: ["Advanced PAUT and MFL inspection techniques", "Risk-based inspection planning", "Real-time data analysis and reporting"],
-      results: ["Zero unplanned downtime during inspection", "Identified and prioritized 15 critical repair locations", "Extended asset life by 10+ years through targeted maintenance"],
+      results: ["Zero unplanned downtime", "15 critical repairs identified", "10+ years asset life extension"],
     },
     {
       id: 2, title: "KPC Storage Tank Calibration & Inspection", category: "Storage Terminals", location: "Nairobi, Kenya", year: "2023",
-      description: "API 653 compliant storage tank inspection and 3D laser scanning calibration for fuel depot operations.",
+      description: "API 653 compliant storage tank inspection and 3D laser scanning calibration for fuel depot operations across 72 sites.",
       image: fieldWork2,
-      challenges: ["72 sites requiring coordinated inspection", "Accuracy requirements for volumetric calibration", "Logistics across multiple depot locations"],
-      solutions: ["3D laser scanning for precise volume measurement", "API 653 certified inspection protocols", "Mobile inspection teams with rapid deployment"],
-      results: ["All 72 sites inspected on schedule", "Improved inventory accuracy by 99.7%", "Compliance documentation for regulatory audit"],
+      results: ["72 sites inspected on schedule", "99.7% inventory accuracy", "Full regulatory compliance"],
     },
     {
       id: 3, title: "KenGen Geothermal Rig Inspection", category: "Renewable Energy", location: "Olkaria, Kenya", year: "2023",
-      description: "NDT inspection and certification of drilling rig components for geothermal energy production.",
+      description: "NDT inspection and certification of drilling rig components for geothermal energy production in high-temperature environments.",
       image: fieldWork4,
-      challenges: ["High-temperature environment", "Critical safety requirements for drilling operations", "Remote location logistics"],
-      solutions: ["High-temperature ultrasonic testing", "Magnetic particle inspection of welds", "Pressure testing of cementing equipment"],
-      results: ["100% compliance with safety standards", "Prevented 2 potential equipment failures", "Maintained continuous drilling operations"],
+      results: ["100% safety compliance", "2 failures prevented", "Continuous operations maintained"],
     },
     {
       id: 4, title: "Railway Fuel Tank Wagon Certification", category: "Rail Industry", location: "Tanzania", year: "2024",
-      description: "Tank calibration and structural inspection for fuel transportation rail wagons.",
+      description: "Tank calibration and structural inspection for 50 fuel transportation rail wagons using UT and RT testing methods.",
       image: railIndustryImg,
-      challenges: ["Fleet of 50 wagons requiring certification", "Corrosion in harsh operating conditions", "Structural fatigue from heavy loads"],
-      solutions: ["Ultrasonic and radiographic testing", "Tank calibration for fuel wagons", "Corrosion mapping and assessment"],
-      results: ["All 50 wagons certified on time", "Identified 8 wagons requiring immediate repair", "Extended fleet operational life by 5 years"],
+      results: ["50 wagons certified", "8 immediate repairs identified", "5-year life extension"],
     },
     {
       id: 5, title: "Bolloré Marine Terminal Expansion", category: "Marine & Shipping", location: "Djibouti", year: "2023",
-      description: "Marine terminal cargo tank inspection and loading arm integrity assessment.",
+      description: "Marine terminal cargo tank inspection and loading arm integrity assessment with UAV inspection technology.",
       image: fieldWork3,
-      challenges: ["Saltwater corrosion acceleration", "24/7 terminal operations", "International maritime standards compliance"],
-      solutions: ["UAV inspection of difficult-access areas", "Ultrasonic thickness measurement of tanks", "Coating integrity assessment"],
-      results: ["SOLAS and IMO compliance achieved", "Zero operational disruption", "Coating life extended by 3 years"],
+      results: ["SOLAS/IMO compliance", "Zero operational disruption", "3-year coating extension"],
     },
     {
       id: 6, title: "Custom Platform Fabrication & Installation", category: "Oil & Gas", location: "Mombasa, Kenya", year: "2024",
-      description: "Design, fabrication, and installation of working platforms for offshore facility maintenance.",
+      description: "Design, fabrication, and installation of working platforms for offshore facility maintenance with 3D modeling.",
       image: fieldWork5,
-      challenges: ["Complex structural design requirements", "Offshore installation logistics", "Corrosion-resistant material selection"],
-      solutions: ["3D design modeling and simulation", "Certified welding and fabrication", "Corrosion protection coating system"],
-      results: ["Completed on schedule and budget", "Passed all safety inspections", "Enhanced worker safety and efficiency"],
+      results: ["On schedule & budget", "All safety inspections passed", "Enhanced worker efficiency"],
     },
     {
       id: 7, title: "Multi-Site Inspection Program", category: "Storage Terminals", location: "East Africa", year: "2023",
-      description: "Regional inspection program covering fuel depots across multiple East African countries.",
+      description: "Regional inspection program covering fuel depots across 5 East African countries with centralized management.",
       image: fieldWork6,
-      challenges: ["Coordination across 5 countries", "Varying regulatory requirements", "Large volume of assets to inspect"],
-      solutions: ["Centralized project management", "Mobile inspection teams", "Digital reporting platform"],
-      results: ["150+ tanks inspected across region", "Standardized reporting for all locations", "Early detection of 23 critical issues"],
+      results: ["150+ tanks inspected", "Standardized reporting", "23 critical issues detected"],
     },
     {
       id: 8, title: "Engineering Design & Quality Assurance", category: "Oil & Gas", location: "Kenya", year: "2024",
       description: "Comprehensive design review and quality assurance for major infrastructure project with detailed blueprint analysis.",
       image: constructionBlueprints,
-      challenges: ["Complex engineering specifications", "Multiple stakeholder requirements", "Tight project timelines"],
-      solutions: ["Detailed blueprint and design review", "Quality management protocols", "Expert engineering consultation"],
-      results: ["All designs approved on first review", "Zero rework required", "Project delivered ahead of schedule"],
+      results: ["First-review approval", "Zero rework required", "Ahead of schedule delivery"],
     },
   ];
 
@@ -113,39 +91,40 @@ const ProjectGallery = () => {
       : projects.filter((project) => project.category === selectedCategory);
 
   return (
-    <div className="min-h-screen pt-20 relative">
-      {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
-        <img
-          src="/construction-concept-image-helmet-rolled-blueprints-wooden-boards-retro-style.jpg"
-          alt="Construction concept with helmet and blueprints"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-          width={1920}
-          height={1080}
-        />
-        <div className="absolute inset-0 bg-foreground/70" />
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <AnimateOnScroll direction="left">
-            <div className="inline-block px-4 py-2 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
-              <span className="text-sm font-medium text-white">Home - Project Gallery</span>
-            </div>
-            <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 text-white leading-tight">
-              PROJECT GALLERY
-            </h1>
-          </AnimateOnScroll>
-          <AnimateOnScroll direction="right" delay={150}>
-            <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto text-white">
-              Showcasing our expertise across industries and regions
-            </p>
-          </AnimateOnScroll>
+    <div className="min-h-screen pt-20 relative bg-background">
+      {/* Hero Section - Evasion Style */}
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/construction-concept-image-helmet-rolled-blueprints-wooden-boards-retro-style.jpg"
+            alt="Construction concept"
+            className="h-full w-full object-cover"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/70 to-background" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10 py-32">
+          <div className="max-w-4xl">
+            <AnimateOnScroll direction="left">
+              <Badge variant="outline" className="mb-8 px-6 py-2.5 text-sm font-medium tracking-wide border-primary/30 bg-primary/5 text-primary">
+                Project Gallery
+              </Badge>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-8">
+                <span className="text-foreground">Our</span><br />
+                <span className="text-primary">Projects</span>
+              </h1>
+            </AnimateOnScroll>
+            <AnimateOnScroll direction="left" delay={150}>
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
+                Showcasing our expertise across industries and regions throughout Africa.
+              </p>
+            </AnimateOnScroll>
+          </div>
         </div>
       </section>
 
       {/* Category Filter */}
-      <section className="py-12 relative z-10">
+      <section className="py-12 -mt-8 relative z-10">
         <div className="container mx-auto px-4">
           <AnimateOnScroll direction="up">
             <div className="flex flex-wrap justify-center gap-3">
@@ -154,7 +133,8 @@ const ProjectGallery = () => {
                   key={category}
                   variant={selectedCategory === category ? "default" : "outline"}
                   onClick={() => setSelectedCategory(category)}
-                  className="rounded-full"
+                  className="rounded-full px-6"
+                  size="sm"
                 >
                   {category}
                 </Button>
@@ -165,101 +145,113 @@ const ProjectGallery = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-12 relative z-10">
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, i) => (
-              <AnimateOnScroll key={project.id} direction={i % 2 === 0 ? "left" : "right"} delay={(i % 4) * 100}>
-                <Card className="group overflow-hidden border-border bg-card/95 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="relative h-64 overflow-hidden">
+              <AnimateOnScroll key={project.id} direction="up" delay={(i % 6) * 80}>
+                <Card className="group h-full overflow-hidden border-border/40 bg-card rounded-[1.5rem] hover:shadow-card-hover transition-all duration-400 hover:-translate-y-2">
+                  <div className="relative aspect-[4/3] overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       loading="lazy"
-                      decoding="async"
-                      width={800}
-                      height={500}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/30 to-transparent" />
+                    <div className="absolute top-4 left-4">
+                      <Badge className="bg-primary text-primary-foreground font-medium">{project.category}</Badge>
+                    </div>
                     <div className="absolute bottom-4 left-4 right-4">
-                      <Badge className="mb-2">{project.category}</Badge>
-                      <h3 className="text-xl font-serif font-bold text-white">{project.title}</h3>
+                      <h3 className="text-lg font-bold text-white line-clamp-2">{project.title}</h3>
                     </div>
                   </div>
                   <CardContent className="p-6 space-y-4">
-                    <div className="flex items-center justify-between text-sm text-muted-foreground">
-                      <span>{project.location}</span>
-                      <span>{project.year}</span>
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                      <span className="flex items-center gap-1.5">
+                        <MapPin className="h-4 w-4" />
+                        {project.location}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <Calendar className="h-4 w-4" />
+                        {project.year}
+                      </span>
                     </div>
-                    <p className="text-muted-foreground">{project.description}</p>
-                    <div className="space-y-3 pt-4">
-                      <div>
-                        <h4 className="text-sm font-semibold mb-2 text-primary">Key Challenges</h4>
-                        <ul className="space-y-1">
-                          {project.challenges.map((challenge, idx) => (
-                            <li key={idx} className="text-sm text-muted-foreground flex items-start">
-                              <span className="text-primary mr-2">•</span>{challenge}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-semibold mb-2 text-primary">Our Solutions</h4>
-                        <ul className="space-y-1">
-                          {project.solutions.map((solution, idx) => (
-                            <li key={idx} className="text-sm text-muted-foreground flex items-start">
-                              <span className="text-primary mr-2">•</span>{solution}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-semibold mb-2 text-primary">Results Delivered</h4>
-                        <ul className="space-y-1">
-                          {project.results.map((result, idx) => (
-                            <li key={idx} className="text-sm text-muted-foreground flex items-start">
-                              <span className="text-primary mr-2">✓</span>{result}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{project.description}</p>
+                    <div className="pt-4 border-t border-border/40">
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-primary mb-3">Results</h4>
+                      <ul className="space-y-1.5">
+                        {project.results.map((result, idx) => (
+                          <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
+                            <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                            <span>{result}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </CardContent>
                 </Card>
               </AnimateOnScroll>
             ))}
           </div>
+
+          {filteredProjects.length === 0 && (
+            <div className="text-center py-20">
+              <p className="text-muted-foreground text-lg">No projects found in this category.</p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 bg-gradient-subtle">
+        <div className="container mx-auto px-4">
+          <AnimateOnScroll direction="up">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center">
+              {[
+                { value: "150+", label: "Projects Completed" },
+                { value: "35+", label: "Countries Served" },
+                { value: "98%", label: "Client Satisfaction" },
+                { value: "20+", label: "Years Experience" },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <p className="text-4xl md:text-5xl font-bold text-primary mb-2">{stat.value}</p>
+                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 relative z-10">
-        <div className="container mx-auto px-4">
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={industrialPlant} alt="" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/90 to-primary/80" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <AnimateOnScroll direction="up">
-            <Card className="overflow-hidden text-white border-0 relative">
-              <img
-                src={modernOilFactory2}
-                alt="Modern oil factory"
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-                width={1920}
-                height={1080}
-              />
-              <div className="absolute inset-0 bg-gradient-hero opacity-80" />
-              <CardContent className="p-12 text-center relative z-10">
-                <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-                  Ready to Start Your Project?
-                </h2>
-                <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-                  Let's discuss how we can deliver exceptional results for your next challenge.
-                </p>
-                <Button size="lg" variant="secondary" asChild className="text-lg">
-                  <a href="/contact">Get in Touch</a>
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                Ready to Start Your Project?
+              </h2>
+              <p className="text-xl text-white/80 mb-12">
+                Let&apos;s discuss how we can deliver exceptional results for your next challenge.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button size="lg" asChild className="rounded-full px-10 bg-white text-secondary hover:bg-white/90 shadow-xl">
+                  <Link to="/contact">
+                    Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
-              </CardContent>
-            </Card>
+                <Button size="lg" variant="outline" asChild className="rounded-full px-10 border-white/30 text-white hover:bg-white/10">
+                  <Link to="/services">
+                    View Services
+                  </Link>
+                </Button>
+              </div>
+            </div>
           </AnimateOnScroll>
         </div>
       </section>

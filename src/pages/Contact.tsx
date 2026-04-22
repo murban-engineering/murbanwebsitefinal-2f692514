@@ -1,17 +1,20 @@
 import { useState, useRef } from "react";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send, Phone, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import { Link } from "react-router-dom";
 import contactHero from "@/assets/contact-hero.jpg";
+import industrialPlant from "@/assets/industrial-plant.jpg";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
 const ACCEPTED_FILE_TYPES = [
   "application/pdf",
   "application/msword",
@@ -106,7 +109,7 @@ const Contact = () => {
 
       toast({
         title: "Message sent successfully!",
-        description: "We'll get back to you as soon as possible.",
+        description: "We'll get back to you within 24 hours.",
       });
 
       setFormData({ name: "", email: "", phone: "", serviceType: "", message: "" });
@@ -136,7 +139,7 @@ const Contact = () => {
 
   const officeLocations = [
     {
-      title: "Mombasa — HQ",
+      title: "Mombasa HQ",
       addressLine1: "Port Reitz Road, Off Airport Road",
       addressLine2: "P.O. Box 99215 – 80107",
       city: "Mombasa, Kenya",
@@ -144,7 +147,7 @@ const Contact = () => {
       mob: "+254 724966694",
     },
     {
-      title: "Nairobi — Office",
+      title: "Nairobi Office",
       addressLine1: "Kofisi Karen Road",
       addressLine2: "P.O. Box 856 00606",
       city: "Nairobi, Kenya",
@@ -153,234 +156,297 @@ const Contact = () => {
     },
   ];
 
+  const features = [
+    { icon: Clock, title: "24hr Response", description: "Quick turnaround on all inquiries" },
+    { icon: CheckCircle2, title: "Free Consultation", description: "No-obligation project assessment" },
+    { icon: MapPin, title: "On-Site Service", description: "We come to your location" },
+  ];
+
   return (
-    <div className="min-h-screen pt-20 relative">
-      {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden min-h-[55vh] flex items-center">
-        <div className="absolute inset-0 z-0">
+    <div className="min-h-screen pt-20 relative bg-background">
+      {/* Hero Section - Evasion Style */}
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
           <img
             src={contactHero}
             alt="Industrial storage facility"
             className="h-full w-full object-cover"
             loading="eager"
-            decoding="async"
-            fetchPriority="high"
-            width={1920}
-            height={1080}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/80 to-primary/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/70 to-background" />
         </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <AnimateOnScroll direction="left">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-white mb-8">
-              Contact Us
-            </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold mb-8 text-white tracking-tight">
-              Get in Touch
-            </h1>
-          </AnimateOnScroll>
-          <AnimateOnScroll direction="right" delay={150}>
-            <p className="text-xl md:text-2xl font-medium mb-4 text-white/90">
-              Do You Have Any Questions?
-            </p>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto text-white/75 leading-relaxed">
-              Let&apos;s connect — we&apos;d love to hear from you.
-            </p>
+        
+        <div className="container mx-auto px-4 relative z-10 py-32">
+          <div className="max-w-4xl">
+            <AnimateOnScroll direction="left">
+              <Badge variant="outline" className="mb-8 px-6 py-2.5 text-sm font-medium tracking-wide border-primary/30 bg-primary/5 text-primary">
+                Contact Us
+              </Badge>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-8">
+                <span className="text-foreground">Get in</span><br />
+                <span className="text-primary">Touch</span>
+              </h1>
+            </AnimateOnScroll>
+            <AnimateOnScroll direction="left" delay={150}>
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
+                Ready to discuss your inspection needs? Our team is here to help with your next project.
+              </p>
+            </AnimateOnScroll>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Bar */}
+      <section className="py-12 -mt-16 relative z-10">
+        <div className="container mx-auto px-4">
+          <AnimateOnScroll direction="up">
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {features.map((feature, index) => (
+                <Card key={feature.title} className="border-border/40 bg-card/80 backdrop-blur-sm rounded-2xl hover:shadow-card-hover transition-all duration-400 hover:-translate-y-1">
+                  <CardContent className="p-6 flex items-center gap-4">
+                    <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <feature.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">{feature.title}</p>
+                      <p className="text-sm text-muted-foreground">{feature.description}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </AnimateOnScroll>
         </div>
       </section>
 
-      {/* Contact Info Cards */}
-      <section className="py-28">
+      {/* Main Contact Section */}
+      <section className="py-32">
         <div className="container mx-auto px-4">
-          <div className="mb-8 text-center">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">Our Office Locations</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            {officeLocations.map((office, index) => (
-              <AnimateOnScroll key={index} direction={index % 2 === 0 ? "left" : "right"} delay={index * 100}>
-                <Card 
-                  className="group hover:-translate-y-2 transition-all duration-400 border-border/40 hover:border-primary/30 bg-card shadow-card hover:shadow-card-hover rounded-3xl"
-                >
-                  <CardContent className="p-8">
-                    <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/15">
-                      <MapPin className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-semibold mb-4">{office.title}</h3>
-                    <p className="text-muted-foreground">{office.addressLine1}</p>
-                    <p className="text-muted-foreground">{office.addressLine2}</p>
-                    <p className="text-muted-foreground mb-5">{office.city}</p>
-                    <p className="font-medium">
-                      Tel:{" "}
-                      <a href={`tel:${office.tel.replace(/\s/g, "")}`} className="text-muted-foreground hover:text-primary">
-                        {office.tel}
-                      </a>
-                    </p>
-                    <p className="font-medium">
-                      Mob:{" "}
-                      <a href={`tel:${office.mob.replace(/\s/g, "")}`} className="text-muted-foreground hover:text-primary">
-                        {office.mob}
-                      </a>
-                    </p>
+          <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+            {/* Contact Form */}
+            <AnimateOnScroll direction="left">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Send Us a Message</h2>
+                <p className="text-muted-foreground mb-8">Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
+                
+                <Card className="border-border/40 rounded-[2rem] overflow-hidden">
+                  <CardContent className="p-8 md:p-10">
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <Label htmlFor="name" className="text-sm font-medium">Name *</Label>
+                          <Input
+                            id="name"
+                            name="name"
+                            placeholder="Your name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            className={`mt-2 rounded-xl ${errors.name ? "border-destructive" : ""}`}
+                          />
+                          {errors.name && <p className="text-destructive text-sm mt-1">{errors.name}</p>}
+                        </div>
+                        <div>
+                          <Label htmlFor="email" className="text-sm font-medium">Email *</Label>
+                          <Input
+                            id="email"
+                            name="email"
+                            type="email"
+                            placeholder="Your email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className={`mt-2 rounded-xl ${errors.email ? "border-destructive" : ""}`}
+                          />
+                          {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
+                        </div>
+                      </div>
+
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <Label htmlFor="phone" className="text-sm font-medium">Phone</Label>
+                          <Input
+                            id="phone"
+                            name="phone"
+                            type="tel"
+                            placeholder="Your phone number"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className={`mt-2 rounded-xl ${errors.phone ? "border-destructive" : ""}`}
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="serviceType" className="text-sm font-medium">Service Type *</Label>
+                          <Select value={formData.serviceType} onValueChange={handleSelectChange}>
+                            <SelectTrigger className={`mt-2 rounded-xl ${errors.serviceType ? "border-destructive" : ""}`}>
+                              <SelectValue placeholder="Select a service" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {serviceTypes.map((service) => (
+                                <SelectItem key={service} value={service}>{service}</SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          {errors.serviceType && <p className="text-destructive text-sm mt-1">{errors.serviceType}</p>}
+                        </div>
+                      </div>
+
+                      <div>
+                        <Label htmlFor="message" className="text-sm font-medium">Message</Label>
+                        <Textarea
+                          id="message"
+                          name="message"
+                          placeholder="Tell us about your project or inquiry"
+                          rows={5}
+                          value={formData.message}
+                          onChange={handleChange}
+                          className={`mt-2 rounded-xl ${errors.message ? "border-destructive" : ""}`}
+                        />
+                      </div>
+
+                      <div>
+                        <Label className="text-sm font-medium">Attach File</Label>
+                        <div className="mt-2">
+                          <input
+                            ref={fileInputRef}
+                            type="file"
+                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                            onChange={handleFileChange}
+                            className="hidden"
+                          />
+                          {!selectedFile ? (
+                            <Button type="button" variant="outline" onClick={() => fileInputRef.current?.click()} className="w-full rounded-xl">
+                              Upload Document or Image
+                            </Button>
+                          ) : (
+                            <div className="flex items-center justify-between p-3 border border-border rounded-xl bg-muted/30">
+                              <div className="flex items-center gap-2">
+                                <span className="text-sm font-medium">{selectedFile.name}</span>
+                                <span className="text-xs text-muted-foreground">
+                                  ({(selectedFile.size / 1024 / 1024).toFixed(2)} MB)
+                                </span>
+                              </div>
+                              <Button type="button" variant="ghost" size="sm" onClick={handleRemoveFile}>Remove</Button>
+                            </div>
+                          )}
+                          <p className="text-xs text-muted-foreground mt-2">PDF, Word, or images up to 10MB</p>
+                          {errors.file && <p className="text-destructive text-sm mt-1">{errors.file}</p>}
+                        </div>
+                      </div>
+
+                      <Button type="submit" size="lg" className="w-full rounded-xl" disabled={isSubmitting}>
+                        {isSubmitting ? "Sending..." : "Send Message"}
+                        <Send className="ml-2 h-5 w-5" />
+                      </Button>
+                    </form>
                   </CardContent>
                 </Card>
-              </AnimateOnScroll>
-            ))}
-          </div>
-          <div className="mb-16 text-center">
-            <a href="mailto:info@murban-eng.com" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary">
-              <Mail className="h-4 w-4" />
-              info@murban-eng.com
-            </a>
-          </div>
-
-          {/* Contact Form and Map */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Form */}
-            <AnimateOnScroll direction="left">
-              <Card className="border-border/40 bg-card shadow-card rounded-3xl overflow-hidden">
-                <CardContent className="p-10">
-                  <h2 className="text-3xl font-semibold mb-8">Send Us a Message</h2>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                      <Label htmlFor="name">Name *</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        placeholder="Your name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        className={errors.name ? "border-destructive" : ""}
-                      />
-                      {errors.name && <p className="text-destructive text-sm mt-1">{errors.name}</p>}
-                    </div>
-                    <div>
-                      <Label htmlFor="email">Email *</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="Your email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className={errors.email ? "border-destructive" : ""}
-                      />
-                      {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
-                    </div>
-                    <div>
-                      <Label htmlFor="phone">Phone (Optional)</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        placeholder="Your phone number"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className={errors.phone ? "border-destructive" : ""}
-                      />
-                      {errors.phone && <p className="text-destructive text-sm mt-1">{errors.phone}</p>}
-                    </div>
-                    <div>
-                      <Label htmlFor="serviceType">Service Type *</Label>
-                      <Select value={formData.serviceType} onValueChange={handleSelectChange}>
-                        <SelectTrigger className={errors.serviceType ? "border-destructive" : ""}>
-                          <SelectValue placeholder="Select a service" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {serviceTypes.map((service) => (
-                            <SelectItem key={service} value={service}>{service}</SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                      {errors.serviceType && <p className="text-destructive text-sm mt-1">{errors.serviceType}</p>}
-                    </div>
-                    <div>
-                      <Label htmlFor="message">Message (Optional)</Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        placeholder="Tell us about your project or inquiry"
-                        rows={6}
-                        value={formData.message}
-                        onChange={handleChange}
-                        className={errors.message ? "border-destructive" : ""}
-                      />
-                      {errors.message && <p className="text-destructive text-sm mt-1">{errors.message}</p>}
-                    </div>
-                    <div>
-                      <Label htmlFor="file">Attach File (Optional)</Label>
-                      <div className="mt-2">
-                        <input
-                          ref={fileInputRef}
-                          id="file"
-                          type="file"
-                          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                          onChange={handleFileChange}
-                          className="hidden"
-                        />
-                        {!selectedFile ? (
-                          <Button type="button" variant="outline" onClick={() => fileInputRef.current?.click()} className="w-full">
-                            Upload Document or Image
-                          </Button>
-                        ) : (
-                          <div className="flex items-center justify-between p-3 border border-border rounded-lg">
-                            <div className="flex items-center gap-2">
-                              <span className="text-sm">{selectedFile.name}</span>
-                              <span className="text-xs text-muted-foreground">
-                                ({(selectedFile.size / 1024 / 1024).toFixed(2)} MB)
-                              </span>
-                            </div>
-                            <Button type="button" variant="ghost" size="sm" onClick={handleRemoveFile}>Remove</Button>
-                          </div>
-                        )}
-                        <p className="text-xs text-muted-foreground mt-1">PDF, Word, or images up to 10MB</p>
-                        {errors.file && <p className="text-destructive text-sm mt-1">{errors.file}</p>}
-                      </div>
-                    </div>
-                    <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-                      {isSubmitting ? "Sending..." : "Send Message"}
-                      <Send className="ml-2 h-5 w-5" />
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
+              </div>
             </AnimateOnScroll>
 
-            {/* Google Map */}
+            {/* Contact Info */}
             <AnimateOnScroll direction="right" delay={200}>
-              <Card className="border-border/40 shadow-card rounded-3xl overflow-hidden">
-                <CardContent className="p-0 h-full flex flex-col">
-                  <div className="w-full flex-1 min-h-[500px]">
+              <div className="space-y-8">
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Our Locations</h2>
+                  <p className="text-muted-foreground mb-8">Visit us at one of our offices or reach out via email.</p>
+                </div>
+
+                {officeLocations.map((office, index) => (
+                  <Card key={office.title} className="border-border/40 rounded-2xl hover:shadow-card-hover transition-all duration-400 hover:-translate-y-1">
+                    <CardContent className="p-8">
+                      <div className="flex items-start gap-4 mb-6">
+                        <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                          <MapPin className="h-6 w-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold mb-1">{office.title}</h3>
+                          <p className="text-muted-foreground text-sm">{office.city}</p>
+                        </div>
+                      </div>
+                      <div className="space-y-2 text-sm text-muted-foreground mb-4">
+                        <p>{office.addressLine1}</p>
+                        <p>{office.addressLine2}</p>
+                      </div>
+                      <div className="space-y-2">
+                        <a href={`tel:${office.tel.replace(/\s/g, "")}`} className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors">
+                          <Phone className="h-4 w-4" />
+                          {office.tel}
+                        </a>
+                        <a href={`tel:${office.mob.replace(/\s/g, "")}`} className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors">
+                          <Phone className="h-4 w-4" />
+                          {office.mob}
+                        </a>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+
+                {/* Email Card */}
+                <Card className="border-border/40 rounded-2xl bg-primary/5 hover:shadow-card-hover transition-all duration-400">
+                  <CardContent className="p-8">
+                    <div className="flex items-center gap-4">
+                      <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <Mail className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-1">Email us at</p>
+                        <a href="mailto:info@murban-eng.com" className="text-lg font-semibold text-primary hover:underline">
+                          info@murban-eng.com
+                        </a>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Map */}
+                <Card className="border-border/40 rounded-2xl overflow-hidden">
+                  <div className="aspect-video">
                     <iframe
-                      title="Murban Engineering Office Location - Mombasa, Kenya"
+                      title="Murban Engineering Office Location"
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3985.0!2d39.6308!3d-4.0742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x184012e78ec02c15%3A0x3b46b3c6a9bd771b!2sPort%20Reitz%2C%20Mombasa!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske&zoom=14"
                       width="100%"
                       height="100%"
-                      style={{ border: 0, minHeight: "500px" }}
+                      style={{ border: 0 }}
                       allowFullScreen
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
                     />
                   </div>
-                  <div className="p-4 bg-card border-t border-border">
-                    <div className="flex items-center justify-between flex-wrap gap-3">
-                      <div className="flex items-center gap-2">
-                        <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
-                        <p className="text-sm text-muted-foreground font-medium">
-                          Off-Airport Road, Port Reitz, Mombasa, Kenya
-                        </p>
-                      </div>
-                      <Button variant="outline" size="sm" asChild>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Port+Reitz+Mombasa+Kenya" target="_blank" rel="noopener noreferrer">
-                          Open in Google Maps
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                </Card>
+              </div>
             </AnimateOnScroll>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={industrialPlant} alt="" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/90 to-primary/80" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <AnimateOnScroll direction="up">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                Need Urgent Support?
+              </h2>
+              <p className="text-xl text-white/80 mb-12">
+                Our team is available 24/7 for emergency inspection services across Africa.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button size="lg" asChild className="rounded-full px-10 bg-white text-secondary hover:bg-white/90">
+                  <a href="tel:+254724966694">
+                    <Phone className="mr-2 h-5 w-5" /> Call Now
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" asChild className="rounded-full px-10 border-white/30 text-white hover:bg-white/10">
+                  <Link to="/services">
+                    View Services <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
     </div>
