@@ -214,7 +214,8 @@ const ndtServiceItems: ServiceItemInput[] = [
   {
     icon: Droplets,
     title: "Dye Penetrant Testing",
-    description: "Reliable surface-breaking flaw detection with visible and fluorescent dye systems.",
+    description:
+      "Critical PT inspections that reveal surface flaws and discontinuities for safer, more reliable asset performance.",
   },
   {
     icon: Radio,
@@ -1207,16 +1208,16 @@ export const serviceDetails: Record<string, ServiceDetail> = {
       {
         title: "Service Highlights",
         items: [
-          "Surface-breaking flaw detection for metallic and other non-porous components using visible and fluorescent penetrant systems.",
-          "Certified inspectors manage cleaning, application, dwell, and development steps to reveal even subtle discontinuities.",
-          "Actionable evaluations and recommendations that support integrity management, maintenance planning, and compliance reporting.",
+          "Critical surface flaw and discontinuity detection across non-porous components.",
+          "Skilled technicians apply penetrant systems and carefully evaluate defect indications.",
+          "Comprehensive assessments with clear recommendations to improve integrity and safety decisions.",
         ],
       },
       {
         title: "Advantages",
         items: [
           "Detects surface-breaking defects in non-porous materials with high sensitivity.",
-          "Provides rapid results and easy interpretation of defect indications.",
+          "Provides rapid results with straightforward interpretation of defect indications.",
           "Supports quality control and assurance in manufacturing and maintenance.",
           "Enables detection of defects in complex geometries and hard-to-access areas.",
         ],
