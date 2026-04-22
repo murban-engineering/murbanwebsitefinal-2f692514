@@ -19,6 +19,17 @@ import shippingMarineImg from "@/assets/shipping-marine.png";
 import foodProcessingImg from "@/assets/food-processing.png";
 import industryHero from "@/assets/industry-hero.jpg";
 
+
+export const industrySolutionLinks = [
+  { title: "Oil & Gas Industry", slug: "oil-gas-industry" },
+  { title: "Power & Steam Generation", slug: "power-steam-generation" },
+  { title: "Storage & Logistics Terminals", slug: "storage-logistics-terminals" },
+  { title: "Food Processing Industry", slug: "food-processing-industry" },
+  { title: "Renewable Energy & Geothermal", slug: "renewable-energy-geothermal" },
+  { title: "Rail Industry", slug: "rail-industry" },
+  { title: "Shipping & Marine Industry", slug: "shipping-marine-industry" },
+];
+
 const IndustrySolutions = () => {
   const industries = [
     {
@@ -229,7 +240,7 @@ const IndustrySolutions = () => {
           <div className="space-y-12">
             {industries.map((industry, index) => (
               <AnimateOnScroll key={index} direction={index % 2 === 0 ? "left" : "right"} delay={100}>
-                <Card className="group transition-shadow duration-300 border-border overflow-hidden bg-card/50 backdrop-blur-sm shadow-md hover:shadow-lg">
+                <Card id={industrySolutionLinks[index]?.slug} className="group scroll-mt-28 transition-shadow duration-300 border-border overflow-hidden bg-card/50 backdrop-blur-sm shadow-md hover:shadow-lg">
                   <div className="grid md:grid-cols-5 gap-0">
                     <div className="md:col-span-2 relative h-96 md:h-auto overflow-hidden">
                       <img 
