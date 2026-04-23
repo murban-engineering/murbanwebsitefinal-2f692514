@@ -12,12 +12,11 @@ const App = () => {
 
         <section className="flex min-h-0 flex-1 items-center gap-6 pt-4 sm:gap-10 sm:pt-6 lg:gap-14 lg:pt-8">
           <div className="w-full max-w-xl space-y-4 sm:space-y-6 lg:space-y-8">
-            <p className="text-sm uppercase tracking-[0.4em] text-gray-500">One Page</p>
             <h1 className="text-4xl font-semibold leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
               Murban ENGINEERING
             </h1>
             <p className="max-w-md text-base text-gray-600 sm:text-lg">
-              Engineering excellence focused on dependable delivery, safety, and practical innovation.
+              Website under development.
             </p>
           </div>
 
