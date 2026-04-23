@@ -1,54 +1,18 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Routes, Route } from "react-router-dom";
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Services from "./pages/Services";
-import ServiceDetailPage from "./pages/ServiceDetailPage";
-import IndustrySolutions from "./pages/IndustrySolutions";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import Faq from "./pages/Faq";
-import ProjectGallery from "./pages/ProjectGallery";
-import Certifications from "./pages/Certifications";
-import ScrollToTop from "./components/ScrollToTop";
-import MurbanAI from "./components/MurbanAI";
-
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <div className="flex flex-col min-h-screen">
-        <Navigation />
-        <ScrollToTop />
-        <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/services/:slug" element={<ServiceDetailPage />} />
-            <Route path="/industry-solutions" element={<IndustrySolutions />} />
-            <Route path="/project-gallery" element={<ProjectGallery />} />
-            <Route path="/certifications" element={<Certifications />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/faq" element={<Faq />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-        <MurbanAI />
+const App = () => {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-white px-4">
+      <div className="text-center space-y-6 max-w-3xl">
+        <img
+          src="/construction-concept-image-helmet-rolled-blueprints-wooden-boards-retro-style.jpg"
+          alt="Murban Engineering under development"
+          className="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
+        />
+        <h1 className="text-2xl md:text-4xl font-semibold text-gray-900">
+          murban engineering website under development
+        </h1>
       </div>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+    </div>
+  );
+};
 
 export default App;
